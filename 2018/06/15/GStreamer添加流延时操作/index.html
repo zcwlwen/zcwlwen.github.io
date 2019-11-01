@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="GStreamer添加流延时操作 手动添加直播流延时，延时时间可以控制。输入源为测试视频、桌面截屏、rtmp视频流  测试视频测试通过123456&#x2F;&#x2F;默认的几种模式 videotestsrc  延时通过 音频也通过 \gst-launch-1.0 videotestsrc is-live=true ! videoconvert ! x264enc bitrate=1000 tune=zerolat">
+<meta name="keywords" content="GStreamer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GStreamer添加流延时操作">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2018&#x2F;06&#x2F;15&#x2F;GStreamer%E6%B7%BB%E5%8A%A0%E6%B5%81%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="GStreamer添加流延时操作 手动添加直播流延时，延时时间可以控制。输入源为测试视频、桌面截屏、rtmp视频流  测试视频测试通过123456&#x2F;&#x2F;默认的几种模式 videotestsrc  延时通过 音频也通过 \gst-launch-1.0 videotestsrc is-live=true ! videoconvert ! x264enc bitrate=1000 tune=zerolat">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.430Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2018/06/15/GStreamer%E6%B7%BB%E5%8A%A0%E6%B5%81%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>GStreamer添加流延时操作 | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/15/GStreamer%E6%B7%BB%E5%8A%A0%E6%B5%81%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GStreamer添加流延时操作
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-15 15:10:03" itemprop="dateCreated datePublished" datetime="2018-06-15T15:10:03+08:00">2018-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GStreamer/" itemprop="url" rel="index">
+                    <span itemprop="name">GStreamer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="GStreamer添加流延时操作"><a href="#GStreamer添加流延时操作" class="headerlink" title="GStreamer添加流延时操作"></a>GStreamer添加流延时操作</h1><blockquote>
+<p>手动添加直播流延时，延时时间可以控制。输入源为测试视频、桌面截屏、rtmp视频流</p>
+</blockquote>
+<h2 id="测试视频测试通过"><a href="#测试视频测试通过" class="headerlink" title="测试视频测试通过"></a>测试视频测试通过</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//默认的几种模式 videotestsrc  延时通过 音频也通过 \</span><br><span class="line">gst-launch-1.0 videotestsrc is-live=true ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue ! flvmux name=mux ! \</span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 ! queue max-size-buffers=0 max-size-time=90000000000 min-threshold-time=6000000000 ! \</span><br><span class="line">rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos; \</span><br><span class="line">audiotestsrc is-live=true ! audioconvert ! audioresample ! audio/x-raw,rate=48000 ! voaacenc bitrate=96000 ! audio/mpeg ! aacparse ! audio/mpeg, mpegversion=4 ! mux.</span><br></pre></td></tr></table></figure>
+
+<p>输入源为<code>videotestsrc</code>，包括多种模式显示不同视频。输入不同视频的时候在<code>videotestsrc</code>后面跟上参数<code>pattern=snow</code>，可以选择不听的图案，集体包括那些图案参考官方文档。</p>
+<p><a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-plugins/html/gst-plugins-base-plugins-videotestsrc.html" target="_blank" rel="noopener">videotestsrc官方文档</a></p>
+<p><code>flvmux</code>将不同的流复合到flv文件中，这里是将不同的流混合后输出为rtmp流，可以理解为音频流和视频流的混合。</p>
+<p><code>videoconvert</code>后面跟的是视频格式</p>
+<p><code>flvmux name=mux</code>后面的是添加延时的操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=$MAX_DELAY ! \</span><br><span class="line">queue max-size-time=$SMALL_DELAY min-threshold-time=$DELAY</span><br></pre></td></tr></table></figure>
+<ul>
+<li>$DELAY = 延时时间</li>
+<li>$MAX_DELAY = 最多延时时间</li>
+<li>$SMALL_DELAY = 最小延时时间</li>
+</ul>
+<p>测试后发现，<code>$DELAY</code>是起作用的参数。</p>
+<p>该策略是具有两个队列，其中第一个作为缓冲区，第二个队列作为一个平衡器，确保所有消息都被精确延迟<code>$DELAY</code>时间。 这不能使用一个队列来完成。</p>
+<p>当需要更改延迟时，<code>$DELAY</code>值将在第二个队列中更改。 之后，管道需要使用新的延迟作为延迟发送延迟事件。 这会导致流水线冻结一段时间（如果延迟增加），或快速向前追赶（如果延迟减少）。</p>
+<p>通过读取第一个队列上的当前级别时间属性并将其与设置的延迟进行比较，可以获得缓冲状态。</p>
+<p><a href="https://stackoverflow.com/questions/32908047/gstreamer-increase-and-decrease-delay-on-the-fly" target="_blank" rel="noopener">stackoverflow参考资料</a></p>
+<p><code>rtmpsink</code>：是把视频流达到后面的rtmp地址上去。</p>
+<p>这里的<code>Sink Element</code>是媒体处理<code>pipline</code>的终点。可以理解成最后收集媒体流的地方。</p>
+<p><a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-bad-plugins/html/gst-plugins-bad-plugins-rtmpsink.html" target="_blank" rel="noopener">更多资料参考rtmpsink官方文档</a></p>
+<p><code>audiotestsrc</code>这里和video类似，都是测试用的。</p>
+<h2 id="截取屏幕打流测试通过"><a href="#截取屏幕打流测试通过" class="headerlink" title="截取屏幕打流测试通过"></a>截取屏幕打流测试通过</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//屏幕打流延时 15秒延时 通过 加上音频也通过</span><br><span class="line">gst-launch-1.0 ximagesrc startx=0 use-damage=0 ! \</span><br><span class="line">videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue ! flvmux name=mux ! queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000 ! \</span><br><span class="line">rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos; \</span><br><span class="line">audiotestsrc is-live=true ! audioconvert ! audioresample ! audio/x-raw,rate=48000 ! voaacenc bitrate=96000 ! audio/mpeg ! aacparse ! audio/mpeg, mpegversion=4 ! mux.</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取rtmp流打流到新的地址测试通过（不加延时）"><a href="#拉取rtmp流打流到新的地址测试通过（不加延时）" class="headerlink" title="拉取rtmp流打流到新的地址测试通过（不加延时）"></a>拉取rtmp流打流到新的地址测试通过（不加延时）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//拉取rtmp流不加延时通过   decodebin 要加这个 然后音视频合并</span><br><span class="line">gst-launch-1.0 -v rtmpsrc location=rtmp://192.168.18.188/live/1 ! decodebin ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264  ！  ! flvmux ! rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取rtmp流打流到新的地址测试通过（加延时无音频）"><a href="#拉取rtmp流打流到新的地址测试通过（加延时无音频）" class="headerlink" title="拉取rtmp流打流到新的地址测试通过（加延时无音频）"></a>拉取rtmp流打流到新的地址测试通过（加延时无音频）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 拉取rtmp流加延时 通过</span><br><span class="line">gst-launch-1.0 -v rtmpsrc location=rtmp://192.168.18.188/live/1 ! </span><br><span class="line">decodebin ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! </span><br><span class="line">queue ! flvmux streamable=true ! </span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000 ! </span><br><span class="line">rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取rtmp流打流到新地址测试通过（有延时音频同步）"><a href="#拉取rtmp流打流到新地址测试通过（有延时音频同步）" class="headerlink" title="拉取rtmp流打流到新地址测试通过（有延时音频同步）"></a>拉取rtmp流打流到新地址测试通过（有延时音频同步）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//rtmp输入 视频 音频 flvdemux 后 flvmux 然后添加延时。 测试通过 </span><br><span class="line">gst-launch-1.0 rtmpsrc location=rtmp://192.168.18.188/live/1 ! \</span><br><span class="line">flvdemux name=mydemuxer flvmux name=mymuxer ! \</span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000  ! </span><br><span class="line">queue ! rtmpsink location=rtmp://192.168.18.188/live/999  \</span><br><span class="line">mydemuxer.audio ! queue ! mymuxer.audio mydemuxer.video ! queue ! mymuxer.video</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/GStreamer/" rel="tag"># GStreamer</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2018/06/02/intervideosrc%E5%92%8Cintervideosink%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" rel="next" title="intervideosrc和intervideosink的使用总结">
+                  <i class="fa fa-chevron-left"></i> intervideosrc和intervideosink的使用总结
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2018/12/14/GStreamer%E4%BD%BF%E7%94%A8tee%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF/" rel="prev" title="GStreamer使用tee创建分支">
+                  GStreamer使用tee创建分支 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GStreamer添加流延时操作"><span class="nav-number">1.</span> <span class="nav-text">GStreamer添加流延时操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#测试视频测试通过"><span class="nav-number">1.1.</span> <span class="nav-text">测试视频测试通过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#截取屏幕打流测试通过"><span class="nav-number">1.2.</span> <span class="nav-text">截取屏幕打流测试通过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉取rtmp流打流到新的地址测试通过（不加延时）"><span class="nav-number">1.3.</span> <span class="nav-text">拉取rtmp流打流到新的地址测试通过（不加延时）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉取rtmp流打流到新的地址测试通过（加延时无音频）"><span class="nav-number">1.4.</span> <span class="nav-text">拉取rtmp流打流到新的地址测试通过（加延时无音频）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拉取rtmp流打流到新地址测试通过（有延时音频同步）"><span class="nav-number">1.5.</span> <span class="nav-text">拉取rtmp流打流到新地址测试通过（有延时音频同步）</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="iOS中关于Other Linker Flags iOS开发中，经常会用到一些第三方的静态库。导入编译的时候可能会遇到duplicate symbol错误。有的时候编译不报错运行的时候会报selector not recognized的错误。这时候我们需要在build setting中设置other linker flags加入参数-ObjC或者-all_load，就可以解决。那么，关于出现这些错">
+<meta name="keywords" content="other linker flags">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS中关于Other Linker Flags">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2017&#x2F;01&#x2F;16&#x2F;iOS%E4%B8%AD%E5%85%B3%E4%BA%8EOther-Linker-Flags&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="iOS中关于Other Linker Flags iOS开发中，经常会用到一些第三方的静态库。导入编译的时候可能会遇到duplicate symbol错误。有的时候编译不报错运行的时候会报selector not recognized的错误。这时候我们需要在build setting中设置other linker flags加入参数-ObjC或者-all_load，就可以解决。那么，关于出现这些错">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-01-16-025039.jpg">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.484Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-01-16-025039.jpg">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2017/01/16/iOS%E4%B8%AD%E5%85%B3%E4%BA%8EOther-Linker-Flags/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>iOS中关于Other Linker Flags | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/16/iOS%E4%B8%AD%E5%85%B3%E4%BA%8EOther-Linker-Flags/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          iOS中关于Other Linker Flags
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-16 09:47:54" itemprop="dateCreated datePublished" datetime="2017-01-16T09:47:54+08:00">2017-01-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="iOS中关于Other-Linker-Flags"><a href="#iOS中关于Other-Linker-Flags" class="headerlink" title="iOS中关于Other Linker Flags"></a>iOS中关于Other Linker Flags</h1><blockquote>
+<p>iOS开发中，经常会用到一些第三方的静态库。导入编译的时候可能会遇到<code>duplicate symbol</code>错误。有的时候编译不报错运行的时候会报<code>selector not recognized</code>的错误。这时候我们需要在<code>build setting</code>中设置<code>other linker flags</code>加入参数<code>-ObjC</code>或者<code>-all_load</code>，就可以解决。那么，关于出现这些错误的原因？与<code>other linker flags</code>到底发挥的什么作用？</p>
+</blockquote>
+<h2 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h2><h3 id="duplicate-symbol错误"><a href="#duplicate-symbol错误" class="headerlink" title="duplicate symbol错误"></a>duplicate symbol错误</h3><p>原因：</p>
+<ul>
+<li>误将.m文件引入为头文件</li>
+<li>同一个工程中含有同名的文件。（同样的类名）</li>
+<li>引入的第三方框架包涵了与本地同名的文件</li>
+<li>第三方框架中包含相同的文件</li>
+</ul>
+<p>解决：</p>
+<p>首先排除第一种原因。然后可以根据错误的提示信息查看是哪个文件重复。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-16-025039.jpg" alt><br>如图在错误提示中很清楚的知道是工程中的AudioPlayer文件与AmaiMedia.o中的冲突。这是根据你的项目中的情况进行修改。是修改静态库中的方便还是修改项目中的方便。一般情况是修改项目中的文件。（造成这种问题的原因是没有遵循苹果命名规范，没有加前缀。导致AudioPlayer这个类名冲突。以后命名的是要加上前缀后面跟上类名例如：ZCWAudioPlayer）</p>
+<h3 id="selector-not-recognized错误"><a href="#selector-not-recognized错误" class="headerlink" title="selector not recognized错误"></a>selector not recognized错误</h3><p>原因：</p>
+<ul>
+<li>方法不存在</li>
+<li>内存管理不当</li>
+<li>静态库使用问题</li>
+</ul>
+<p>解决：</p>
+<p><strong>第一种问题</strong>：检查拼写错误，检查该方法在当前的iOS版本是否可用</p>
+<p><strong>第二种问题</strong>：你的App试图引用一个已经被释放的对象.可以使用Zombies检查下问题原因。检查是否有内存越界的问题,可以开启内存防护，日志等选项,再添加异常断点。<br><strong>第三种问题</strong>：静态库分类方法加载不当。在Other Linker Flags中设置<code>-ObjC,-all_load,-force_load</code>。</p>
+<h2 id="连接器"><a href="#连接器" class="headerlink" title="连接器"></a>连接器</h2><p>一个程序从简单易读的代码到可执行文件往往要经历以下步骤：</p>
+<blockquote>
+<p>源代码 &gt; 预处理器 &gt; 编译器 &gt; 汇编器 &gt; 机器码 &gt; 链接器 &gt; 可执行文件</p>
+</blockquote>
+<p>源文件经过一系列处理以后，会生成对应的.obj文件，然后一个项目必然会有许多.obj文件，并且这些文件之间会有各种各样的联系，例如函数调用。链接器做的事就是把这些目标文件和所用的一些库链接在一起形成一个完整的可执行文件。</p>
+<h3 id="闪退原因"><a href="#闪退原因" class="headerlink" title="闪退原因"></a>闪退原因</h3><p>Objective-C的链接器并不会为每个方法建立符号表，而是仅仅为类建立了符号表。这样的话，如果静态库中定义了已存在的一个类的分类，链接器就会以为这个类已经存在，不会把分类和核心类的代码合起来。这样的话，在最后的可执行文件中，就会缺少分类里的代码，这样函数调用就失败了。</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>在Other Linker Flags里面加上所需的参数。所需要的参数包括<code>-ObjC、-all_load、-force_load</code></p>
+<p><strong>-ObjC</strong>：加了这个参数后，链接器就会把静态库中所有的Objective-C类和分类都加载到最后的可执行文件中，虽然这样可能会因为加载了很多不必要的文件而导致可执行文件变大，但是这个参数很好地解决了我们所遇到的问题。但是并不是所有问题都能解决，当静态库中只有分类而没有类的时候，-ObjC参数就会失效了。这时候，就需要使用-all_load或者-force_load了。</p>
+<p><strong>-all_load</strong>：会让链接器把所有找到的目标文件都加载到可执行文件中，但是千万不要随便使用这个参数！假如你使用了不止一个静态库文件，然后又使用了这个参数，那么你很有可能会遇到ld: duplicate symbol错误，因为不同的库文件里面可能会有相同的目标文件，所以建议在遇到-ObjC失效的情况下使用-force_load参数</p>
+<p><strong>-force_load</strong>：所做的事情跟-all_load其实是一样的，但是-force_load需要指定要进行全部加载的库文件的路径，这样的话，你就只是完全加载了一个库文件，不影响其余库文件的按需加载</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/other-linker-flags/" rel="tag"># other linker flags</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2017/01/13/Omnibus%20GitLab%20%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE/" rel="next" title="Gitlab参数配置">
+                  <i class="fa fa-chevron-left"></i> Gitlab参数配置
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2017/02/05/%E8%A7%A3%E5%86%B3%E5%9C%A8Ubuntu%E4%B8%8A%E5%87%BA%E7%8E%B0GLIBCXX-3-4-not-found%E9%97%AE%E9%A2%98/" rel="prev" title="解决在Ubuntu上出现GLIBCXX_3.4.20 not found问题">
+                  解决在Ubuntu上出现GLIBCXX_3.4.20 not found问题 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iOS中关于Other-Linker-Flags"><span class="nav-number">1.</span> <span class="nav-text">iOS中关于Other Linker Flags</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#错误分析"><span class="nav-number">1.1.</span> <span class="nav-text">错误分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#duplicate-symbol错误"><span class="nav-number">1.1.1.</span> <span class="nav-text">duplicate symbol错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#selector-not-recognized错误"><span class="nav-number">1.1.2.</span> <span class="nav-text">selector not recognized错误</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连接器"><span class="nav-number">1.2.</span> <span class="nav-text">连接器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#闪退原因"><span class="nav-number">1.2.1.</span> <span class="nav-text">闪退原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决办法"><span class="nav-number">1.2.2.</span> <span class="nav-text">解决办法</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

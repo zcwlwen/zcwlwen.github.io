@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="子元素垂直、左右居中的问题转载自何来笑红尘的博客  直接开始,父级元素默认display:block;  html部分123&amp;lt;div class=&amp;quot;c-middle-box&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;c-middle&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt;&amp;lt;&#x2F;div&amp;gt;  css部分1、使用CSS3中新增属性tranform相关">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="子元素垂直、左右居中的问题">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2017&#x2F;03&#x2F;24&#x2F;%E5%AD%90%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E3%80%81%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="子元素垂直、左右居中的问题转载自何来笑红尘的博客  直接开始,父级元素默认display:block;  html部分123&amp;lt;div class=&amp;quot;c-middle-box&amp;quot;&amp;gt;    &amp;lt;div class=&amp;quot;c-middle&amp;quot;&amp;gt;&amp;lt;&#x2F;div&amp;gt;&amp;lt;&#x2F;div&amp;gt;  css部分1、使用CSS3中新增属性tranform相关">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.546Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2017/03/24/%E5%AD%90%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E3%80%81%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>子元素垂直、左右居中的问题 | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/03/24/%E5%AD%90%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E3%80%81%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          子元素垂直、左右居中的问题
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-03-24 17:13:35" itemprop="dateCreated datePublished" datetime="2017-03-24T17:13:35+08:00">2017-03-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="子元素垂直、左右居中的问题"><a href="#子元素垂直、左右居中的问题" class="headerlink" title="子元素垂直、左右居中的问题"></a>子元素垂直、左右居中的问题</h1><p><a href="http://blog.csdn.net/qq_22557797/article/details/65633546" target="_blank" rel="noopener">转载自何来笑红尘的博客</a></p>
+<blockquote>
+<p>直接开始,父级元素默认display:block;</p>
+</blockquote>
+<h3 id="html部分"><a href="#html部分" class="headerlink" title="html部分"></a>html部分</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;c-middle-box&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;c-middle&quot;&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="css部分"><a href="#css部分" class="headerlink" title="css部分"></a>css部分</h3><p><strong>1、使用CSS3中新增属性tranform相关知识实现（推荐使用）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">.c-middle-box&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: #63eefe;</span><br><span class="line">&#125;</span><br><span class="line">.c-middle&#123;</span><br><span class="line">    position: relative;/* position一定要设置，但不可设置为static*/</span><br><span class="line">    width: auto;</span><br><span class="line">    height: auto;</span><br><span class="line">    max-width: 100%;</span><br><span class="line">    max-height: 100%;</span><br><span class="line">    left: 50%;/* left值固定*/</span><br><span class="line">    top: 50%;/* top值固定*/</span><br><span class="line">    transform: translate(-50%,-50%);/* translate值固定*/</span><br><span class="line">    -webkit-transform: translate(-50%,-50%);</span><br><span class="line">    -moz-transform: translate(-50%,-50%);</span><br><span class="line">    -ms-transform: translate(-50%,-50%);</span><br><span class="line">    -o-transform: translate(-50%,-50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>注：父级绝对定位，是为了更好的展示示例。在实际项目中可根据实际情况而定。(在谷歌浏览器中如果父级元素没有高度，会导致此方法无效；)</em></p>
+<p><strong>2、 绝对定位方式来上下左右居中</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">    position: absolute;</span><br><span class="line">    width: 100%;</span><br><span class="line">    height: 100%;</span><br><span class="line">    background: #63eefe;</span><br><span class="line">&#125;</span><br><span class="line">.c-middle&#123;</span><br><span class="line">    position: absolute;/*值固定*/</span><br><span class="line">    left: 0;/*值固定*/</span><br><span class="line">    right: 0;/*值固定*/</span><br><span class="line">    bottom: 0;/*值固定*/</span><br><span class="line">    top: 0;/*值固定*/</span><br><span class="line">    width:50%;</span><br><span class="line">    height:50%;</span><br><span class="line">    margin: auto;/*值固定*/</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3、父级元素display:table-cell</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.c-middle-box&#123;</span><br><span class="line">    display: table-cell;/*值固定*/</span><br><span class="line">    width: 618px;</span><br><span class="line">    height: 330px;</span><br><span class="line">    background: #63eefe;</span><br><span class="line">    text-align: center;</span><br><span class="line">    vertical-align: middle;/*值固定*/</span><br><span class="line">&#125;</span><br><span class="line">.c-middle&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    margin: 0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>注：如果子元素为inline-block,那么c-middle内样式可不写；</em></p>
+<p><strong>4、子元素inline-block方式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">.c-middle-box&#123;</span><br><span class="line">    display: block;</span><br><span class="line">    width: 618px;</span><br><span class="line">    height: 330px;</span><br><span class="line">    line-height:330px;/* line-height一定要等于自身的高度 */</span><br><span class="line">    background: #63eefe;</span><br><span class="line">    text-align: center;</span><br><span class="line">    vertical-align: middle;</span><br><span class="line">    font-size: 0;</span><br><span class="line">&#125;</span><br><span class="line">.c-middle&#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    font-size: 16px;</span><br><span class="line">    line-height:1;/* 为避免继承父级元素line-height。此处可根据实际情况重新设置line-height */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><em>父级元素设置font-size:0;是因为display:inline-block;有默认的边距，这样做是为了消除边距。子元素可根据实际情况重新设置font-size:;如果在一些浏览器中还存在边距。可以试试在父级样式加上letter-spacing: 0</em></p>
+<p><a href="http://blog.csdn.net/qq_22557797/article/details/65633546" target="_blank" rel="noopener">转载自何来笑红尘的博客</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/css/" rel="tag"># css</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2017/02/10/ffmpeg%E5%90%88%E5%B9%B6%E5%A4%9A%E8%B7%AFrtmp%E6%B5%81/" rel="next" title="ffmpeg合并多路rtmp流">
+                  <i class="fa fa-chevron-left"></i> ffmpeg合并多路rtmp流
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2017/04/13/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85MySQL/" rel="prev" title="Ubuntu下安装MySQL">
+                  Ubuntu下安装MySQL <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#子元素垂直、左右居中的问题"><span class="nav-number">1.</span> <span class="nav-text">子元素垂直、左右居中的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#html部分"><span class="nav-number">1.0.1.</span> <span class="nav-text">html部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#css部分"><span class="nav-number">1.0.2.</span> <span class="nav-text">css部分</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Objective－C高级编程：iOS与OS X多线程和内存管理自动引用计数自动引用计数（ARC，Automatic Reference Counting）“在LLVM编辑器中设置ARC为有效状态，就无需再次键入retain或者是release代码” 引用计数的内存管理生成对象-&amp;gt;持有对象-&amp;gt;释放对象-&amp;gt;废弃对象 内存管理的思考方式  自己生成的对象，自己所持有 非自己生成的对象">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Objective－C高级编程：iOS与OS X多线程和内存管理">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2016&#x2F;08&#x2F;02&#x2F;Objective%EF%BC%8DC%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%9AiOS%E4%B8%8EOS%20X%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="Objective－C高级编程：iOS与OS X多线程和内存管理自动引用计数自动引用计数（ARC，Automatic Reference Counting）“在LLVM编辑器中设置ARC为有效状态，就无需再次键入retain或者是release代码” 引用计数的内存管理生成对象-&amp;gt;持有对象-&amp;gt;释放对象-&amp;gt;废弃对象 内存管理的思考方式  自己生成的对象，自己所持有 非自己生成的对象">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.459Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2016/08/02/Objective%EF%BC%8DC%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%9AiOS%E4%B8%8EOS%20X%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Objective－C高级编程：iOS与OS X多线程和内存管理 | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/08/02/Objective%EF%BC%8DC%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B%EF%BC%9AiOS%E4%B8%8EOS%20X%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Objective－C高级编程：iOS与OS X多线程和内存管理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-08-02 16:27:18" itemprop="dateCreated datePublished" datetime="2016-08-02T16:27:18+08:00">2016-08-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Objective－C高级编程：iOS与OS-X多线程和内存管理"><a href="#Objective－C高级编程：iOS与OS-X多线程和内存管理" class="headerlink" title="Objective－C高级编程：iOS与OS X多线程和内存管理"></a>Objective－C高级编程：iOS与OS X多线程和内存管理</h1><p><strong>自动引用计数</strong><br>自动引用计数（ARC，Automatic Reference Counting）<br>“在LLVM编辑器中设置ARC为有效状态，就无需再次键入retain或者是release代码”</p>
+<p><strong>引用计数的内存管理</strong><br>生成对象-&gt;持有对象-&gt;释放对象-&gt;废弃对象</p>
+<p><strong>内存管理的思考方式</strong></p>
+<ul>
+<li>自己生成的对象，自己所持有</li>
+<li>非自己生成的对象，自己也能持有</li>
+<li>不在需要自己持有的对象时释放</li>
+<li>非自己持有的对象无法释放</li>
+</ul>
+<p><strong>对象操作与Objective-C方法的对应</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">对象操作</th>
+<th align="right">Objective-C方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">生成并持有对象</td>
+<td align="right">alloc/new/copy/mutableCopy等</td>
+</tr>
+<tr>
+<td align="left">持有对象</td>
+<td align="right">retain</td>
+</tr>
+<tr>
+<td align="left">释放对象</td>
+<td align="right">release</td>
+</tr>
+<tr>
+<td align="left">废弃对象</td>
+<td align="right">dealloc</td>
+</tr>
+</tbody></table>
+<p>Objective-C内存管理方法并不包括在该语言中，而是包含在Cocoa框架中用于iOS、OS X开发。Cocoa框架中Foundation框架类库的NSObject类担负着内存管理的职责。其中alloc/retain/release/dealloc方法分别指的是NSObject类中的alloc类方法，retain实例方法，release实例方法，dealloc实例方法（   +alloc、-retain、-release、 -deallc）。</p>
+<p><strong>自己生成的对象，自己所持有</strong></p>
+<ul>
+<li>alloc</li>
+<li>new</li>
+<li>copy</li>
+<li>mutableCopy</li>
+</ul>
+<p>alloc方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id obj = [[NSObject alloc] init];</span><br><span class="line">//自己生成持有对象</span><br></pre></td></tr></table></figure>
+<p>new方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id obj = [NSObject new];</span><br><span class="line">//自己生成持有对象</span><br></pre></td></tr></table></figure>
+<p>copy方法利用基于NSCopying方法约定，由各类实现的copyWithZone：方法生成并持有该对象副本。<br>mutableCopy方法基于NSMutableCopying方法约定由各类实现的mutableCopyWithZone：方法生成并持有该对象副本。</p>
+<hr>
+<p><strong>非自己生成的对象，自己也能持有</strong></p>
+<p>这里用NSMutableArray类的array类方法举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id obj = [NSMutableArray array];</span><br><span class="line">//取得非自己生成的对象，但自己并不持有</span><br><span class="line"></span><br><span class="line">［obj retain］;</span><br><span class="line">// 自己持有对象</span><br></pre></td></tr></table></figure>
+<p>通过retain方法使非自己生成的对象成为自己所持有的。</p>
+<hr>
+<p><strong>不在需要自己持有的对象时释放</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">id obj = [[NSObject alloc] init];</span><br><span class="line">//自己生成持有对象</span><br><span class="line"></span><br><span class="line">［obj release];</span><br><span class="line">//释放对象</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">id obj = [NSMutableArray array];</span><br><span class="line">//取得非自己生成的对象，但自己并不持有</span><br><span class="line"></span><br><span class="line">［obj retain］;</span><br><span class="line">// 自己持有对象</span><br><span class="line"></span><br><span class="line">［obj release];</span><br><span class="line">//释放对象</span><br></pre></td></tr></table></figure>
+<p>用alloc等方法生成并自己持有的对象，用release方法释放<br>用retain方法持有非自己生成的对象，也用release方法释放<br>用上面方法持有的对象在不使用时要用release方法释放</p>
+<hr>
+<h3 id="ARC规则"><a href="#ARC规则" class="headerlink" title="ARC规则"></a>ARC规则</h3><p><strong>所有权修饰符</strong></p>
+<p>OC中为了处理对象，可将变量类型定义成id类型或者各种对象类型（指向NSObject这样的的Objective－C类的指针，如NSObject＊）。<br>ARC有效时，id类型和对象类型和C语言其他类型不同，一定要加上所有权修饰符。</p>
+<ul>
+<li>_ _strong 修饰符</li>
+<li>_ _weak 修饰符</li>
+<li>_ _unsafe_unretained 修饰符</li>
+<li>_ _autoreleasing 修饰符</li>
+</ul>
+<p>在没有明确指定所有修饰符时默认为_ _strong 修饰符，<br>_ _strong 修饰符表示对对象的强引用，持有其变量，在超出其作用域时被废弃，随着强引用的消失，引用的对象也会随之释放。</p>
+<p>_ <em>unsafe_unretained 修饰符<br>和weak一样并不能持有对象，所以生成的对象会被立即释放。<br>在使用</em> _unsafe_unretained 修饰符时，赋值给附有<strong>strong修饰符的变量时要确保被赋值的对象存在。<br>_ _unsafe_unretained在iOS5在没有引入</strong>weak之前使用现在基本不使用了。</p>
+<p>关于_ <em>strong和</em> _weak的区别我觉得下面这篇文章讲的很清楚、更直观，比这本书中讲到要直观很多。<br><a href="http://blog.csdn.net/q199109106q/article/details/8565017" target="_blank" rel="noopener">strong和weak</a></p>
+<p>为什么会出现这两种修饰符？<br>因为 __strong并不能解决内存管理中一些问题，其中就是循环引用、类成员变量的循环引用（互相强引用）、对自身的强引用问题，这些很容易造成内存泄漏，应该废弃的对象在超出其生命周期后继续存在。这时使用 _weak 修饰符就不会造成循环引用。因为使用 _ _weak时并不持有该对象，所以不会出现应该废弃的对象在超出其生命周期后继续存在。</p>
+<p><strong>ARC规则</strong></p>
+<ul>
+<li>不能使用retain/release/retainCount/autorelease</li>
+<li>不能使用NSAllocateObject/NSDeallocateObject</li>
+<li>必须遵守内存管理的命名规则</li>
+<li>不要显示调用dealloc</li>
+<li>使用@autoreleasepool块替代NSAutoreleasePool；</li>
+<li>不能使用区域（NSZone）</li>
+<li>对象型变量不能作为C语言结构体（struct/union）的成员</li>
+<li>显示转换”id”和”void * “</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/iOS/" rel="tag"># iOS</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2016/08/02/pch%E6%96%87%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="pch文件使用">
+                  pch文件使用 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Objective－C高级编程：iOS与OS-X多线程和内存管理"><span class="nav-number">1.</span> <span class="nav-text">Objective－C高级编程：iOS与OS X多线程和内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARC规则"><span class="nav-number">1.0.1.</span> <span class="nav-text">ARC规则</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

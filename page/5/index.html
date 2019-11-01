@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="iOS,linux,shell,">
+<meta name="keywords" content="iOS,ZCW,Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZCW">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;page&#x2F;5&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="iOS,linux,shell,">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/page/5/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/28/LeetCode%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/28/LeetCode%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">LeetCode算法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-28 14:04:10" itemprop="dateCreated datePublished" datetime="2016-12-28T14:04:10+08:00">2016-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="LeetCode算法笔记"><a href="#LeetCode算法笔记" class="headerlink" title="LeetCode算法笔记"></a>LeetCode算法笔记</h1><h2 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h2><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum题目地址</a></p>
+<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<p>Given nums = [2, 7, 11, 15], target = 9,</p>
+</blockquote>
+<blockquote>
+<p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
+</blockquote>
+<blockquote>
+<p>return [0, 1].</p>
+</blockquote>
+<p>题目意思：</p>
+<p>给一个Int数组nums，一个Int值target，查找数组中是否存在两个元素相加等于target的值，存在的话返回两个值在数组中的下标。</p>
+<p>解题思路：</p>
+<ol>
+<li>循环遍历</li>
+<li>hash</li>
+</ol>
+<p><strong>循环遍历</strong><br>循环嵌套，复杂度为O（n*n）</p>
+<p><strong>hash</strong><br>遍历一遍数组，存到map中，再遍历一遍找到符合的值。复杂度O(n)</p>
+<p>循环遍历代码实现：(swift实现)</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - nums: 输入的Int数组</span></span><br><span class="line"><span class="comment">///   - target: 相加得到的值</span></span><br><span class="line"><span class="comment">/// - Returns: 返回结果为[Int]</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TwoSum</span><span class="params">(<span class="number">_</span> nums: [Int], <span class="number">_</span> target: Int)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>  ..&lt; nums.<span class="built_in">count</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> i+<span class="number">1</span>  ..&lt; nums.<span class="built_in">count</span>&#123;</span><br><span class="line">            <span class="keyword">if</span> nums[j] == target - nums[i]&#123;</span><br><span class="line">                <span class="keyword">let</span> result = [i,j]</span><br><span class="line">                <span class="built_in">print</span>(result)</span><br><span class="line">                <span class="keyword">return</span> result</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>hash代码实现：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//todo</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/27/Mac%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/27/Mac%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Mac开发笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-27 16:10:49" itemprop="dateCreated datePublished" datetime="2016-12-27T16:10:49+08:00">2016-12-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mac开发笔记"><a href="#Mac开发笔记" class="headerlink" title="Mac开发笔记"></a>Mac开发笔记</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><strong>开发工具</strong> ：macOS系统、Xcode</p>
+<p><strong>上架到App Store的App必须打开<code>App Sandbox</code>功能</strong></p>
+<p><strong>“要访问服务器的 API 接口，必须打开 <code>Outgoing Connections</code>。 <code>Hardware</code> 里面必须选择打开 <code>Printing</code>，否则审核不通过。</strong></p>
+<p>*<em>如果使用了非系统的第3方framework或者自己开发的framework，Code Signing 里面Other Code Signing Flags 必须设置为 –deep，否则无法正常打包发布到Mac Appstore<br>*</em></p>
+<h2 id="窗口对象"><a href="#窗口对象" class="headerlink" title="窗口对象"></a>窗口对象</h2><blockquote>
+<p>窗口是应用 UI 界面视图的容器，它负责接收用户的鼠标键盘等系统事件,转发消息到相关的接收者对象。<br>可以接收输入事件(键盘,鼠标,触控板等外设)的窗口对象称为 keyWindow（keyboard window)；当前的活动窗口也称为 mainWindow。一个时刻只能有一个 keyWindow 和一个 mainWindow</p>
+</blockquote>
+<h3 id="窗口界面组成"><a href="#窗口界面组成" class="headerlink" title="窗口界面组成"></a>窗口界面组成</h3><blockquote>
+<p>窗口对象包括 titleBar, contentView 内容视图, contentBorder 底部边框区</p>
+</blockquote>
+<p>Title Bar：去掉后b</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/20/%E7%B2%BE%E9%80%9ALinux-%E7%AC%AC%E4%BA%8C%E7%89%88-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/20/%E7%B2%BE%E9%80%9ALinux-%E7%AC%AC%E4%BA%8C%E7%89%88-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">精通Linux(第二版)读书笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-20 13:17:11" itemprop="dateCreated datePublished" datetime="2016-12-20T13:17:11+08:00">2016-12-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="精通Linux（第二版）读书笔记"><a href="#精通Linux（第二版）读书笔记" class="headerlink" title="精通Linux（第二版）读书笔记"></a>精通Linux（第二版）读书笔记</h1><h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 - 概述"></a>第一章 - 概述</h2><h3 id="1-1-Linux操作系统中的抽象级别和层次"><a href="#1-1-Linux操作系统中的抽象级别和层次" class="headerlink" title="1.1-Linux操作系统中的抽象级别和层次"></a>1.1-Linux操作系统中的抽象级别和层次</h3><blockquote>
+<p>Linux操作系统主要分为三层。最底层是硬件系统。硬件系统上是Linux内核，最顶层是进程。</p>
+</blockquote>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072527.jpg" alt></p>
+<h3 id="1-2-硬件系统：理解主内存"><a href="#1-2-硬件系统：理解主内存" class="headerlink" title="1.2-硬件系统：理解主内存"></a>1.2-硬件系统：理解主内存</h3><h3 id="1-3-内核"><a href="#1-3-内核" class="headerlink" title="1.3-内核"></a>1.3-内核</h3><h4 id="1-3-1-进程管理"><a href="#1-3-1-进程管理" class="headerlink" title="1.3.1 进程管理"></a>1.3.1 进程管理</h4><h4 id="1-3-2-内存管理"><a href="#1-3-2-内存管理" class="headerlink" title="1.3.2 内存管理"></a>1.3.2 内存管理</h4><h4 id="1-3-3设备驱动程序和设备管理"><a href="#1-3-3设备驱动程序和设备管理" class="headerlink" title="1.3.3设备驱动程序和设备管理"></a>1.3.3设备驱动程序和设备管理</h4><h4 id="1-3-4-系统调用和系统支持"><a href="#1-3-4-系统调用和系统支持" class="headerlink" title="1.3.4 系统调用和系统支持"></a>1.3.4 系统调用和系统支持</h4><h3 id="1-4-用户空间"><a href="#1-4-用户空间" class="headerlink" title="1.4-用户空间"></a>1.4-用户空间</h3><h3 id="1-5-用户"><a href="#1-5-用户" class="headerlink" title="1.5-用户"></a>1.5-用户</h3><h3 id="1-6-前瞻"><a href="#1-6-前瞻" class="headerlink" title="1.6-前瞻"></a>1.6-前瞻</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/03/%E9%98%BF%E9%87%8C%E4%BA%91IPv6%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/03/%E9%98%BF%E9%87%8C%E4%BA%91IPv6%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">阿里云配置IPV6</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-03 15:15:28" itemprop="dateCreated datePublished" datetime="2016-12-03T15:15:28+08:00">2016-12-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%98%BF%E9%87%8C%E4%BA%91/" itemprop="url" rel="index">
+                    <span itemprop="name">阿里云</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="阿里云配置IPV6"><a href="#阿里云配置IPV6" class="headerlink" title="阿里云配置IPV6"></a>阿里云配置IPV6</h1><h2 id="注册创建IPV6通道"><a href="#注册创建IPV6通道" class="headerlink" title="注册创建IPV6通道"></a>注册创建IPV6通道</h2><p>Hurricane Electric 是一家位于美国的全球互联网服务提供商。该公司提供IPv4和IPv6接入 以及位于美国圣荷西的数据中心服务。(维基百科）</p>
+<p><a href="https://www.tunnelbroker.net/" target="_blank" rel="noopener">Hurricane Electric官网</a></p>
+<ol>
+<li><p>登录Hurricane Electric官网，注册账号<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072712.jpg" alt></p>
+</li>
+<li><p>填写相关注册信息并且需要验证邮箱。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072731.jpg" alt></p>
+</li>
+<li><p>邮箱验证通过后，登录选择<code>Create Regular Tunnel</code>.<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072746.jpg" alt></p>
+</li>
+<li><p>在<code>IPv4 Endpoint</code>处填写IPv4地址，选择HongKong.HK。点击Create Tunnel，创建成功。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072758.jpg" alt></p>
+</li>
+<li><p>创建成功后可以得到下面的信息<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072804.jpg" alt></p>
+</li>
+</ol>
+<h2 id="配置ECS使其支持IPv6"><a href="#配置ECS使其支持IPv6" class="headerlink" title="配置ECS使其支持IPv6"></a>配置ECS使其支持IPv6</h2><ul>
+<li>编辑<code>/etc/sysctl.conf</code>，将下面三项的配置改为0。后保存退出后。然后执行<code>sysctl -p</code>更新配置。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">net.ipv6.conf.all.disable_ipv6 = 0</span><br><span class="line">net.ipv6.conf.default.disable_ipv6 = 0</span><br><span class="line">net.ipv6.conf.lo.disable_ipv6 = 0</span><br></pre></td></tr></table></figure></li>
+<li>编辑网卡配置<code>/etc/network/interfaces</code>，在底部添加一下内容。（<IPv4>替换你的IPv4地址，<IPv6>替换成你申请到的IPv6的地址。IPv6地址格式为2001:470:xxxx:xxxx，不包括后面的::1/64或者::2/64）</IPv6></IPv4></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">auto he-ipv6</span><br><span class="line">iface he-ipv6 inet6 v4tunnel</span><br><span class="line">address &lt;IPV6&gt;::2</span><br><span class="line">netmask 64</span><br><span class="line">remote &lt;HE 的 Server IPv4 Address&gt;</span><br><span class="line">local &lt;IPv4&gt;</span><br><span class="line">endpoint any</span><br><span class="line">ttl 255</span><br><span class="line">gateway &lt;IPv6&gt;::1</span><br><span class="line">up ip -6 route add 2000::/3 via ::&lt;HE 的 Server IPv4 Address&gt; dev he-ipv6</span><br><span class="line">up ip -6 addr add &lt;IPv6&gt;::1:1/128 dev he-ipv6</span><br><span class="line">up ip -6 addr add &lt;IPv6&gt;::2:1/128 dev he-ipv6</span><br><span class="line">down ip -6 route flush dev he-ipv6</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重启服务器<code>server nginx restart</code></li>
+<li>执行<code>ifup he-ipv6</code>开启IPv6</li>
+<li>然后，执行<code>ifconig</code>查看有没有he-ipv6的网卡</li>
+</ul>
+<h2 id="配置Nginx使其监听IPv6端口"><a href="#配置Nginx使其监听IPv6端口" class="headerlink" title="配置Nginx使其监听IPv6端口"></a>配置Nginx使其监听IPv6端口</h2><p>编辑<code>/usr/local/nginx/conf/nginx.conf</code></p>
+<p>监听http请求80端口，https请求443端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  listen [::]:80; // 监听 IPv6 的 80 端口</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">  listen 443 ;</span><br><span class="line">  listen [::]:443 ; // 监听 IPv6 的 443 端口</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果没有配置https的话，只需要监听80端口。</p>
+<h2 id="配置DNS使其支持IPv6解析"><a href="#配置DNS使其支持IPv6解析" class="headerlink" title="配置DNS使其支持IPv6解析"></a>配置DNS使其支持IPv6解析</h2><p>登录阿里云后台，添加AAAA类型的域名解析域名解析。记录值填写Client IPv6 Address的地址。去掉后面的/64。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072812.jpg" alt></p>
+<h2 id="测试IPv6配置是否成功"><a href="#测试IPv6配置是否成功" class="headerlink" title="测试IPv6配置是否成功"></a>测试IPv6配置是否成功</h2><p>测试网址：</p>
+<p><a href="http://ipv6-test.com/validate.php" target="_blank" rel="noopener">http://ipv6-test.com/validate.php</a></p>
+<p>输入网址，点击测试<br>测试通过如下显示，说明网站支持IPv6。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072818.jpg" alt></p>
+<p>不支持IPv6如下显示<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072822.jpg" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/02/HTTPS%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/02/HTTPS%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">HTTPS配置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-02 15:15:28" itemprop="dateCreated datePublished" datetime="2016-12-02T15:15:28+08:00">2016-12-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="HTTPS配置文档"><a href="#HTTPS配置文档" class="headerlink" title="HTTPS配置文档"></a>HTTPS配置文档</h1><h2 id="配置前需要了解的内容"><a href="#配置前需要了解的内容" class="headerlink" title="配置前需要了解的内容"></a>配置前需要了解的内容</h2><h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><p><strong>https</strong>：<br>超文本传输安全协议（英语：Hypertext Transfer Protocol Secure，缩写：HTTPS，也被称为HTTP over TLS，HTTP over SSL或HTTP Secure）是一种网络安全传输协议。在计算机网络上，HTTPS经由超文本传输协议进行通信，但利用SSL/TLS来对数据包进行加密。HTTPS开发的主要目的，是提供对网络服务器的身份认证，保护交换数据的隐私与完整性。这个协议由网景公司（Netscape）在1994年首次提出，随后扩展到互联网上。(摘自维基百科)</p>
+<p><strong>SSL证书</strong>：<br>SSL（安全套接层，Secure Sockets Layer）是一种安全协议，目的是为互联网通信，提供安全及数据完整性保障。SSL证书遵循SSL协议，可安装在服务器上，实现数据传输加密。SSL证书实际上就是CA机构对用户公钥的认证，内容包括电子签证机关的信息、公钥用户信息、公钥、权威机构的签字和有效期等。</p>
+<p><strong>CA机构</strong>：CA（数字证书认证，Certificate Authority）机构，是承担公钥合法性检验的第三方权威机构，负责指定政策、步骤来验证用户的身份，并对SSL证书进行签名，确保证书持有者的身份和公钥的所有权。CA机构为每个使用公开密钥的用户发放一个SSL证书，SSL证书的作用是证明证书中列出的个人/企业合法拥有证书中列出的公开密钥。CA机构的数字签名使得攻击者不能伪造和篡改证书。</p>
+<h3 id="https的优势"><a href="#https的优势" class="headerlink" title="https的优势"></a>https的优势</h3><ul>
+<li><strong>防流量劫持</strong> — 全站Https是根治运营商、中间人流量劫持的解决方案，不仅可以杜绝网页中被插入的小广告，更可以保护用户隐私安全。</li>
+<li><strong>提升搜索排名</strong>—采用Https可以帮忙搜索排名的提升，提高站点的可信度和品牌形象。</li>
+<li><strong>杜绝钓鱼网站</strong>Https地址栏绿色图标可以帮助用户识别出钓鱼网站，保障用户和企业的利益不受损害，增强用户信任。</li>
+</ul>
+<h2 id="申请证书"><a href="#申请证书" class="headerlink" title="申请证书"></a>申请证书</h2><blockquote>
+<p>目前腾讯云、阿里云、七牛都可以申请一年免费的赛门铁克证书。<br>这里用腾讯云做例子。申请一年免费的ssl证书。在同一平台下去申请证书，可以自动添加DNS解析。这里是在腾讯云申请的免费证书，ECS在阿里云上，所以需要手动添加DNS解析。</p>
+</blockquote>
+<p><a href="https://www.qcloud.com/document/product/400/6814" target="_blank" rel="noopener">申请证书官方文档</a></p>
+<p>要注意的地方：</p>
+<ul>
+<li>域名身份认证是手动添加DNS解析。因为我的服务器实在阿里云，所以选择手动添加DNS解析。</li>
+</ul>
+<p><strong>手动添加DNS解析参考</strong></p>
+<p><a href="https://www.qcloud.com/document/product/400/4142#2.-.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81" target="_blank" rel="noopener">DNS解析官方文档</a></p>
+<p>进入阿里云后台，选择云解析DNS<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073006.jpg" alt><br>选择你要解析的域名，点击解析<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073011.jpg" alt><br>添加一条CNAME解析<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073015.jpg" alt><br>记录类型为CNAME，主机记录和记录值查看官方文档。在生成ssl证书时会生成。</p>
+<ul>
+<li>如果绑定的域名是<a href="http://www.amai8.com(一级域名)" target="_blank" rel="noopener">www.amai8.com(一级域名)</a><br>填写CNAME解析的时候DNS记录如下 <strong>s8s1kflls83vbfgsoakakqnzq9bgy20c</strong>.amai8.com  –CName–&gt;  s20161208165641.amai8.com</li>
+<li>如果绑定的域名是api.amai8.com(二级域名)<br>填写的CNAME解析的DNS记录如下</li>
+</ul>
+<p><strong>s8s1kflls83vbfgsoakakqnz9bgy20ca.api</strong>.amai8.com  –CName–&gt;  s20161208165641.api.amai8.com</p>
+<p>添加CNAME解析时，主机记录值要去掉你的域名：主机记录值为上面加粗字体。注意api.amai8.com不要丢掉后面的<code>.api</code>。不然添加域名解析会不正确。证书不能颁发，只有DNS添加成功，才能颁发证书。</p>
+<p>添加解析成功后，过一段时间，证书就可以申请通过。<br>如果长时间没有证书都没有颁发，去检查添加的CNAME是否正确。</p>
+<p>阿里云添加解析时。首次添加解析，生效很快，如果修改解析的话生效时间会慢很多。解析生效后证书才会颁发。</p>
+<p>证书申请成功后，可以在腾讯云后台查看证书详情，点击下载按钮下载证书。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073025.jpg" alt></p>
+<p>下载后解压得到三个文件夹：分别是Apache、IIS、Nginx 服务器的证书文件</p>
+<h2 id="ECS配置证书（没有负载均衡情况下）"><a href="#ECS配置证书（没有负载均衡情况下）" class="headerlink" title="ECS配置证书（没有负载均衡情况下）"></a>ECS配置证书（没有负载均衡情况下）</h2><p>这里服务器是Nginx，所以以Nginx为例：</p>
+<ul>
+<li><p><strong>获取证书</strong> Nginx文件夹内获得SSL证书文件 1_<a href="http://www.domain.com_bundle.crt" target="_blank" rel="noopener">www.domain.com_bundle.crt</a> 和私钥文件 2_<a href="http://www.domain.com.key" target="_blank" rel="noopener">www.domain.com.key</a>,<br>1_<a href="http://www.domain.com_bundle.crt" target="_blank" rel="noopener">www.domain.com_bundle.crt</a> 文件包括两段证书代码 “—–BEGIN CERTIFICATE—–”和“—–END CERTIFICATE—–”,<br>2_<a href="http://www.domain.com.key" target="_blank" rel="noopener">www.domain.com.key</a> 文件包括一段私钥代码“—–BEGIN RSA PRIVATE KEY—–”和“—–END RSA PRIVATE KEY—–”。</p>
+</li>
+<li><p><strong>证书安装</strong> 将域名 <a href="http://www.domain.com" target="_blank" rel="noopener">www.domain.com</a> 的证书文件1_<a href="http://www.domain.com_bundle.crt" target="_blank" rel="noopener">www.domain.com_bundle.crt</a> 、私钥文件2_<a href="http://www.domain.com.key保存到同一个目录，例如/usr/local/nginx/conf目录下。" target="_blank" rel="noopener">www.domain.com.key保存到同一个目录，例如/usr/local/nginx/conf目录下。</a><br>更新Nginx根目录下 conf/nginx.conf 文件如下：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen    80;</span><br><span class="line">        server_name   www.domain.com; #证书绑定的域名</span><br><span class="line">        rewrite ^(.*) https://$server_name$1 permanent;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">        listen 443;</span><br><span class="line">        server_name www.domain.com; #填写绑定证书的域名</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate 1_www.domain.com_bundle.crt; #证书地址 在当前目录直接写名字就可以也可以写全路径</span><br><span class="line">        ssl_certificate_key 2_www.domain.com.key;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html; #站点目录</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：http默认访问的是80端口。https访问的是443端口。<br>对于用户不知道网站可以进行https访问的情况下，让服务器自动把http的请求重定向到https。<br>在服务器这边的话配置的话，可以在页面里加js脚本，也可以在后端程序里写重定向，当然也可以在web服务器来实现跳转。</p>
+<p>Nginx是支持rewrite的（只要在编译的时候没有去掉pcre）<br>在<code>rewrite ^(.*) https://$server_name$1</code><br>这样就可以实现80进来的请求，重定向为https了。</p>
+<p><a href="https://www.qcloud.com/document/product/400/4143#2.-nginx.E8.AF.81.E4.B9.A6.E9.83.A8.E7.BD.B2" target="_blank" rel="noopener">证书安装官方文档</a></p>
+<p>这里服务器是Nginx，所以以Nginx为例：</p>
+<ul>
+<li><p><strong>获取证书</strong> Nginx文件夹内获得SSL证书文件 1_<a href="http://www.domain.com_bundle.crt" target="_blank" rel="noopener">www.domain.com_bundle.crt</a> 和私钥文件 2_<a href="http://www.domain.com.key" target="_blank" rel="noopener">www.domain.com.key</a>,<br>1_<a href="http://www.domain.com_bundle.crt" target="_blank" rel="noopener">www.domain.com_bundle.crt</a> 文件包括两段证书代码 “—–BEGIN CERTIFICATE—–”和“—–END CERTIFICATE—–”,<br>2_<a href="http://www.domain.com.key" target="_blank" rel="noopener">www.domain.com.key</a> 文件包括一段私钥代码“—–BEGIN RSA PRIVATE KEY—–”和“—–END RSA PRIVATE KEY—–”。</p>
+</li>
+<li><p><strong>证书安装</strong> 将域名 <a href="http://www.domain.com" target="_blank" rel="noopener">www.domain.com</a> 的证书文件1_<a href="http://www.domain.com_bundle.crt" target="_blank" rel="noopener">www.domain.com_bundle.crt</a> 、私钥文件2_<a href="http://www.domain.com.key保存到同一个目录，例如/usr/local/nginx/conf目录下。" target="_blank" rel="noopener">www.domain.com.key保存到同一个目录，例如/usr/local/nginx/conf目录下。</a><br>更新Nginx根目录下 conf/nginx.conf 文件如下：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen    80;</span><br><span class="line">        server_name   www.domain.com; #证书绑定的域名</span><br><span class="line">        rewrite ^(.*) https://$server_name$1 permanent;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">        listen 443;</span><br><span class="line">        server_name www.domain.com; #填写绑定证书的域名</span><br><span class="line">        ssl on;</span><br><span class="line">        ssl_certificate 1_www.domain.com_bundle.crt; #证书地址 在当前目录直接写名字就可以也可以写全路径</span><br><span class="line">        ssl_certificate_key 2_www.domain.com.key;</span><br><span class="line">        ssl_session_timeout 5m;</span><br><span class="line">        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #按照这个协议配置</span><br><span class="line">        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#按照这个套件配置</span><br><span class="line">        ssl_prefer_server_ciphers on;</span><br><span class="line">        location / &#123;</span><br><span class="line">            root   html; #站点目录</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>：http默认访问的是80端口。https访问的是443端口。<br>对于用户不知道网站可以进行https访问的情况下，让服务器自动把http的请求重定向到https。<br>在服务器这边的话配置的话，可以在页面里加js脚本，也可以在后端程序里写重定向，当然也可以在web服务器来实现跳转。</p>
+<p>Nginx是支持rewrite的（只要在编译的时候没有去掉pcre）<br>在<code>rewrite ^(.*) https://$server_name$1</code><br>这样就可以实现80进来的请求，重定向为https了。</p>
+<p><a href="https://www.qcloud.com/document/product/400/4143#2.-nginx.E8.AF.81.E4.B9.A6.E9.83.A8.E7.BD.B2" target="_blank" rel="noopener">证书安装官方文档</a></p>
+<h2 id="负载均衡配置https"><a href="#负载均衡配置https" class="headerlink" title="负载均衡配置https"></a>负载均衡配置https</h2><ol>
+<li>登录到阿里云后台，选择负载均衡：<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-12-051716.jpg" alt></li>
+<li>可以创建新的负载均衡，或者修改之前的负载均衡。选择负载均衡，点击服务器，添加相关ECS。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-12-051742.jpg" alt><br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-12-051804.jpg" alt></li>
+<li>添加监听。点击添加监听，前端端口选择HTTPS：443，后端端口选择你要监听的ECS上的端口，这里是80端口。然后选择服务器证书，选择新建证书，填写证书名称，添加证书内容，私钥内容。然后再添加一个监听，监听80端口，前端端口选择TCP或者HTTP：80，后端端口：80。确认后添加监听。</li>
+</ol>
+<blockquote>
+<p>这里的证书内容是你的申请的证书中的内容，格式一定为pem编码。下载下来的证书是<code>.crt</code>文件。用记事本打开，复制其中的内容，这里需要注意，文件中包含两个证书内容，前面是域名证书后面是中级CA证书，复制的时候要去掉中间的空行。<br>私钥内容也一定要为pem编码，用记事本打开<code>.key</code>文件，复制里面的内容到私钥一栏中。填好检查后，点击新建。回到上一步选择你刚新建的证书。点击下一步，点击确认。</p>
+</blockquote>
+<p><strong>添加监听</strong><br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-12-051827.jpg" alt><br><strong>新建证书</strong><br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-12-051834.jpg" alt><br>添加好80端口(http)、443端口(https)的监听。会显示如下，如果显示异常检查监听是否正确。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-12-051841.jpg" alt></p>
+<p><strong>苹果ATS测试命令</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nscurl --ats-diagnostics --verbose  https://domin.com</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/11/04/iOS%E5%BC%80%E5%8F%91Tips/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/11/04/iOS%E5%BC%80%E5%8F%91Tips/" class="post-title-link" itemprop="url">iOS开发Tips</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-11-04 15:52:27" itemprop="dateCreated datePublished" datetime="2016-11-04T15:52:27+08:00">2016-11-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS开发Tips"><a href="#iOS开发Tips" class="headerlink" title="iOS开发Tips"></a>iOS开发Tips</h1><h3 id="TableView-Cell留白问题"><a href="#TableView-Cell留白问题" class="headerlink" title="TableView Cell留白问题"></a>TableView Cell留白问题</h3><p>TableView的在iPad下横屏显示的时候右侧会有很多留白。</p>
+<p>解决办法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableview.cellLayoutMarginsFollowReadableWidth = NO;</span><br></pre></td></tr></table></figure>
+
+<h3 id="TableView多余的分割线"><a href="#TableView多余的分割线" class="headerlink" title="TableView多余的分割线"></a>TableView多余的分割线</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tableView.tableFooterView = [UIView new];</span><br></pre></td></tr></table></figure>
+
+<h3 id="TableViewCell右侧箭头"><a href="#TableViewCell右侧箭头" class="headerlink" title="TableViewCell右侧箭头"></a>TableViewCell右侧箭头</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;</span><br></pre></td></tr></table></figure>
+
+<h3 id="判断App是不是第一次启动"><a href="#判断App是不是第一次启动" class="headerlink" title="判断App是不是第一次启动"></a>判断App是不是第一次启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//   使用NSUserDefaults来判断程序是否第一次启动</span><br><span class="line">    NSUserDefaults *TimeOfBootCount = [NSUserDefaults standardUserDefaults];</span><br><span class="line">    if (![TimeOfBootCount valueForKey:@&quot;time&quot;]) &#123;</span><br><span class="line">        [TimeOfBootCount setValue:@&quot;sd&quot; forKey:@&quot;time&quot;];</span><br><span class="line">        NSLog(@&quot;第一次启动&quot;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        NSLog(@&quot;不是第一次启动&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="push隐藏tabbar"><a href="#push隐藏tabbar" class="headerlink" title="push隐藏tabbar"></a>push隐藏tabbar</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CYTeacherViewController *vc = [[CYTeacherViewController alloc]init];</span><br><span class="line">[vc setHidesBottomBarWhenPushed:YES];</span><br><span class="line">[self.navigationController pushViewController:vc animated:YES];</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置导航栏的返回按钮颜色"><a href="#设置导航栏的返回按钮颜色" class="headerlink" title="设置导航栏的返回按钮颜色"></a>设置导航栏的返回按钮颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.navigationController.navigationBar.tintColor = [UIColor whiteColor];</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/10/21/shell%E8%84%9A%E6%9C%AC/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/21/shell%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">shell脚本</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-21 13:21:05" itemprop="dateCreated datePublished" datetime="2016-10-21T13:21:05+08:00">2016-10-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h1><p>新建一个shell脚本。直接在终端vim <code>first.sh</code>就会创建一个名字为first的shell脚本。</p>
+<p>第一个shell脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh   //指定解释器 </span><br><span class="line">pwd</span><br><span class="line">hello=&quot;hello shell&quot;</span><br><span class="line">echo $hello</span><br></pre></td></tr></table></figure>
+
+<p>“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行</p>
+<p><code>pwd</code>显示当前文件的路径</p>
+<p><code>hello=&quot;hello shell&quot;</code>定义一个变量</p>
+<p><code>echo $hello</code>输出这个变量</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/10/12/%E4%B8%80%E5%9D%97-YeeCall-%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%BF%E5%86%99%E2%80%94%E7%AC%AC%E4%B8%80%E5%A4%A9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/10/12/%E4%B8%80%E5%9D%97-YeeCall-%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%BF%E5%86%99%E2%80%94%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="post-title-link" itemprop="url">一块(YeeCall)项目的仿写—第一天</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-10-12 17:26:39" itemprop="dateCreated datePublished" datetime="2016-10-12T17:26:39+08:00">2016-10-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一块-YeeCall-项目的仿写—第一天"><a href="#一块-YeeCall-项目的仿写—第一天" class="headerlink" title="一块(YeeCall)项目的仿写—第一天"></a>一块(YeeCall)项目的仿写—第一天</h1><h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>YeeCall项目介绍直接去<a href="http://www.yeecall.com/" target="_blank" rel="noopener">YeeCall官网</a>查看。</p>
+<p>大概多长时间做完。没有确切时间，一点点做一点点功能去完善。。</p>
+<p>仿写过程中记录整个仿写过程，任何一个小的细节都会记录下来。</p>
+<h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="一块项目分析"><a href="#一块项目分析" class="headerlink" title="一块项目分析"></a>一块项目分析</h3><p>首先，分析一块App，典型的iOS风格App，底部四个TabBar。整体框架是TabBarController和NavagationController。分析每一个页面，首先第一个界面（一块）是消息界面，用TableView可以实现，右上角有一个button用来添加新的好友聊天。第二个界面（好友）界面，上边有一个SegmentedControl，整体还是通过TableView实现的，但是上边固定三个不变的cell，切换SegmentedControl时，加载不同的DataSource，或者是用两个TableView实现，实现的时候再具体实验哪一种更方便。第三个界面群组界面，CollectionView实现。第四个界面我的界面，TableView实现，这里是静态的Cell。</p>
+<h3 id="获取到一块官方App的资源图片"><a href="#获取到一块官方App的资源图片" class="headerlink" title="获取到一块官方App的资源图片"></a>获取到一块官方App的资源图片</h3><p>1、第一步要先获得App的ipa包，在iTunes中获得即可，在Finder中找到这个ipa包，右键用归档实用工具打开得到一个解压后的文件，打开<code>Payload</code>，然后右键显示包内容，这里面就有很多资源了，但是很多图片是放在<code>Assets.car</code>这个里面的，所以还要提取这个里面的资源。</p>
+<p>2、使用<code>cartool</code>这个可以获得里面的图片。<br>使用方法：下载这个项目，项目地址：<a href="https://github.com/steventroughtonsmith/cartool" target="_blank" rel="noopener">https://github.com/steventroughtonsmith/cartool</a><br>用Xcode打开运行，运行成功后在目录中的Products下有一个可执行文件，右键在Finder中显示，打开终端把这个文件拖到终端中。在终端中执行<code>./cartool [Assets.car文件] [要解压的位置]</code>例如<code>./cartool /Users/zcw/Documents/chat/Assets.car /Users/zcw/Documents/chat/</code><br>执行结束后就可以拿到所以图片资料了。</p>
+<h3 id="纯代码完成主框架"><a href="#纯代码完成主框架" class="headerlink" title="纯代码完成主框架"></a>纯代码完成主框架</h3><p>首先新建一个项目，创建完成后删除默认的ViewController，在General中修改Main Interface为空，添加一个TabBarController类，在APPDelegate中设置根控制器为这个TabBarController。<br>在TabBarController中添加四个字控制器，分别代表四个控制器。</p>
+<h3 id="实现我的界面"><a href="#实现我的界面" class="headerlink" title="实现我的界面"></a>实现我的界面</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/28/iOS%E4%B8%8A%E7%BA%BF%E5%8A%A0%E6%80%A5%E7%94%B3%E8%AF%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/28/iOS%E4%B8%8A%E7%BA%BF%E5%8A%A0%E6%80%A5%E7%94%B3%E8%AF%B7/" class="post-title-link" itemprop="url">iOS上线加急申请</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-28 16:11:33" itemprop="dateCreated datePublished" datetime="2016-09-28T16:11:33+08:00">2016-09-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS上线加急申请"><a href="#iOS上线加急申请" class="headerlink" title="iOS上线加急申请"></a>iOS上线加急申请</h1><p>iOS app上传后审核通过需要一段时间，目前审核速度已经变快了，大约两天左右的时间，但是有的时候我们需要紧急修复bug就需要加急申请，这样能够很快进入审核、上架。</p>
+<p>1、首先打开<a href="https://developer.apple.com/appstore/contact/appreviewteam/index.html" target="_blank" rel="noopener">申请网址</a><br>登录上你的AppleID，登录成功后显示如下：<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073640.jpg" alt><br>选择<code>request an expedited app review</code>这个选项，<br>2、继续填写下面的信息（手机号码），<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073712.jpg" alt><br>3、然后填写你要申请的App的信息<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073721.jpg" alt>4、继续填写你的bug的描述（我每次都是中英文都写的。。）<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073730.jpg" alt>最好点击send就好了。。。</p>
+<p>很快你的App就会进入审核了。。。<br>我上次申请是当天下午3点左右申请的。第二天早晨就上架了，还是很快的。。。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/22/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/22/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">HTML学习笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-22 16:01:58" itemprop="dateCreated datePublished" datetime="2016-09-22T16:01:58+08:00">2016-09-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><strong>表单</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="iOS,linux,shell,">
+<meta name="keywords" content="iOS,ZCW,Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZCW">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;page&#x2F;4&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="iOS,linux,shell,">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/page/4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/11/%E4%BB%93%E9%BC%A0%E5%B0%8F%E8%AF%BE%E5%A0%82%E7%B3%BB%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/11/%E4%BB%93%E9%BC%A0%E5%B0%8F%E8%AF%BE%E5%A0%82%E7%B3%BB%E5%88%97/" class="post-title-link" itemprop="url">仓鼠小课堂系列</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-11 13:46:02" itemprop="dateCreated datePublished" datetime="2017-01-11T13:46:02+08:00">2017-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="仓鼠小课堂系列"><a href="#仓鼠小课堂系列" class="headerlink" title="仓鼠小课堂系列"></a>仓鼠小课堂系列</h1><h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><blockquote>
+<p>2017年01月13日 讲解人：骑神</p>
+</blockquote>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-015746.jpg" alt><br>简单的计算机内部结构。</p>
+<p>那么我们的代码在执行的时候会发生什么事情呢？通常来说，我们的APP存储的位置在存储硬盘</p>
+<p>先说一个基础知识，上面的结构图当中越往上执行速度越高</p>
+<p>在启动应用之后，CPU会到硬盘中寻址找到应用的存储位置，把app的内存加载到内存当中</p>
+<p>然后在程序运行期间，基本上就是CPU不断的在寄存器和内存之后交换数据，当然还有其他虚拟内存的东西，这里就不讲了，因为我也不太懂</p>
+<p>寄存器是什么呢？在CPU核心周围分布着一堆的存储元件，这些元件的存储容量很小，一半来说基本都是K为单位的</p>
+<p>这些元件被称为寄存器，寄存器会因为自身的功能被分为多种类型，例如寻址寄存器、浮点数寄存器、堆栈等等</p>
+<p>作为开发者，我们一般关心的只有通用寄存器，因为你从汇编中看到的代码基本上也是在操作这些寄存器</p>
+<p>通用寄存器采用的结构是栈式结构，这种结构有什么好处呢？</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-020905.jpg" alt><br>如右边的递归代码，在调用的时候会把函数的地址一个个推入寄存器栈中</p>
+<p>在我们连续调用一系列的方法的时候，为了能让函数执行完毕之后回到原来的代码位置，系统会把当前调用的代码处的地址推入调用栈中</p>
+<p>除此之外，函数调用需要用到的变量会在其他寄存器也进行入栈处理</p>
+<p>函数调用完毕之后出栈获取调用处的地址，然后返回继续执行指令</p>
+<p>接着就是昨天🐹所说的为什么递归无返回或者递归次数达到一定次数的时候会发生崩溃，原因就是寄存器的尺寸是非常有限的</p>
+<p>所以递归次数达到一定数量的时候，寄存器就会容纳不下</p>
+<h2 id="delegate和block"><a href="#delegate和block" class="headerlink" title="delegate和block"></a>delegate和block</h2><blockquote>
+<p>2017年01月13日   讲解人：骑神</p>
+</blockquote>
+<p>先来看看delegate跟block的代码<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064209.jpg" alt><br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064240.jpg" alt></p>
+<p>delegate的是NSURLConnectDataDelegate的方法列表，大家可以看到在NSURLConnection的请求过程中，代理会有多次的回调，分别对应图中注释的情况</p>
+<p>block图上有两个block，上面是一个日常开发常见的网络请求的处理，下面是NSURLSession创建一个请求任务的代码</p>
+<p>NSURLSession除了通过这种方式创建请求任务和传入请求结果处理之外。它自身存在多个类似NSURLConnectionDelegate的回调方法列表。</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064318.jpg" alt></p>
+<p>delegate跟block在设计上的理念就是不同的</p>
+<p>因为如果block不是面向结果的设计，那么block的代码应该会把请求过程中的所有状态都囊括起来</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064350.jpg" alt></p>
+<p>上面是从设计理念来说，接下来聊聊两者的运行效率</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064428.jpg" alt></p>
+<p>大家都知道OC是一门消息发送语言，简单来说，就是[a add: b]; 在消息发送语言中被称作<br>向接收者a发送了一个名为add:的消息，参数是b</p>
+<p>基于runtime的OC在执行这段代码的时候会把它转换成用来发送消息的objc_msgSend函数执行代码。这时候就会变成 objc_msgSend(a, @selector(add:), b);</p>
+<p>由于昨天的🐹小课堂里已经聊过objc_msgSend过程中会发生什么，这里就不再重复阐述。但是大家要注意这个过程中会依次 遍历消息缓存列表、本类的消息列表、父类的消息列表来直到找到对应的执行代码为止，因此即便苹果做成了汇编的调用，消耗还是有的</p>
+<p>那么block的调用消耗呢？<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064505.jpg" alt></p>
+<p>在runtime里面，提供了imp跟block的相互转换。imp是一种用来把代码表示成变量的类型，简单来说跟block的性质是一样的。在objc_msgSend的过程中，目的是为了找到@selector()对应的IMP代码，然后执行</p>
+<p>因此block的调用等同于直接调用IMP，省去了查找IMP的过程，从效率上来说胜于代理</p>
+<p>是runtime提供了imp跟block的转换方法。实际上block跟imp都等同于指向某段代码的地址，所以效率更高</p>
+<blockquote>
+<p>主要是block-&gt;invoke()的调用效率确实太高。至于block内部的结构实现，这个暂且不说<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-7F26C1597CE1566693BAE5A61A9A3D51.jpg" alt></p>
+</blockquote>
+<p>从使用难度上来说，这个包括debug难度跟使用难度，先从debug难度说。因为要我去写一段崩溃的delegate跟block总觉的蛋疼，所以没图</p>
+<p>上面也说了，delegate的回调过程中因为涉及到了objc_msgSend的过程，如果在这个过程中发生了异常崩溃，那么在控制台会输出消息发送错误的异常信息，可以比较容易的定位到错误位置</p>
+<p>其二，delegate可以通过command+左键的方式跳转到代理方处，所以也能快速的查找到代理双方。从debug的角度来说，难度较低</p>
+<p>至于block，通过上面我发的结构图和调用的流程来说，不存在消息发送的过程。因为block是内部结构直接存在函数的指针，直接调用，另一方面是会引用外部对象。所以相比delegate，一旦发生崩溃，难以定位到崩溃处，崩溃原因也基本是野指针异常</p>
+<p>因此从debug难度来说，block弱于delegate</p>
+<p>那么接下来从使用的角度来说<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-065004.jpg" alt></p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-AC7C32FDFDDA7C6E135AA55AEB6BD905.gif" alt></p>
+<p>上面是一个需求，点击商品会弹出商品信息，要用户输入商品的数量，点击确定后商品对应的单元格会高亮<br>因此代码的逻辑是：<br>点击单元格-&gt;弹窗-&gt;输入数量点击确定-&gt;单元格高亮</p>
+<p>下面放上block跟delegate的处理代码</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-94080AEDDF8FCEE5F20244DCB3818260.jpg" alt><br>首先是两个相关的view的头文件</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-79312506B35BB37620CFB5BF267FCD88.jpg" alt><br>这个是逻辑代码</p>
+<p>block的做法会把处理的逻辑写在一处位置，这样子结构清晰。</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-5D7A2AC512787E51B9D105B2A41173BE.jpg" alt><br>然后是delegate的处理，就要声明两个协议</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-DA45B5B245918BF6D218ECDE2E3A5C8B.jpg" alt><br>这时候弹窗和高亮的逻辑会被分到两个代理事件中处理，在代码量大的时候，连贯性差<br>而且必要的时候还要清空过渡变量</p>
+<p>上面对比的个人总结是：<br>在事件回调的处理上，delegate比不上block。原因不仅限于block的灵活性更强（当参数传递），功能性（适用于大多数的场景），甚至可以说block是iOS回调手段中最强大的</p>
+<p>那么就有一个问题：既然block这么强大，为什么我们还要使用delegate？</p>
+<p>这种是代理优于block的场景之一，因为这些代理的事件第一是没有太多的关联性，第二是类型多，事件状态多</p>
+<p>另外其实很多人对delegate纠结的一点是：只要提到了协议，很多人的第一反应就是代理</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-EA9EF93B02DC0BD32387959877AE7FF9.jpg" alt></p>
+<p>协议可以提供一套共同的行为，比如动物都能喝水，汽车都要加油.<br>是一种OC实现多继承的方式</p>
+<p>好了，最后是协议除了delegate还能做什么？<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-F0BF1196275791CB92BB48DAD5787401.jpg" alt></p>
+<h2 id="NS-DESIGNATED-INITIALIZER的正确使用"><a href="#NS-DESIGNATED-INITIALIZER的正确使用" class="headerlink" title="NS_DESIGNATED _ INITIALIZER的正确使用"></a>NS_DESIGNATED _ INITIALIZER的正确使用</h2><p>2017年02月08日09:54:04</p>
+<p> 我们随便点开一个系统类的 .h，会发现有些 init 方法后面跟了这个标记：NS_DESIGNATED_INITIALIZER，比如 NSURL ：<br> <img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-02-08-83D753A98BE592F2C92068B45A09CEBF.png" alt><br> UIView:<br> <img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-02-08-66305DC6646D3DF3222CA9DB3C68816C.png" alt><br> 有的 init 方法后面有，有的没有。这个标记是什么意思呢？这种设计有什么好处呢？~ </p>
+<p> <a href="http://blog.csdn.net/zcube/article/details/51657417" target="_blank" rel="noopener">NS_DESIGNATED _ INITIALIZER的正确使用</a></p>
+<p> <img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-02-09-AC53E52717D3DCEE6217311113DD24B1.png" alt></p>
+<p> 有这个标记的方法称为指定构造器，与之相对的称为便捷构造器。地铁上就打中文了，大家明白意思就好</p>
+<p> 可以说，指定构造器是 核心 的init方法，里面应该做这个类初始化时所有 必须 做的事情。</p>
+<p> 而便捷构造器是搭便车的方法，它不能独立存在，需要调用指定构造器。</p>
+<p> 举个例子，UIView里面有两个指定构造器，分别是initWithFrame 和 initWithCoder，代表了这个类两种截然不同的初始化方式，它们互相独立且缺一不可</p>
+<p> 比如仓鼠喜欢为固定尺寸的UIView写一个便捷init方法叫 initWithDefaultFrame，里面调用initWithFrame后面传预设好的参数，这样它的使用者构造它的时候就不用再设尺寸了</p>
+<p> 我写的这个就是一个典型的便捷构造器</p>
+<p> 有一条原则就是子类的指定构造器必须调用父类的指定构造器，也就不难理解了</p>
+<p> 这样的设计有什么好处呢？我能想到的一点是，当你为一个类添加一个必须初始化的属性时，你只需在指定构造器里对它初始化，就可以保证所有的init方法，包括这个类的所有子类，都能正确初始化这个属性</p>
+<p> 而不是说，我有10个init方法，就得改10个地方</p>
+<p> 或者担心子类会绕过我的关键初始化</p>
+<p> 对这个机制还有兴趣进一步了解的同学，可以参考下swift的文档</p>
+<p> <a href="http://www.cocoachina.com/cms/wap.php?action=article&id=8787" target="_blank" rel="noopener">TheSwiftProgrammingLanguage–语言指南–构造过程</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/10/%E7%A6%85%E4%B8%8E-Objective-C-%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/10/%E7%A6%85%E4%B8%8E-Objective-C-%E7%BC%96%E7%A8%8B%E8%89%BA%E6%9C%AF%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">禅与 Objective-C 编程艺术读书笔记</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-10 13:46:02" itemprop="dateCreated datePublished" datetime="2017-01-10T13:46:02+08:00">2017-01-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="禅与-Objective-C-编程艺术读书笔记"><a href="#禅与-Objective-C-编程艺术读书笔记" class="headerlink" title="禅与 Objective-C 编程艺术读书笔记"></a>禅与 Objective-C 编程艺术读书笔记</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><blockquote>
+<p>条件语句体应该总是被大括号包围。尽管有时候你可以不使用大括号（比如，条件语句体只有一行内容），但是这样做会带来问题隐患。比如，增加一行代码时，你可能会误以为它是 if 语句体里面的。此外，更危险的是，如果把 if 后面的那行代码注释掉，之后的一行代码会成为 if 语句里的代码。</p>
+</blockquote>
+<p><strong>写条件语言的时候要用大括号</strong></p>
+<h3 id="尤达表达式"><a href="#尤达表达式" class="headerlink" title="尤达表达式"></a>尤达表达式</h3><blockquote>
+<p>不要使用尤达表达式。尤达表达式是指，拿一个常量去和变量比较而不是拿变量去和常量比较。</p>
+</blockquote>
+<p>例子:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//推荐</span><br><span class="line">if ([myValue isEqual:@42])&#123;···&#125;</span><br><span class="line">//不推荐</span><br><span class="line">if ([@42isEqual: myValue])&#123;···&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="nil和BOOL检查"><a href="#nil和BOOL检查" class="headerlink" title="nil和BOOL检查"></a>nil和BOOL检查</h3><p>有些框架中检查nil的时候会这样写：</p>
+<p><code>if (nil == myValue){···}</code></p>
+<p>这种写法是像尤达表达式，拿常量和变量去比较。</p>
+<p>这样写的原因是为了方便排查错误。我们正常的写法是这样写：</p>
+<p><code>if (myValue == nil){···}</code></p>
+<p>但是有的程序员会丢掉一个<code>=</code>号，像这样：</p>
+<p><code>if (myValue = nil){···}</code></p>
+<p>这样就相当于把nil赋值给了myValue，这样的错误比较难调试。如果反过来写的话nil是不能被赋值的。这样比较好调试。</p>
+<p>为了避免这类错误，不要用这种方法去判断是否为真。使用感叹号来进行判断。可以这样去判断：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (!myValue)&#123;···&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="黄金大道"><a href="#黄金大道" class="headerlink" title="黄金大道"></a>黄金大道</h3><blockquote>
+<p>在使用条件语句编程时，代码的左边距应该是一条“黄金”或者“快乐”的大道。 也就是说，不要嵌套 if 语句。使用多个 return 可以避免增加循环的复杂度，并提高代码的可读性。因为方法的重要部分没有嵌套在分支里面，并且你可以很清楚地找到相关的代码。</p>
+</blockquote>
+<p>推荐:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (void)someMethod &#123;</span><br><span class="line">  if (![someOther boolValue]) &#123;</span><br><span class="line">      return;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  //Do something important</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">- (void)someMethod &#123;</span><br><span class="line">  if ([someOther boolValue]) &#123;</span><br><span class="line">    //Do something important</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>意思就是不要把重要的逻辑代码放在条件语句中，如果重要的逻辑代码中还有条件语句，那这样就会造成循环的复杂。这样的语法格式参考swift中的guard语法。参考我的<a href="https://zcwlwen.online/2016/08/12/Swift%E8%AF%AD%E6%B3%95%E6%96%B0%E7%89%B9%E6%80%A7%E2%80%94%E2%80%94guard/" target="_blank" rel="noopener">这篇文章</a></p>
+<h3 id="复杂的表达式"><a href="#复杂的表达式" class="headerlink" title="复杂的表达式"></a>复杂的表达式</h3><blockquote>
+<p>当你有一个复杂的 if 子句的时候，你应该把它们提取出来赋给一个 BOOL 变量，这样可以让逻辑更清楚，而且让每个子句的意义体现出来。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">BOOL nameContainsSwift  = [sessionName containsString:@&quot;Swift&quot;];</span><br><span class="line">BOOL isCurrentYear      = [sessionDateCompontents year] == 2014;</span><br><span class="line">BOOL isSwiftSession     = nameContainsSwift &amp;&amp; isCurrentYear;</span><br><span class="line"></span><br><span class="line">if (isSwiftSession) &#123;</span><br><span class="line">    // Do something very cool</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><blockquote>
+<p>三元运算符 ? 应该只用在它能让代码更加清楚的地方。 一个条件语句的所有的变量应该是已经被求值了的。类似 if 语句，计算多个条件子句通常会让语句更加难以理解。或者可以把它们重构到实例变量里面。</p>
+</blockquote>
+<p>推荐：</p>
+<p><code>result = a &gt; b ? x : y;</code></p>
+<p>不推荐：</p>
+<p><code>result = a &gt; b ? x = c &gt; d ? c : d : y;</code></p>
+<p>推荐：</p>
+<p><code>result = object ? : [self createObject];</code></p>
+<p>不推荐：</p>
+<p><code>result = object ? object : [self createObject];</code></p>
+<p>使用三元运算符是为了让代码更加易读，而不是为了使用它而用它。</p>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><blockquote>
+<p>有些方法通通过参数返回 error 的引用，使用这样的方法时应当检查方法的返回值，而非 error 的引用。</p>
+</blockquote>
+<p>推荐：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">NSError *error = nil;</span><br><span class="line">if (![self trySomethingWithError:&amp;error]) &#123;</span><br><span class="line">    // Handle Error</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Case语句"><a href="#Case语句" class="headerlink" title="Case语句"></a>Case语句</h2><p>除非编译器强制要求，括号在case语句里面是不必要的。但是当一个case包括多行语句的时候，需要加上括号。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">switch (condition) &#123;</span><br><span class="line">    case 1:</span><br><span class="line">        // ...</span><br><span class="line">        break;</span><br><span class="line">    case 2: &#123;</span><br><span class="line">        // ...</span><br><span class="line">        // Multi-line example using braces</span><br><span class="line">        break;</span><br><span class="line">       &#125;</span><br><span class="line">    case 3:</span><br><span class="line">        // ...</span><br><span class="line">        break;</span><br><span class="line">    default: </span><br><span class="line">        // ...</span><br><span class="line">        break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有时候可以使用 fall-through 在不同的 case 里面执行同一段代码。一个 fall-through 是指移除 case 语句的 “break” 然后让下面的 case 继续执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">switch (condition) &#123;</span><br><span class="line">    case 1:</span><br><span class="line">    case 2:</span><br><span class="line">        // code executed for values 1 and 2</span><br><span class="line">        break;</span><br><span class="line">    default: </span><br><span class="line">        // ...</span><br><span class="line">        break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当在 switch 语句里面使用一个可枚举的变量的时候，default 是不必要的。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">switch (menuType) &#123;</span><br><span class="line">    case ZOCEnumNone:</span><br><span class="line">        // ...</span><br><span class="line">        break;</span><br><span class="line">    case ZOCEnumValue1:</span><br><span class="line">        // ...</span><br><span class="line">        break;</span><br><span class="line">    case ZOCEnumValue2:</span><br><span class="line">        // ...</span><br><span class="line">        break;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此外，为了避免使用默认的 case，如果新的值加入到 enum，程序员会马上收到一个 warning 通知</p>
+<p><strong>枚举类型</strong></p>
+<p>当使用 enum 的时候，建议使用新的固定的基础类型定义，因它有更强大的的类型检查和代码补全。 SDK 现在有一个 宏来鼓励和促进使用固定类型定义 - NS_ENUM()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//推荐</span><br><span class="line">typedef NS_ENUM(NSUInteger, ZOCMachineState) &#123;</span><br><span class="line">    ZOCMachineStateNone,</span><br><span class="line">    ZOCMachineStateIdle,</span><br><span class="line">    ZOCMachineStateRunning,</span><br><span class="line">    ZOCMachineStatePaused</span><br><span class="line">&#125;;</span><br><span class="line">//不推荐</span><br><span class="line">typedef enum&#123;</span><br><span class="line">    ZOCMachineStateNone,</span><br><span class="line">    ZOCMachineStateIdle,</span><br><span class="line">    ZOCMachineStateRunning,</span><br><span class="line">    ZOCMachineStatePaused</span><br><span class="line">&#125;ZOCMachineState;</span><br></pre></td></tr></table></figure>
+
+<h2 id="命名"><a href="#命名" class="headerlink" title="命名"></a>命名</h2><blockquote>
+<p>尽可能的遵守Apple的命名约定，尤其是和 内存管理规则 (NARC) 相关的地方。推荐使用长的、描述性的方法和变量名。</p>
+</blockquote>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//推荐</span><br><span class="line">UIButton *settingsButton;</span><br><span class="line">//不推荐</span><br><span class="line">UIButton *setBut;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Constants常量"><a href="#Constants常量" class="headerlink" title="Constants常量"></a>Constants常量</h3><p>常量应该以驼峰法命名，并以相关类名作为前缀。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//推荐</span><br><span class="line">static const NSTimeInterval ZOCSignInViewControllerFadeOutAnimationDuration = 0.4;</span><br><span class="line">//不推荐</span><br><span class="line">static const NSTimeInterval fadeOutTime = 0.4;</span><br></pre></td></tr></table></figure>
+<p>推荐使用常量来代替字符串字面值和数字，这样能够方便复用，而且可以快速修改而不需要查找和替换。常量应该用 static 声明为静态常量，而不要用 #define，除非它明确的作为一个宏来使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//推荐</span><br><span class="line">static NSString * const ZOCCacheControllerDidClearCacheNotification = @&quot;ZOCCacheControllerDidClearCacheNotification&quot;;</span><br><span class="line">static const CGFloat ZOCImageThumbnailHeight = 50.0f;</span><br><span class="line">//不推荐</span><br><span class="line">#define CompanyName @&quot;Apple Inc.&quot;</span><br><span class="line">#define magicNumber 42</span><br></pre></td></tr></table></figure>
+
+<p>常量应该在头文件中以这样的形式暴露给外部：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extern NSString *const ZOCCacheControllerDidClearCacheNotification;</span><br></pre></td></tr></table></figure>
+<p>并在实现文件中为它赋值。</p>
+<p>只有公有的常量才需要添加命名空间作为前缀。尽管实现文件中私有常量的命名可以遵循另外一种模式，你仍旧可以遵循这个规则。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>方法名与方法类型 (-/+ 符号)之间应该以空格间隔。方法段之间也应该以空格间隔（以符合 Apple 风格）。参数前应该总是有一个描述性的关键词。尽可能少用 “and” 这个词。它不应该用来阐明有多个参数。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//推荐</span><br><span class="line">- (void)setExampleText:(NSString *)text image:(UIImage *)image;</span><br><span class="line">- (void)sendAction:(SEL)aSelector to:(id)anObject forAllCells:(BOOL)flag;</span><br><span class="line">- (id)viewWithTag:(NSInteger)tag;</span><br><span class="line">- (instancetype)initWithWidth:(CGFloat)width height:(CGFloat)height;</span><br><span class="line"></span><br><span class="line">//不推荐</span><br><span class="line">- (void)setT:(NSString *)text i:(UIImage *)image;</span><br><span class="line">- (void)sendAction:(SEL)aSelector :(id)anObject :(BOOL)flag;</span><br><span class="line">- (id)taggedView:(NSInteger)tag;</span><br><span class="line">- (instancetype)initWithWidth:(CGFloat)width andHeight:(CGFloat)height;</span><br><span class="line">- (instancetype)initWith:(int)width and:(int)height;  // Never do this.</span><br></pre></td></tr></table></figure>
+
+<h3 id="字面值"><a href="#字面值" class="headerlink" title="字面值"></a>字面值</h3><p>多用字面量语法，少用与之等价的方法。</p>
+<p>例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//推荐</span><br><span class="line">NSArray *names = @[@&quot;Brian&quot;, @&quot;Matt&quot;, @&quot;Chris&quot;, @&quot;Alex&quot;, @&quot;Steve&quot;, @&quot;Paul&quot;];</span><br><span class="line">NSDictionary *productManagers = @&#123;@&quot;iPhone&quot; : @&quot;Kate&quot;, @&quot;iPad&quot; : @&quot;Kamal&quot;, @&quot;Mobile Web&quot; : @&quot;Bill&quot;&#125;;</span><br><span class="line">NSNumber *shouldUseLiterals = @YES;</span><br><span class="line">NSNumber *buildingZIPCode = @10018;</span><br><span class="line">//不推荐</span><br><span class="line">NSArray *names = [NSArray arrayWithObjects:@&quot;Brian&quot;, @&quot;Matt&quot;, @&quot;Chris&quot;, @&quot;Alex&quot;, @&quot;Steve&quot;, @&quot;Paul&quot;, nil];</span><br><span class="line">NSDictionary *productManagers = [NSDictionary dictionaryWithObjectsAndKeys: @&quot;Kate&quot;, @&quot;iPhone&quot;, @&quot;Kamal&quot;, @&quot;iPad&quot;, @&quot;Bill&quot;, @&quot;Mobile Web&quot;, nil];</span><br><span class="line">NSNumber *shouldUseLiterals = [NSNumber numberWithBool:YES];</span><br><span class="line">NSNumber *buildingZIPCode = [NSNumber numberWithInteger:10018];</span><br></pre></td></tr></table></figure>
+<p>如果要用到这些类的可变副本，我们推荐使用 NSMutableArray, NSMutableString 这样的类。<br>应该避免下面这样:</p>
+<p><code>NSMutableArray *aMutableArray = [@[] mutableCopy];</code></p>
+<p>这种写法效率和可读性都有问题。</p>
+<p>效率方面，一个不必要的不可变对象被创建后立马被废弃了；虽然这并不会让你的 App 变慢（除非这个方法被频繁调用），但是确实没必要为了少打几个字而这样做。</p>
+<p>可读性方面，存在两个问题：第一个问题是当你浏览代码并看见 @[] 的时候，你首先联想到的是 NSArray 实例，但是在这种情形下你需要停下来深思熟虑的检查；</p>
+<p>另一个问题是，一些新手以他的水平看到你的代码后可能会对这是一个可变对象还是一个不可变对象产生分歧。他/她可能不熟悉可变拷贝构造的含义（这并不是说这个知识不重要）。</p>
+<p>当然，不存在绝对的错误，我们只是讨论代码的可用性（包括可读性)。</p>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><h3 id="类名"><a href="#类名" class="headerlink" title="类名"></a>类名</h3><p>类名应该以三个大写字母作为前缀（双字母前缀为 Apple 的类预留）。尽管这个规范看起来有些古怪，但是这样做可以减少 Objective-c 没有命名空间所带来的问题。</p>
+<p>一些开发者在定义模型对象时并不遵循这个规范（对于 Core Data 对象，我们更应该遵循这个规范）。我们建议在定义 Core Data 对象时严格遵循这个约定，因为最终你可能需要把你的 Managed Object Model（托管对象模型）与其他（第三方库）的 MOMs（Managed Object Model）合并。</p>
+<p>你可能注意到了，这本书里类的前缀（不仅仅是类，也包括公开的常量、Protocol 等的前缀）是ZOC。</p>
+<p>另一个好的类的命名规范：当你创建一个子类的时候，你应该把说明性的部分放在前缀和父类名的在中间。</p>
+<p>举个例子：如果你有一个 <code>ZOCNetworkClient</code> 类，子类的名字会是<code>ZOCTwitterNetworkClient</code> (注意 “Twitter” 在 “ZOC” 和 “<code>NetworkClient</code>“ 之间); 按照这个约定， 一个<code>UIViewController</code> 的子类会是 <code>ZOCTimelineViewController</code>.</p>
+<h3 id="Initializer-和-dealloc-初始化"><a href="#Initializer-和-dealloc-初始化" class="headerlink" title="Initializer 和 dealloc 初始化"></a>Initializer 和 dealloc 初始化</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/09/Linux-crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/09/Linux-crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" class="post-title-link" itemprop="url">Linux crontab定时任务</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-09 16:51:11" itemprop="dateCreated datePublished" datetime="2017-01-09T16:51:11+08:00">2017-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux-crontab定时任务"><a href="#Linux-crontab定时任务" class="headerlink" title="Linux crontab定时任务"></a>Linux crontab定时任务</h1><blockquote>
+<p>通过crontab 命令，我们可以在固定的间隔时间执行指定的系统指令或 shell script脚本。这个命令非常适合周期性的日志分析或数据备份等工作。</p>
+</blockquote>
+<h3 id="命令格式和参数"><a href="#命令格式和参数" class="headerlink" title="命令格式和参数"></a>命令格式和参数</h3><p><code>crontab [-u user] { -e | -l | -r }</code></p>
+<ul>
+<li>-u user :用来设定某个用户的crontab服务</li>
+<li>file：将这个文件作为crontab的任务列表文件并载入crontab</li>
+</ul>
+<h3 id="crontab文件格式"><a href="#crontab文件格式" class="headerlink" title="crontab文件格式"></a>crontab文件格式</h3><p><code>m h  dom mon dow   command</code></p>
+<p>从第一列开始分别代表</p>
+<ul>
+<li>分钟  0~59</li>
+<li>小时  0~23</li>
+<li>日  0~31</li>
+<li>月  1~12</li>
+<li>星期  0~7</li>
+<li>要执行的的命令</li>
+</ul>
+<h3 id="crontab常用命令"><a href="#crontab常用命令" class="headerlink" title="crontab常用命令"></a>crontab常用命令</h3><h4 id="列出crontab文件"><a href="#列出crontab文件" class="headerlink" title="列出crontab文件"></a>列出crontab文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -l</span><br></pre></td></tr></table></figure>
+<h4 id="编辑crontab文件"><a href="#编辑crontab文件" class="headerlink" title="编辑crontab文件"></a>编辑crontab文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
+<h4 id="删除crontab文件"><a href="#删除crontab文件" class="headerlink" title="删除crontab文件"></a>删除crontab文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -r</span><br></pre></td></tr></table></figure>
+
+<h3 id="crontab实例"><a href="#crontab实例" class="headerlink" title="crontab实例"></a>crontab实例</h3><p>实例1：每分钟执行一次Command</p>
+<p><code>* * * * * Command</code></p>
+<p>实例2：每小时第3分钟执行一次Command</p>
+<p><code>3 * * * * Command</code></p>
+<p>实例3：每隔两天的0点0分执行Command</p>
+<p><code>0 0 */2 * * Command</code></p>
+<p>实例4：每天0点0分执行Command</p>
+<p><code>0 0 * * * Command</code></p>
+<p>实例5：每天删除指定日期前的文件</p>
+<p><code>0 2 * * * find /farm/upload_tmp/ -type f -mtime +1 -print0 | xargs -0 rm</code></p>
+<p><strong>解释</strong>：每天2点执行后面的命令。命令是查找一天以前的文件并删除</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/09/shell%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90icon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/09/shell%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90icon/" class="post-title-link" itemprop="url">shell脚本一键生成icon</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-09 10:08:36" itemprop="dateCreated datePublished" datetime="2017-01-09T10:08:36+08:00">2017-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="shell脚本一键生成icon"><a href="#shell脚本一键生成icon" class="headerlink" title="shell脚本一键生成icon"></a>shell脚本一键生成icon</h1><blockquote>
+<p>在iOS开发中icon需要很多尺寸。具体需要哪些在<a href="https://zcwlwen.online/2016/12/29/iOSXcode%E4%B8%ADAppIcon%E8%AE%BE%E7%BD%AE/" target="_blank" rel="noopener">这篇文章</a>中有介绍。<br>所以有的时候需要我们去处理些图片。当然我们可以直接使用sketch生成相应的icon，但是因为需要的种类比较多，这样不够方便。所以打算写一个脚本，给一个icon可以生成我要需要的icon。</p>
+</blockquote>
+<p>首先分析我们的需求只要简单的图片大小的改变和给图片重命名就可以完成我们的需求。搜索后查到mac上有sips可以处理，也可以用ImageMagicks。ImageMagick支持linux。</p>
+<h3 id="Mac下使用sips"><a href="#Mac下使用sips" class="headerlink" title="Mac下使用sips"></a>Mac下使用sips</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>Mac下自带这个sips不需要安装</p>
+<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">fileName=$1</span><br><span class="line">echo "开始生成图标······"</span><br><span class="line">sips -z 20 20 $fileName --out icon20@1x.png</span><br><span class="line">sips -z 40 40 $fileName --out icon20@2x.png</span><br><span class="line">sips -z 60 60 $fileName --out icon20@3x.png</span><br><span class="line">echo "20pt图标生成······"</span><br><span class="line">sips -z 29 29 $fileName --out icon29@1x.png</span><br><span class="line">sips -z 58 58 $fileName --out icon29@2x.png</span><br><span class="line">sips -z 87 87 $fileName --out icon29@3x.png</span><br><span class="line">echo "29pt图标生成······"</span><br><span class="line">sips -z 40 40 $fileName --out icon40@1x.png</span><br><span class="line">sips -z 80 80 $fileName --out icon40@2x.png</span><br><span class="line">sips -z 120 120 $fileName --out icon40@3x.png</span><br><span class="line">echo "40pt图标生成······"</span><br><span class="line">sips -z 50 50 $fileName --out icon50@1x.png</span><br><span class="line">sips -z 100 100 $fileName --out icon50@2x.png</span><br><span class="line">sips -z 150 150 $fileName --out icon50@3x.png</span><br><span class="line">echo "50pt图标生成······"</span><br><span class="line">sips -z 57 57 $fileName --out icon57@1x.png</span><br><span class="line">sips -z 114 114 $fileName --out icon57@2x.png</span><br><span class="line">sips -z 171 171 $fileName --out icon57@3x.png</span><br><span class="line">echo "57pt图标生成······"</span><br><span class="line">sips -z 60 60 $fileName --out icon60@1x.png</span><br><span class="line">sips -z 120 120 $fileName --out icon60@2x.png</span><br><span class="line">sips -z 180 180 $fileName --out icon60@3x.png</span><br><span class="line">echo "60pt图标生成······"</span><br><span class="line">sips -z 72 72 $fileName --out icon72@1x.png</span><br><span class="line">sips -z 144 144 $fileName --out icon72@2x.png</span><br><span class="line">sips -z 216 216 $fileName --out icon72@3x.png</span><br><span class="line">echo "72pt图标生成······"</span><br><span class="line">sips -z 76 76 $fileName --out icon76@1x.png</span><br><span class="line">sips -z 152 152 $fileName --out icon76@2x.png</span><br><span class="line">sips -z 228 228 $fileName --out icon76@3x.png</span><br><span class="line">echo "76pt图标生成······"</span><br><span class="line">sips -z 167 167 $fileName --out icon83.5@2x.png</span><br><span class="line">echo "83.5pt图标生成······"</span><br><span class="line">echo "全部图标生成······"</span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong>：</p>
+<p><code>sips -z 167 167 $fileName --out icon83.5@2x.png</code></p>
+<p>-z 后面是宽度和高度 $filName 是你要处理的图片 –out是保存处理后的图片</p>
+<p>关于sips的其他命令可以执行<code>man sips</code>或者<code>sips --help</code>查看。<br>这里方便Xcode识别所以用@1x、@2x、@3x来命名。</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在终端打开直接执行这个脚本后面跟上要处理的图片就可以了。图片分辨率不能很低于228x228并且保证比例为1：1。例如：</p>
+<p><code>./ios_icon_shell_sips.sh icon500.png</code></p>
+<p>这里就是处理的icon500.png这个图片，在当前目录下生成了所以需要的图片。</p>
+<h3 id="使用ImageMagick"><a href="#使用ImageMagick" class="headerlink" title="使用ImageMagick"></a>使用ImageMagick</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>ImageMagic的安装请参考<a href="https://zcwlwen.online/2017/01/06/ImageMagick%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">这篇文章</a>。</p>
+<h4 id="脚本-1"><a href="#脚本-1" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">fileName=$1</span><br><span class="line">echo &quot;开始生成图标······&quot;</span><br><span class="line">convert -resize 20x20 $fileName icon20@1x.png</span><br><span class="line">convert -resize 40x40 $fileName icon20@2x.png</span><br><span class="line">convert -resize 60x60 $fileName icon20@3x.png</span><br><span class="line">echo &quot;20pt图标生成······&quot;</span><br><span class="line">convert -resize 29x29 $fileName icon29@1x.png</span><br><span class="line">convert -resize 58x58 $fileName icon29@2x.png</span><br><span class="line">convert -resize 87x87 $fileName icon29@3x.png</span><br><span class="line">echo &quot;29pt图标生成······&quot;</span><br><span class="line">convert -resize 40x40 $fileName icon40@1x.png</span><br><span class="line">convert -resize 80x80 $fileName icon40@2x.png</span><br><span class="line">convert -resize 120x120 $fileName icon40@3x.png</span><br><span class="line">echo &quot;40pt图标生成······&quot;</span><br><span class="line">convert -resize 50x50 $fileName icon50@1x.png</span><br><span class="line">convert -resize 100x100 $fileName icon50@2x.png</span><br><span class="line">convert -resize 150x150 $fileName icon50@3x.png</span><br><span class="line">echo &quot;50pt图标生成······&quot;</span><br><span class="line">convert -resize 57x57 $fileName icon57@1x.png</span><br><span class="line">convert -resize 114x114 $fileName icon57@2x.png</span><br><span class="line">convert -resize 171x171 $fileName icon57@3x.png</span><br><span class="line">echo &quot;57pt图标生成······&quot;</span><br><span class="line">convert -resize 60x60 $fileName icon60@1x.png</span><br><span class="line">convert -resize 120x120  $fileName icon60@2x.png</span><br><span class="line">convert -resize 180x180  $fileName icon60@3x.png</span><br><span class="line">echo &quot;60pt图标生成······&quot;</span><br><span class="line">convert -resize 72x72 $fileName icon72@1x.png</span><br><span class="line">convert -resize 144x144 $fileName icon72@2x.png</span><br><span class="line">convert -resize 216x216 $fileName icon72@3x.png</span><br><span class="line">echo &quot;72pt图标生成······&quot;</span><br><span class="line">convert -resize 76x76 $fileName icon76@1x.png</span><br><span class="line">convert -resize 152x152 $fileName icon76@2x.png</span><br><span class="line">convert -resize 228x228 $fileName icon76@3x.png</span><br><span class="line">echo &quot;76pt图标生成······&quot;</span><br><span class="line">convert -resize 167x167 $fileName icon83.5@2x.png</span><br><span class="line">echo &quot;83.5pt图标生成······&quot;</span><br><span class="line">echo &quot;全部图标生成······&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong></p>
+<p><code>convert -resize 167x167 $fileName icon83.5@2x.png</code></p>
+<p>-resize 后面跟分辨率宽度和高度 <code>$fileName</code>为要处理的图片<br>后面跟的是处理后的图片</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>目前在最新版的macOS sierra(10.12)上不支持。在linux和老版本macOS上可以使用。</p>
+<p>目前这个脚本还比较简单，只是实现了最基本的功能。并没有对输入文件进行格式判断，与分辨率判断。后面有时间继续完善。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/06/ImageMagick%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/06/ImageMagick%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">ImageMagick安装与使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-06 14:56:30" itemprop="dateCreated datePublished" datetime="2017-01-06T14:56:30+08:00">2017-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ImageMagick安装与使用"><a href="#ImageMagick安装与使用" class="headerlink" title="ImageMagick安装与使用"></a>ImageMagick安装与使用</h1><h2 id="ubuntu下安装ImageMagick"><a href="#ubuntu下安装ImageMagick" class="headerlink" title="ubuntu下安装ImageMagick"></a>ubuntu下安装ImageMagick</h2><p>直接使用<code>apt-get</code>安装就可以了</p>
+<p><code>sudo apt-get install imagemagick</code></p>
+<p>安装成功后使用</p>
+<p><code>convert -version</code></p>
+<p>如果看到版本信息，说明安装成功。</p>
+<h2 id="Mac下安装ImageMagick"><a href="#Mac下安装ImageMagick" class="headerlink" title="Mac下安装ImageMagick"></a>Mac下安装ImageMagick</h2><blockquote>
+<p>首先，目前macOS Sierra（10.12）上不能用。而且通过homebrew安装失败，通过Macports安装也不成功。通过源码编译安装后，安装成功但是不能使用。在最新的系统上还不支持，之前的系统应该是支持的。这里记录一下安装过程。具体也可以直接查看官方文档。</p>
+</blockquote>
+<p>首先分析一下安装遇到的问题：</p>
+<p>使用homebrew安装的时候使用<code>brew install imagemagick</code>安装。执行时会提示下面的错<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-06-092548.jpg" alt><br>首先是警告：目前没有发布版本给最新的10.12系统。可能会编译错误。<br>后面还有一个错误是下载依赖包失败。打开错误地址没法访问。应该是地址换过了。更新下homebrew再安装应该可以执行。但是我这里更新homebrew时卡住不动。所以我选择了使用源码编译安装。</p>
+<p><strong>源码编译安装：</strong></p>
+<p>下载地址：<a href="http://www.imagemagick.org/script/binary-releases.php#unix" target="_blank" rel="noopener">官网地址</a></p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-06-093437.jpg" alt></p>
+<p>可以看到官网只有10.11版本的没有兼容最新版的10.12。<br>下载下来后，把压缩包拷贝到主目录下。</p>
+<p>打开终端：</p>
+<p><code>cd $HOME</code></p>
+<p>解压：</p>
+<p><code>tar xvzf ImageMagick-x86_64-apple-darwin15.2.0.tar.gz</code></p>
+<p>设置<code>MAGICK_HOME</code>环境变量设置为你解压后的目录</p>
+<p><code>export MAGICK_HOME=&quot;$HOME/ImageMagick-7.0.4&quot;</code></p>
+<p>如果解压包的bin目录不在可执行的搜索路径中，要将它添加到<code>PATH</code>环境变量。</p>
+<p><code>export PATH=&quot;$MAGICK_HOME/bin:$PATH&quot;</code></p>
+<p>设置DYLD_LIBRARY_PATH环境变量：</p>
+<p><code>export DYLD_LIBRARY_PATH=&quot;$MAGICK_HOME/lib/&quot;</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/06/macOS-Sierra%E4%B8%8B%E5%AE%89%E8%A3%85MacPorts/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/06/macOS-Sierra%E4%B8%8B%E5%AE%89%E8%A3%85MacPorts/" class="post-title-link" itemprop="url">macOS Sierra下安装MacPorts</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-06 14:35:46" itemprop="dateCreated datePublished" datetime="2017-01-06T14:35:46+08:00">2017-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="macOS-Sierra下安装MacPorts"><a href="#macOS-Sierra下安装MacPorts" class="headerlink" title="macOS Sierra下安装MacPorts"></a>macOS Sierra下安装MacPorts</h1><blockquote>
+<p>应为需要想要安装ImageMagick，ImageMagick是一个图片处理库。搜索了安装教程后发现可以使用。homebrew安装，Macport安装，还有就是下载后编译安装。</p>
+</blockquote>
+<p>因为使用homebrew安装失败，而且官网的安装说明是使用的MacPorts，因为没有使用过MacPorts所以打算尝试使用一波。</p>
+<ol>
+<li>首先要安装Xcode，直接在AppStore中下载安装就可以。</li>
+<li>安装MacPorts。</li>
+</ol>
+<p>官方推荐了两种方法。一是直接使用pkg包安装，但是我使用这种方法安装，会一直卡在Running package scripts这一步。具体原因不知道。所以我使用的是手动编译安装。下面是手动安装步骤：</p>
+<ul>
+<li>下载源码</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -O https://distfiles.macports.org/MacPorts/MacPorts-2.3.5.tar.bz2</span><br><span class="line">$ tar xf MacPorts-2.3.5.tar.bz2</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ cd MacPorts-2.3.5/</span><br><span class="line">$ ./configure</span><br><span class="line">$ make</span><br><span class="line">$ sudo make install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置系统变量</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/opt/local/bin:/opt/local/sbin:$PATH</span><br><span class="line">export MANPATH=/opt/local/share/man:$MANPATH</span><br><span class="line">export DISPLAY=:0.0</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/04/iOS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8BApp%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/04/iOS%E5%9F%BA%E7%A1%80%E7%B3%BB%E5%88%97%E4%B9%8BApp%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="post-title-link" itemprop="url">iOS基础系列之App生命周期</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-04 15:39:40" itemprop="dateCreated datePublished" datetime="2017-01-04T15:39:40+08:00">2017-01-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS基础系列之App生命周期"><a href="#iOS基础系列之App生命周期" class="headerlink" title="iOS基础系列之App生命周期"></a>iOS基础系列之App生命周期</h1><h2 id="应用程序的执行状态"><a href="#应用程序的执行状态" class="headerlink" title="应用程序的执行状态"></a>应用程序的执行状态</h2><blockquote>
+<p>在任何特定的时刻，你的应用都会处于一种状态下。而且系统会根据系统中发生的操作将你的应用从一个状态移动到另一个状态。</p>
+</blockquote>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="left">State （状态）</th>
+<th align="right">Description（描述）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Not running（未运行）</td>
+<td align="right">应用并未启动，或者正在运行但是被系统终止</td>
+</tr>
+<tr>
+<td align="left">Inactive（非活动）</td>
+<td align="right">应用正在前台运行，但是当前没有接收事件。一个应用通常只会短暂处于这种状态，它可能正过渡到其他状态</td>
+</tr>
+<tr>
+<td align="left">Active （活动）</td>
+<td align="right">应用正在前台运行，并正在接收事件。这是前台应用程序的正常模式</td>
+</tr>
+<tr>
+<td align="left">Background （后台）</td>
+<td align="right">应用在后台运行并执行代码，大多数应用进入后台后不久就会进入到暂停状态。但是应用可以保持一段时间在后台</td>
+</tr>
+<tr>
+<td align="left">Suspended （暂停）</td>
+<td align="right">应用程序在后台，但是不执行代码。系统会自动将应用程序调整到这种状态。处于这种状态的时候应用会保存在内存中，但是不执行代码。当打开程序多的时候，系统会自动清除内存中已经暂停的应用为前台应用腾出更多空间</td>
+</tr>
+</tbody></table>
+<hr>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-04-082215.jpg" alt></p>
+<h2 id="代理方法"><a href="#代理方法" class="headerlink" title="代理方法"></a>代理方法</h2><p>大多数的状态转换都伴随调用你的应用的代理方法。这些方法是你处理状态改变的合适时机。</p>
+<ul>
+<li><code>application:willFinishLaunchingWithOptions:</code>应用将要进入初始化操作开始启动应用</li>
+<li><code>application:didFinishLaunchingWithOptions:</code>应用完成了初始化操作，开始运行</li>
+<li><code>applicationDidBecomeActive:</code>应用进入活跃状态，接收事件</li>
+<li><code>applicationWillResignActive:</code>应用将要进入非活跃状态。比如电话来了，或者双击home键</li>
+<li><code>applicationDidEnterBackground:</code>应用处于后台状态</li>
+<li><code>applicationWillEnterForeground:</code>应用将要进入前台执行</li>
+<li><code>applicationWillTerminate:</code>应用退出前执行</li>
+</ul>
+<p>应用开始运行按顺序执行了</p>
+<ul>
+<li>willFinishLaunchingWithOptions</li>
+<li>didFinishLaunchingWithOptions</li>
+<li>applicationDidBecomeActive</li>
+</ul>
+<p>点击home键后执行了</p>
+<ul>
+<li>applicationWillResignActive</li>
+<li>applicationDidEnterBackground</li>
+</ul>
+<p>双击home键重新进入app</p>
+<ul>
+<li>applicationWillEnterForeground</li>
+<li>applicationDidBecomeActive</li>
+</ul>
+<p>双击home键 （不做操作的话一直处于这个状态）</p>
+<ul>
+<li>applicationWillResignActive</li>
+</ul>
+<p>关闭应用</p>
+<ul>
+<li>applicationDidEnterBackground</li>
+<li>applicationWillTerminate</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/03/Objective-C%E9%BB%91%E9%AD%94%E6%B3%95Method-Swizzling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/03/Objective-C%E9%BB%91%E9%AD%94%E6%B3%95Method-Swizzling/" class="post-title-link" itemprop="url">Objective-C黑魔法Method Swizzling</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-03 17:27:19" itemprop="dateCreated datePublished" datetime="2017-01-03T17:27:19+08:00">2017-01-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Objective-C黑魔法Method-Swizzling"><a href="#Objective-C黑魔法Method-Swizzling" class="headerlink" title="Objective-C黑魔法Method Swizzling"></a>Objective-C黑魔法Method Swizzling</h1><p>Method Swizzling是用来改变已经存在的方法。理解这项技术的前提要了解Objective-C的语言特性，动态性和消息转发机制。</p>
+<p>这项技术是在运行时通过更改方法在类的消息分发列表中的映射使用新的方法替换原来的方法。</p>
+<p>使用场景：</p>
+<p><strong>我们要统计App在每个界面的展示次数</strong></p>
+<p>三种方法，一种是最暴力的在viewDidAppear中添加处理代码，但是这样会出现很多重复代码，增加冗余。第二种是写一个父类，在父类的viewDidAppear方法中添加处理代码。以后新建控制器都要继承自这个父类。这样做虽然减少了冗余，但是因为会有UIViewController、UITableViewController等都要添加处理代码，并且不利于新人接手项目。第三种方法就是Method Swizzling，通过这种方法替换原来的方法，实现我们要的效果。</p>
+<p><strong>自己写一个安全的NSDictionary、NSArray、NSNull类</strong></p>
+<p>Objective-C是不支持把nil赋值给NSDictionary的key和value、和NSArray的值的。这时候我们需要写一个更安全的类把nil替换。这里就要用到Method Swizzling</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/29/iOSXcode%E4%B8%ADAppIcon%E8%AE%BE%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/29/iOSXcode%E4%B8%ADAppIcon%E8%AE%BE%E7%BD%AE/" class="post-title-link" itemprop="url">iOSXcode中AppIcon设置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-29 14:34:07" itemprop="dateCreated datePublished" datetime="2016-12-29T14:34:07+08:00">2016-12-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS开发中AppIcon设置"><a href="#iOS开发中AppIcon设置" class="headerlink" title="iOS开发中AppIcon设置"></a>iOS开发中AppIcon设置</h1><h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><p><strong>PX（Pixel）</strong>:像素点，电子屏幕上组成图像的最基本单位，相对大小。</p>
+<p><strong>PT（Point）</strong>:点，印刷行业常用单位，是一个标准长度，绝对大小。1pt=1/72英寸。在iOS开发中是基准单位</p>
+<p><strong>PPI(Pixel Per Inch)</strong>: 图像分辨率，每英寸包含的像素数。</p>
+<p><strong>DPI(Dots Pre Inch)</strong>:打印分辨率，像素密度，每英寸包含的打印点数。</p>
+<h2 id="开发中需要的Icon的尺寸"><a href="#开发中需要的Icon的尺寸" class="headerlink" title="开发中需要的Icon的尺寸"></a>开发中需要的Icon的尺寸</h2><p>打开Assets.xcassets打开AppIcon可以看到里面需要的图片尺寸。<br>这里用通用设备举例，包含iPhone和iPad中的Icon。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072121.jpg" alt><br>例如<code>iPhone Notification iOS7-10 20pt</code>需要2x和3x的图片。意思就是需要分辨率为40x40(单位是px)的图片，和60x60的图片。我使用的是Sketch。直接设置成20x20的图片然后导出2x和3x的图片。<br>从截图中可以看到有20、29、40、50、57、60、72、76、83.5九种格式的Icon。并且需要的倍率也很清楚。按照相应的要求在Sketch中导出需要倍率的Icon就可以了。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/28/Mac%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/12/28/Mac%E5%85%8D%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%E5%88%B0%E9%98%BF%E9%87%8C%E4%BA%91%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">Mac免密码登录到阿里云配置</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-12-28 14:32:43" itemprop="dateCreated datePublished" datetime="2016-12-28T14:32:43+08:00">2016-12-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mac下配置免密码登录到阿里云"><a href="#Mac下配置免密码登录到阿里云" class="headerlink" title="Mac下配置免密码登录到阿里云"></a>Mac下配置免密码登录到阿里云</h1><h3 id="本机创建公钥"><a href="#本机创建公钥" class="headerlink" title="本机创建公钥"></a>本机创建公钥</h3><p>打开终端输入<code>ls ~/.ssh</code><br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072230.jpg" alt><br>如果有公钥就不需要再去生成公钥，如果没有的话需要现在本地先生成公钥使用<code>ssh-keygen -t rsa</code>命令生成公钥。执行成功后会生成两个文件，没有后缀名的为私钥，后缀名为.pub的为公钥。</p>
+<h3 id="复制公钥到服务器"><a href="#复制公钥到服务器" class="headerlink" title="复制公钥到服务器"></a>复制公钥到服务器</h3><p><strong>简单方法</strong></p>
+<p>Mac上可以借助<code>ssh-copy-id</code>工具。</p>
+<p>首先使用homebrew安装<code>ssh-copy-id</code>终端下执行<code>brew install ssh-copy-id</code><br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072302.jpg" alt><br>然后执行<code>ssh-copy-id username@hostname</code>  #将username和hostname替换为你的ssh服务器用户名和IP<br>会提示你输入密码。</p>
+<p><strong>通用方法</strong></p>
+<p>手动复制公钥内容到服务器</p>
+<p>可以使用<code>cat</code>命令查看公钥中的内容。<br>添加到<code>.ssh/authorized_keys</code>文件中</p>
+<p>也可以先把公钥拷贝到服务器上在复制公钥内容到authorized_keys文件中。<br><code>scp ~/.ssh/id_rsa.pub username@hostname:~/</code><br>将公钥文件复制至ssh服务器</p>
+<p><code>ssh username@hostname</code><br>使用用户名和密码方式登录至ssh服务器</p>
+<p><code>cat id_rsa.pub &gt;&gt; .ssh/authorized_keys</code><br>将公钥文件id_rsa.pub文件内容追加到authorized_keys中</p>
+<h3 id="ssh免密码的登录"><a href="#ssh免密码的登录" class="headerlink" title="ssh免密码的登录"></a>ssh免密码的登录</h3><p>使用ssh命令登录到服务器不在需要密码<br><code>ssh username@hostname</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

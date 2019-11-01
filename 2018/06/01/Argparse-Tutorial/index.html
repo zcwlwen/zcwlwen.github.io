@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Argparse Tutorial这篇教程简明地介绍了Python标准库推荐使用的命令行参数解析模块——Argparse的使用  注意  还有两个完成相同任务的其他模块，即getopt （与C语言相当的getopt() ）和已弃用的optparse 。 还要注意， argparse基于optparse ，因此在使用方面非常相似。  概念让我们来看看我们将在本入门教程中使用ls命令的功能： 1234">
+<meta name="keywords" content="python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Argparse Tutorial">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2018&#x2F;06&#x2F;01&#x2F;Argparse-Tutorial&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="Argparse Tutorial这篇教程简明地介绍了Python标准库推荐使用的命令行参数解析模块——Argparse的使用  注意  还有两个完成相同任务的其他模块，即getopt （与C语言相当的getopt() ）和已弃用的optparse 。 还要注意， argparse基于optparse ，因此在使用方面非常相似。  概念让我们来看看我们将在本入门教程中使用ls命令的功能： 1234">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.412Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2018/06/01/Argparse-Tutorial/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Argparse Tutorial | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/01/Argparse-Tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Argparse Tutorial
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-01 15:46:28" itemprop="dateCreated datePublished" datetime="2018-06-01T15:46:28+08:00">2018-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Argparse-Tutorial"><a href="#Argparse-Tutorial" class="headerlink" title="Argparse Tutorial"></a>Argparse Tutorial</h1><p>这篇教程简明地介绍了Python标准库推荐使用的命令行参数解析模块——Argparse的使用</p>
+<blockquote>
+<p>注意  还有两个完成相同任务的其他模块，即getopt （与C语言相当的getopt() ）和已弃用的optparse 。 还要注意， argparse基于optparse ，因此在使用方面非常相似。</p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>让我们来看看我们将在本入门教程中使用ls命令的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">cpython  devguide  prog.py  pypy  rm-unused-function.patch</span><br><span class="line">$ ls pypy</span><br><span class="line">ctypes_configure  demo  dotviewer  include  lib_pypy  lib-python ...</span><br><span class="line">$ ls -l</span><br><span class="line">total 20</span><br><span class="line">drwxr-xr-x 19 wena wena 4096 Feb 18 18:51 cpython</span><br><span class="line">drwxr-xr-x  4 wena wena 4096 Feb  8 12:04 devguide</span><br><span class="line">-rwxr-xr-x  1 wena wena  535 Feb 19 00:05 prog.py</span><br><span class="line">drwxr-xr-x 14 wena wena 4096 Feb  7 00:59 pypy</span><br><span class="line">-rw-r--r--  1 wena wena  741 Feb 18 01:01 rm-unused-function.patch</span><br><span class="line">$ ls --help</span><br><span class="line">Usage: ls [OPTION]... [FILE]...</span><br><span class="line">List information about the FILEs (the current directory by default).</span><br><span class="line">Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>让我们开始一个简单的例子（它什么也没做）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.parse_args()</span><br></pre></td></tr></table></figure>
+
+<p>以下是运行代码的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py</span><br><span class="line">$ python3 prog.py --help</span><br><span class="line">usage: prog.py [-h]</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help  show this help message and exit</span><br><span class="line">$ python3 prog.py --verbose</span><br><span class="line">usage: prog.py [-h]</span><br><span class="line">prog.py: error: unrecognized arguments: --verbose</span><br><span class="line">$ python3 prog.py foo</span><br><span class="line">usage: prog.py [-h]</span><br><span class="line">prog.py: error: unrecognized arguments: foo</span><br></pre></td></tr></table></figure>
+
+<p>运行结果分析：</p>
+<ul>
+<li>不提供参数运行这个脚本，不会输出任何东西</li>
+<li>第二步显示了argparse的好处，你什么也没做，却得到了一个很好的帮助信息。</li>
+<li>–help可以简写成-h，可以得到帮助信息</li>
+</ul>
+<h2 id="介绍位置参数"><a href="#介绍位置参数" class="headerlink" title="介绍位置参数"></a>介绍位置参数</h2><p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;echo&quot;)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.echo)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py</span><br><span class="line">usage: prog.py [-h] echo</span><br><span class="line">prog.py: error: the following arguments are required: echo</span><br><span class="line">$ python3 prog.py --help</span><br><span class="line">usage: prog.py [-h] echo</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  echo</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help  show this help message and exit</span><br><span class="line">$ python3 prog.py foo</span><br><span class="line">foo</span><br></pre></td></tr></table></figure>
+
+<p>运行分析：</p>
+<ul>
+<li>我们添加了<code>add_argument（）</code>方法，这个方法是我们用来指定程序接受的哪些命令行选项。 在这种情况下，我将其命名为echo，使其符合其功能。</li>
+<li>现在调用我们的程序要求我们指定一个参数。<br>parse_args（）方法实际上从指定的选项返回一些数据，在这种情况下为echo。</li>
+<li>该变量argparse自动执行的的（即不需要指定该值存储在哪里）。 您还会注意到它的名称与给定的方法echo的字符串参数匹配。</li>
+</ul>
+<p>补充需要输入一个参数。然后脚本输出这个参数。</p>
+<p>尽管自动产生的信息已经很友好，但是我们仍然不能知道参数的具体信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;echo&quot;, help=&quot;echo the string you use here&quot;)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.echo)</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py -h</span><br><span class="line">usage: prog.py [-h] echo</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  echo        echo the string you use here</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help  show this help message and exit</span><br></pre></td></tr></table></figure>
+
+<p>现在，在做一些更有意义的事：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;square&quot;, help=&quot;display a square of a given number&quot;)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.square**2)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py 4</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;prog.py&quot;, line 5, in &lt;module&gt;</span><br><span class="line">    print(args.square**2)</span><br><span class="line">TypeError: unsupported operand type(s) for ** or pow(): &apos;str&apos; and &apos;int&apos;</span><br></pre></td></tr></table></figure>
+
+<p>脚本运行出错。因为默认情况下，argparse会把给他的选项视为字符串。所以我们应该对类型进行另外的说明。告诉argparse把输入的参数视为整数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;square&quot;, help=&quot;display a square of a given number&quot;,</span><br><span class="line">                    type=int)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.square**2)</span><br></pre></td></tr></table></figure>
+<p>运行代码查看结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py 4</span><br><span class="line">16</span><br><span class="line">$ python3 prog.py four</span><br><span class="line">usage: prog.py [-h] square</span><br><span class="line">prog.py: error: argument square: invalid int value: &apos;four&apos;</span><br></pre></td></tr></table></figure>
+<p>运行成功，而且可以检测非法输入。</p>
+<h2 id="介绍可选参数"><a href="#介绍可选参数" class="headerlink" title="介绍可选参数"></a>介绍可选参数</h2><p>2017年07月07日16:12:05<br>后面继续翻译<br><a href="https://docs.python.org/3/howto/argparse.html#id1" target="_blank" rel="noopener">https://docs.python.org/3/howto/argparse.html#id1</a></p>
+<p><a href="https://blog.ixxoo.me/argparse.html" target="_blank" rel="noopener">中文https://blog.ixxoo.me/argparse.html</a></p>
+<pre><code></code></pre>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2018/01/30/%E4%B8%8B%E8%BD%BDGooglePlay%E4%B8%AD%E5%BA%94%E7%94%A8%E7%9A%84apk%E6%96%87%E4%BB%B6/" rel="next" title="下载GooglePlay中应用的apk文件">
+                  <i class="fa fa-chevron-left"></i> 下载GooglePlay中应用的apk文件
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2018/06/01/GStreamer%E4%B8%ADaudiomixer/" rel="prev" title="GStreamer中audiomixer">
+                  GStreamer中audiomixer <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Argparse-Tutorial"><span class="nav-number">1.</span> <span class="nav-text">Argparse Tutorial</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础"><span class="nav-number">1.2.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍位置参数"><span class="nav-number">1.3.</span> <span class="nav-text">介绍位置参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍可选参数"><span class="nav-number">1.4.</span> <span class="nav-text">介绍可选参数</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

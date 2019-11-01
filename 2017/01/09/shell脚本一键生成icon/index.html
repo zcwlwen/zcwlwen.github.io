@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="shell脚本一键生成icon 在iOS开发中icon需要很多尺寸。具体需要哪些在这篇文章中有介绍。所以有的时候需要我们去处理些图片。当然我们可以直接使用sketch生成相应的icon，但是因为需要的种类比较多，这样不够方便。所以打算写一个脚本，给一个icon可以生成我要需要的icon。  首先分析我们的需求只要简单的图片大小的改变和给图片重命名就可以完成我们的需求。搜索后查到mac上有sips可">
+<meta name="keywords" content="ImageMagick sips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell脚本一键生成icon">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2017&#x2F;01&#x2F;09&#x2F;shell%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90icon&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="shell脚本一键生成icon 在iOS开发中icon需要很多尺寸。具体需要哪些在这篇文章中有介绍。所以有的时候需要我们去处理些图片。当然我们可以直接使用sketch生成相应的icon，但是因为需要的种类比较多，这样不够方便。所以打算写一个脚本，给一个icon可以生成我要需要的icon。  首先分析我们的需求只要简单的图片大小的改变和给图片重命名就可以完成我们的需求。搜索后查到mac上有sips可">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.509Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2017/01/09/shell%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90icon/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>shell脚本一键生成icon | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/09/shell%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90icon/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          shell脚本一键生成icon
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-09 10:08:36" itemprop="dateCreated datePublished" datetime="2017-01-09T10:08:36+08:00">2017-01-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="shell脚本一键生成icon"><a href="#shell脚本一键生成icon" class="headerlink" title="shell脚本一键生成icon"></a>shell脚本一键生成icon</h1><blockquote>
+<p>在iOS开发中icon需要很多尺寸。具体需要哪些在<a href="https://zcwlwen.online/2016/12/29/iOSXcode%E4%B8%ADAppIcon%E8%AE%BE%E7%BD%AE/" target="_blank" rel="noopener">这篇文章</a>中有介绍。<br>所以有的时候需要我们去处理些图片。当然我们可以直接使用sketch生成相应的icon，但是因为需要的种类比较多，这样不够方便。所以打算写一个脚本，给一个icon可以生成我要需要的icon。</p>
+</blockquote>
+<p>首先分析我们的需求只要简单的图片大小的改变和给图片重命名就可以完成我们的需求。搜索后查到mac上有sips可以处理，也可以用ImageMagicks。ImageMagick支持linux。</p>
+<h3 id="Mac下使用sips"><a href="#Mac下使用sips" class="headerlink" title="Mac下使用sips"></a>Mac下使用sips</h3><h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>Mac下自带这个sips不需要安装</p>
+<h4 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">fileName=$1</span><br><span class="line">echo "开始生成图标······"</span><br><span class="line">sips -z 20 20 $fileName --out icon20@1x.png</span><br><span class="line">sips -z 40 40 $fileName --out icon20@2x.png</span><br><span class="line">sips -z 60 60 $fileName --out icon20@3x.png</span><br><span class="line">echo "20pt图标生成······"</span><br><span class="line">sips -z 29 29 $fileName --out icon29@1x.png</span><br><span class="line">sips -z 58 58 $fileName --out icon29@2x.png</span><br><span class="line">sips -z 87 87 $fileName --out icon29@3x.png</span><br><span class="line">echo "29pt图标生成······"</span><br><span class="line">sips -z 40 40 $fileName --out icon40@1x.png</span><br><span class="line">sips -z 80 80 $fileName --out icon40@2x.png</span><br><span class="line">sips -z 120 120 $fileName --out icon40@3x.png</span><br><span class="line">echo "40pt图标生成······"</span><br><span class="line">sips -z 50 50 $fileName --out icon50@1x.png</span><br><span class="line">sips -z 100 100 $fileName --out icon50@2x.png</span><br><span class="line">sips -z 150 150 $fileName --out icon50@3x.png</span><br><span class="line">echo "50pt图标生成······"</span><br><span class="line">sips -z 57 57 $fileName --out icon57@1x.png</span><br><span class="line">sips -z 114 114 $fileName --out icon57@2x.png</span><br><span class="line">sips -z 171 171 $fileName --out icon57@3x.png</span><br><span class="line">echo "57pt图标生成······"</span><br><span class="line">sips -z 60 60 $fileName --out icon60@1x.png</span><br><span class="line">sips -z 120 120 $fileName --out icon60@2x.png</span><br><span class="line">sips -z 180 180 $fileName --out icon60@3x.png</span><br><span class="line">echo "60pt图标生成······"</span><br><span class="line">sips -z 72 72 $fileName --out icon72@1x.png</span><br><span class="line">sips -z 144 144 $fileName --out icon72@2x.png</span><br><span class="line">sips -z 216 216 $fileName --out icon72@3x.png</span><br><span class="line">echo "72pt图标生成······"</span><br><span class="line">sips -z 76 76 $fileName --out icon76@1x.png</span><br><span class="line">sips -z 152 152 $fileName --out icon76@2x.png</span><br><span class="line">sips -z 228 228 $fileName --out icon76@3x.png</span><br><span class="line">echo "76pt图标生成······"</span><br><span class="line">sips -z 167 167 $fileName --out icon83.5@2x.png</span><br><span class="line">echo "83.5pt图标生成······"</span><br><span class="line">echo "全部图标生成······"</span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong>：</p>
+<p><code>sips -z 167 167 $fileName --out icon83.5@2x.png</code></p>
+<p>-z 后面是宽度和高度 $filName 是你要处理的图片 –out是保存处理后的图片</p>
+<p>关于sips的其他命令可以执行<code>man sips</code>或者<code>sips --help</code>查看。<br>这里方便Xcode识别所以用@1x、@2x、@3x来命名。</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h4><p>在终端打开直接执行这个脚本后面跟上要处理的图片就可以了。图片分辨率不能很低于228x228并且保证比例为1：1。例如：</p>
+<p><code>./ios_icon_shell_sips.sh icon500.png</code></p>
+<p>这里就是处理的icon500.png这个图片，在当前目录下生成了所以需要的图片。</p>
+<h3 id="使用ImageMagick"><a href="#使用ImageMagick" class="headerlink" title="使用ImageMagick"></a>使用ImageMagick</h3><h4 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h4><p>ImageMagic的安装请参考<a href="https://zcwlwen.online/2017/01/06/ImageMagick%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">这篇文章</a>。</p>
+<h4 id="脚本-1"><a href="#脚本-1" class="headerlink" title="脚本"></a>脚本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">fileName=$1</span><br><span class="line">echo &quot;开始生成图标······&quot;</span><br><span class="line">convert -resize 20x20 $fileName icon20@1x.png</span><br><span class="line">convert -resize 40x40 $fileName icon20@2x.png</span><br><span class="line">convert -resize 60x60 $fileName icon20@3x.png</span><br><span class="line">echo &quot;20pt图标生成······&quot;</span><br><span class="line">convert -resize 29x29 $fileName icon29@1x.png</span><br><span class="line">convert -resize 58x58 $fileName icon29@2x.png</span><br><span class="line">convert -resize 87x87 $fileName icon29@3x.png</span><br><span class="line">echo &quot;29pt图标生成······&quot;</span><br><span class="line">convert -resize 40x40 $fileName icon40@1x.png</span><br><span class="line">convert -resize 80x80 $fileName icon40@2x.png</span><br><span class="line">convert -resize 120x120 $fileName icon40@3x.png</span><br><span class="line">echo &quot;40pt图标生成······&quot;</span><br><span class="line">convert -resize 50x50 $fileName icon50@1x.png</span><br><span class="line">convert -resize 100x100 $fileName icon50@2x.png</span><br><span class="line">convert -resize 150x150 $fileName icon50@3x.png</span><br><span class="line">echo &quot;50pt图标生成······&quot;</span><br><span class="line">convert -resize 57x57 $fileName icon57@1x.png</span><br><span class="line">convert -resize 114x114 $fileName icon57@2x.png</span><br><span class="line">convert -resize 171x171 $fileName icon57@3x.png</span><br><span class="line">echo &quot;57pt图标生成······&quot;</span><br><span class="line">convert -resize 60x60 $fileName icon60@1x.png</span><br><span class="line">convert -resize 120x120  $fileName icon60@2x.png</span><br><span class="line">convert -resize 180x180  $fileName icon60@3x.png</span><br><span class="line">echo &quot;60pt图标生成······&quot;</span><br><span class="line">convert -resize 72x72 $fileName icon72@1x.png</span><br><span class="line">convert -resize 144x144 $fileName icon72@2x.png</span><br><span class="line">convert -resize 216x216 $fileName icon72@3x.png</span><br><span class="line">echo &quot;72pt图标生成······&quot;</span><br><span class="line">convert -resize 76x76 $fileName icon76@1x.png</span><br><span class="line">convert -resize 152x152 $fileName icon76@2x.png</span><br><span class="line">convert -resize 228x228 $fileName icon76@3x.png</span><br><span class="line">echo &quot;76pt图标生成······&quot;</span><br><span class="line">convert -resize 167x167 $fileName icon83.5@2x.png</span><br><span class="line">echo &quot;83.5pt图标生成······&quot;</span><br><span class="line">echo &quot;全部图标生成······&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong></p>
+<p><code>convert -resize 167x167 $fileName icon83.5@2x.png</code></p>
+<p>-resize 后面跟分辨率宽度和高度 <code>$fileName</code>为要处理的图片<br>后面跟的是处理后的图片</p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>目前在最新版的macOS sierra(10.12)上不支持。在linux和老版本macOS上可以使用。</p>
+<p>目前这个脚本还比较简单，只是实现了最基本的功能。并没有对输入文件进行格式判断，与分辨率判断。后面有时间继续完善。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/ImageMagick-sips/" rel="tag"># ImageMagick sips</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2017/01/06/ImageMagick%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/" rel="next" title="ImageMagick安装与使用">
+                  <i class="fa fa-chevron-left"></i> ImageMagick安装与使用
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2017/01/09/Linux-crontab%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/" rel="prev" title="Linux crontab定时任务">
+                  Linux crontab定时任务 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#shell脚本一键生成icon"><span class="nav-number">1.</span> <span class="nav-text">shell脚本一键生成icon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac下使用sips"><span class="nav-number">1.0.1.</span> <span class="nav-text">Mac下使用sips</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用ImageMagick"><span class="nav-number">1.0.2.</span> <span class="nav-text">使用ImageMagick</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装-1"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#脚本-1"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注意"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

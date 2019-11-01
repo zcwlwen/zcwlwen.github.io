@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="iOS,linux,shell,">
+<meta name="keywords" content="iOS,ZCW,Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZCW">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="iOS,linux,shell,">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2019/01/02/iOS12%E5%92%8CXcode10%E9%80%82%E9%85%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/01/02/iOS12%E5%92%8CXcode10%E9%80%82%E9%85%8D/" class="post-title-link" itemprop="url">iOS12和Xcode10适配</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-01-02 23:41:42" itemprop="dateCreated datePublished" datetime="2019-01-02T23:41:42+08:00">2019-01-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS12和Xcode10适配"><a href="#iOS12和Xcode10适配" class="headerlink" title="iOS12和Xcode10适配"></a>iOS12和Xcode10适配</h1><h3 id="Xcode-10-Error-Multiple-commands-produce"><a href="#Xcode-10-Error-Multiple-commands-produce" class="headerlink" title="Xcode 10 Error: Multiple commands produce"></a>Xcode 10 Error: Multiple commands produce</h3>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/12/25/iOS%E4%B8%AD%E5%9C%86%E8%A7%92%E5%AF%B9%E6%80%A7%E8%83%BD%E7%9A%84%E5%BD%B1%E5%93%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/25/iOS%E4%B8%AD%E5%9C%86%E8%A7%92%E5%AF%B9%E6%80%A7%E8%83%BD%E7%9A%84%E5%BD%B1%E5%93%8D/" class="post-title-link" itemprop="url">iOS中圆角对性能的影响</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-25 15:10:03" itemprop="dateCreated datePublished" datetime="2018-12-25T15:10:03+08:00">2018-12-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS中圆角对性能的影响"><a href="#iOS中圆角对性能的影响" class="headerlink" title="iOS中圆角对性能的影响"></a>iOS中圆角对性能的影响</h1><blockquote>
+<p>关于圆角设置问题之前一直存在一些讨论，因为面试中碰到面试官问我这个问题，因为自己的项目中一个界面中用到圆角的个数并不多所以我也没有仔细研究过这个问题，这次趁着这次机会测试一下圆角问题。</p>
+</blockquote>
+<h3 id="圆角设置"><a href="#圆角设置" class="headerlink" title="圆角设置"></a>圆角设置</h3><p>首先我们通过系统的api去设置圆角<code>imageView.layer.cornerRadius = 10;</code><br>通过设置layer的cornerRadius来设置圆角，但是只设置这个虽然说是成功的设置了圆角。但是<code>cornerRadius</code>这个属性只会影响到视图的背景颜色和border。对于UIlabel和UIImageView这样的内部还有其他视图的控件就不能起作用，所以大部分情况下我们还要设置上<code>imageView.layer.masksToBounds = true</code>。这样才能达到我们的预期效果。</p>
+<h3 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h3><p>首先网上查找关于设置圆角的文章，发现之前说的是设置圆角<code>cornerRadius</code>不会触发离屏渲染，设置<code>masksToBounds</code>才会触发离屏渲染，但是并不是只要设置了就会影响性能，只要当涉及到的视图数量够多才会影响性能，使FPS降低。但是我这边测试发现在最新的系统上测试并没有发现性能问题。这里结合代码说明。</p>
+<p>首先创建一个<code>TableView</code>，<code>Cell</code>中每行放多个设置了圆角的<code>ImageView</code>，<br>cell中创建圆角视图的代码：<br><img src="https://ws4.sinaimg.cn/large/006tNbRwly1fyk6woomvaj30r00b640z.jpg" alt></p>
+<p>然后打开Xcode中的调试工具<code>Instrument</code>然后选择<code>Core Animation</code>，<br><img src="https://ws3.sinaimg.cn/large/006tNbRwly1fyk6z1xtkzj316u0o4n1i.jpg" alt></p>
+<p>然后调试后发现当我屏幕中出现很多设置了圆角的<code>ImageView</code>的时候这时候的FPS并没有明显降低，维持在60帧左右，没有出现之前的文章中所说的当一个屏幕中出现超过17个左右的视图后FPS会明显下降，我这里测试的手机是iPhone6S系统时iOS12。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fyk6vi6s7hj30y10u0n3j.jpg" alt></p>
+<p>然后打开Xcode中关于离屏渲染的调试选项，这里说明一下之前的离屏渲染相关的debug选项都在Instrument中，从Xcode9之后把这个选项集成到了Xcode的debug选项中，查找路径是在<code>Xcode-&gt;Debug-&gt;View Debugging-&gt;Rendering-&gt;Color Offscreen Rendered Yellow</code>然后发现并没有触发离屏渲染。可以看出目前我这个视图中已经有超过50个设置了圆角的ImageView，但是并没有影响到FPS。所以关于圆角设置问题我这边认为，只要不是特别特别负责的视图，或者说明显的FPS很低的时候，不用考虑优化问题，直接设置<code>masksToBounds</code>和<code>cornerRadius</code>是没有什么问题的。<br><img src="https://ws1.sinaimg.cn/large/006tNbRwly1fyk7800mlgj30ku112417.jpg" alt></p>
+<h3 id="其他方法设置圆角"><a href="#其他方法设置圆角" class="headerlink" title="其他方法设置圆角"></a>其他方法设置圆角</h3><p>为普通的UIView视图设置圆角的思路通过<code>Core Graphics</code>自己画出了一个圆角矩形，返回的是一个image然后创建一个ImageView视图插入到视图层级的底部。这样就完成了圆角的设置。</p>
+<p>为<code>ImageView</code>设置圆角，思路是获取<code>ImageView</code>的图片，同样通过<code>Core Graphics</code>将image直接截出圆角。</p>
+<p>这个思路是参考这篇文章的。详细的代码可以参考这篇文章，<a href="https://bestswifter.com/efficient-rounded-corner/#uiview" target="_blank" rel="noopener">iOS 高效添加圆角效果实战讲解
+</a></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>推荐直接使用系统提供的API直接设置圆角，如果测试后针对某些机型或者系统存在特别严重的问题后再针对性的调试后优化，如果界面不是特别复杂，过早的优化是没有太大必要的。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/12/14/GStreamer%E4%BD%BF%E7%94%A8tee%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/12/14/GStreamer%E4%BD%BF%E7%94%A8tee%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF/" class="post-title-link" itemprop="url">GStreamer使用tee创建分支</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-14 15:48:34" itemprop="dateCreated datePublished" datetime="2018-12-14T15:48:34+08:00">2018-12-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Gstreamer/" itemprop="url" rel="index">
+                    <span itemprop="name">Gstreamer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="GStreamer使用tee创建分支"><a href="#GStreamer使用tee创建分支" class="headerlink" title="GStreamer使用tee创建分支"></a>GStreamer使用tee创建分支</h1><blockquote>
+<p>可以使用tee命令对一个视频流创建分支。将数据分割成多个数据流的分支。</p>
+<p>需要在每个分支中使用单独的队列元素为每个分支提供单独的线程。否则一个分支阻塞数据流会阻塞其他分支</p>
+<p>使用场景：捕获视频后，其中一个分支显示在屏幕，另一个分支写入文件。播放音频并且挂载可视化模块</p>
+</blockquote>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-05-080129.jpg" alt></p>
+<h2 id="输入源为测试视频、输出为两个流"><a href="#输入源为测试视频、输出为两个流" class="headerlink" title="输入源为测试视频、输出为两个流"></a>输入源为测试视频、输出为两个流</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//tee 测试视频 去掉延时  ----通过</span><br><span class="line">gst-launch-1.0 videotestsrc pattern=pinwheel ! decodebin ! tee name=t ! \</span><br><span class="line">queue ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue ! flvmux streamable=true ! rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos; \ </span><br><span class="line">t. ! queue ! videoconvert ! x264enc ! flvmux streamable=true ! \</span><br><span class="line">queue ! rtmpsink location=&apos;rtmp://192.168.18.188/live/888&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入源为屏幕、输出为两个流"><a href="#输入源为屏幕、输出为两个流" class="headerlink" title="输入源为屏幕、输出为两个流"></a>输入源为屏幕、输出为两个流</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//tee 屏幕打流 去掉延时  ----通过</span><br><span class="line">gst-launch-1.0 ximagesrc ! decodebin ! tee name=t ! \</span><br><span class="line">queue ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue ! flvmux streamable=true ! rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos;  \</span><br><span class="line">t. ! queue ! videoconvert ! x264enc ! flvmux streamable=true ! \</span><br><span class="line">queue ! rtmpsink location=&apos;rtmp://192.168.18.188/live/888&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="输入源为屏幕、输出为两个流（其中一个流加延时）"><a href="#输入源为屏幕、输出为两个流（其中一个流加延时）" class="headerlink" title="输入源为屏幕、输出为两个流（其中一个流加延时）"></a>输入源为屏幕、输出为两个流（其中一个流加延时）</h2><blockquote>
+<p>关键参数：sync=false 设置为不同步否则。出去的两个流都存在延时。</p>
+</blockquote>
+<blockquote>
+<p>而且一定要把tee的两个分支放在不同的queue中。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 ximagesrc startx=0 use-damage=0 ! decodebin ! tee name=t ! \</span><br><span class="line">queue ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000 ! \</span><br><span class="line">flvmux streamable=true ! rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos; t. ! \</span><br><span class="line">queue ! videoconvert ! x264enc ! \</span><br><span class="line">queue ! flvmux streamable=true ! rtmpsink location=&apos;rtmp://192.168.18.188/live/888&apos; sync=false</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/15/GStreamer%E6%B7%BB%E5%8A%A0%E6%B5%81%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/15/GStreamer%E6%B7%BB%E5%8A%A0%E6%B5%81%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">GStreamer添加流延时操作</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-15 15:10:03" itemprop="dateCreated datePublished" datetime="2018-06-15T15:10:03+08:00">2018-06-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GStreamer/" itemprop="url" rel="index">
+                    <span itemprop="name">GStreamer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="GStreamer添加流延时操作"><a href="#GStreamer添加流延时操作" class="headerlink" title="GStreamer添加流延时操作"></a>GStreamer添加流延时操作</h1><blockquote>
+<p>手动添加直播流延时，延时时间可以控制。输入源为测试视频、桌面截屏、rtmp视频流</p>
+</blockquote>
+<h2 id="测试视频测试通过"><a href="#测试视频测试通过" class="headerlink" title="测试视频测试通过"></a>测试视频测试通过</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//默认的几种模式 videotestsrc  延时通过 音频也通过 \</span><br><span class="line">gst-launch-1.0 videotestsrc is-live=true ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue ! flvmux name=mux ! \</span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 ! queue max-size-buffers=0 max-size-time=90000000000 min-threshold-time=6000000000 ! \</span><br><span class="line">rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos; \</span><br><span class="line">audiotestsrc is-live=true ! audioconvert ! audioresample ! audio/x-raw,rate=48000 ! voaacenc bitrate=96000 ! audio/mpeg ! aacparse ! audio/mpeg, mpegversion=4 ! mux.</span><br></pre></td></tr></table></figure>
+
+<p>输入源为<code>videotestsrc</code>，包括多种模式显示不同视频。输入不同视频的时候在<code>videotestsrc</code>后面跟上参数<code>pattern=snow</code>，可以选择不听的图案，集体包括那些图案参考官方文档。</p>
+<p><a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-base-plugins/html/gst-plugins-base-plugins-videotestsrc.html" target="_blank" rel="noopener">videotestsrc官方文档</a></p>
+<p><code>flvmux</code>将不同的流复合到flv文件中，这里是将不同的流混合后输出为rtmp流，可以理解为音频流和视频流的混合。</p>
+<p><code>videoconvert</code>后面跟的是视频格式</p>
+<p><code>flvmux name=mux</code>后面的是添加延时的操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=$MAX_DELAY ! \</span><br><span class="line">queue max-size-time=$SMALL_DELAY min-threshold-time=$DELAY</span><br></pre></td></tr></table></figure>
+<ul>
+<li>$DELAY = 延时时间</li>
+<li>$MAX_DELAY = 最多延时时间</li>
+<li>$SMALL_DELAY = 最小延时时间</li>
+</ul>
+<p>测试后发现，<code>$DELAY</code>是起作用的参数。</p>
+<p>该策略是具有两个队列，其中第一个作为缓冲区，第二个队列作为一个平衡器，确保所有消息都被精确延迟<code>$DELAY</code>时间。 这不能使用一个队列来完成。</p>
+<p>当需要更改延迟时，<code>$DELAY</code>值将在第二个队列中更改。 之后，管道需要使用新的延迟作为延迟发送延迟事件。 这会导致流水线冻结一段时间（如果延迟增加），或快速向前追赶（如果延迟减少）。</p>
+<p>通过读取第一个队列上的当前级别时间属性并将其与设置的延迟进行比较，可以获得缓冲状态。</p>
+<p><a href="https://stackoverflow.com/questions/32908047/gstreamer-increase-and-decrease-delay-on-the-fly" target="_blank" rel="noopener">stackoverflow参考资料</a></p>
+<p><code>rtmpsink</code>：是把视频流达到后面的rtmp地址上去。</p>
+<p>这里的<code>Sink Element</code>是媒体处理<code>pipline</code>的终点。可以理解成最后收集媒体流的地方。</p>
+<p><a href="https://gstreamer.freedesktop.org/data/doc/gstreamer/head/gst-plugins-bad-plugins/html/gst-plugins-bad-plugins-rtmpsink.html" target="_blank" rel="noopener">更多资料参考rtmpsink官方文档</a></p>
+<p><code>audiotestsrc</code>这里和video类似，都是测试用的。</p>
+<h2 id="截取屏幕打流测试通过"><a href="#截取屏幕打流测试通过" class="headerlink" title="截取屏幕打流测试通过"></a>截取屏幕打流测试通过</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//屏幕打流延时 15秒延时 通过 加上音频也通过</span><br><span class="line">gst-launch-1.0 ximagesrc startx=0 use-damage=0 ! \</span><br><span class="line">videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue ! flvmux name=mux ! queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000 ! \</span><br><span class="line">rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos; \</span><br><span class="line">audiotestsrc is-live=true ! audioconvert ! audioresample ! audio/x-raw,rate=48000 ! voaacenc bitrate=96000 ! audio/mpeg ! aacparse ! audio/mpeg, mpegversion=4 ! mux.</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取rtmp流打流到新的地址测试通过（不加延时）"><a href="#拉取rtmp流打流到新的地址测试通过（不加延时）" class="headerlink" title="拉取rtmp流打流到新的地址测试通过（不加延时）"></a>拉取rtmp流打流到新的地址测试通过（不加延时）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//拉取rtmp流不加延时通过   decodebin 要加这个 然后音视频合并</span><br><span class="line">gst-launch-1.0 -v rtmpsrc location=rtmp://192.168.18.188/live/1 ! decodebin ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264  ！  ! flvmux ! rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取rtmp流打流到新的地址测试通过（加延时无音频）"><a href="#拉取rtmp流打流到新的地址测试通过（加延时无音频）" class="headerlink" title="拉取rtmp流打流到新的地址测试通过（加延时无音频）"></a>拉取rtmp流打流到新的地址测试通过（加延时无音频）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 拉取rtmp流加延时 通过</span><br><span class="line">gst-launch-1.0 -v rtmpsrc location=rtmp://192.168.18.188/live/1 ! </span><br><span class="line">decodebin ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! </span><br><span class="line">queue ! flvmux streamable=true ! </span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000 ! </span><br><span class="line">rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="拉取rtmp流打流到新地址测试通过（有延时音频同步）"><a href="#拉取rtmp流打流到新地址测试通过（有延时音频同步）" class="headerlink" title="拉取rtmp流打流到新地址测试通过（有延时音频同步）"></a>拉取rtmp流打流到新地址测试通过（有延时音频同步）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//rtmp输入 视频 音频 flvdemux 后 flvmux 然后添加延时。 测试通过 </span><br><span class="line">gst-launch-1.0 rtmpsrc location=rtmp://192.168.18.188/live/1 ! \</span><br><span class="line">flvdemux name=mydemuxer flvmux name=mymuxer ! \</span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000  ! </span><br><span class="line">queue ! rtmpsink location=rtmp://192.168.18.188/live/999  \</span><br><span class="line">mydemuxer.audio ! queue ! mymuxer.audio mydemuxer.video ! queue ! mymuxer.video</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/02/intervideosrc%E5%92%8Cintervideosink%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/02/intervideosrc%E5%92%8Cintervideosink%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">intervideosrc和intervideosink的使用总结</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-02 15:53:23" itemprop="dateCreated datePublished" datetime="2018-06-02T15:53:23+08:00">2018-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="intervideosrc和intervideosink的使用总结"><a href="#intervideosrc和intervideosink的使用总结" class="headerlink" title="intervideosrc和intervideosink的使用总结"></a>intervideosrc和intervideosink的使用总结</h1><blockquote>
+<p>保证视频流不断的方法</p>
+</blockquote>
+<h2 id="输入视频为MP4"><a href="#输入视频为MP4" class="headerlink" title="输入视频为MP4"></a>输入视频为MP4</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//输入MP4 视音频分离 单独处理  成功 intervideosink</span><br><span class="line"></span><br><span class="line">gst-launch-1.0 filesrc location=1.mp4 ! qtdemux name=demux \</span><br><span class="line">demux.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! intervideosink channel=c1 intervideosrc channel=c1 ! queue ! xvimagesink</span><br></pre></td></tr></table></figure>
+<p>命令分析：</p>
+<ul>
+<li>filesrc：输入源为文件</li>
+<li>qtdemux：MP4文件要用qtdemux分离视频和音频</li>
+</ul>
+<p>分离视音频和单独处理视频。然后把分离后的视频当做src，intervideosink channel=c1用来接收到分离后的视频。然后再把intervideosrc channel=c1当做src，xvimagesink用来接收intervideosrc的数据源。这样当你的filesrc断掉的话intervideosrc并不会断掉，这样就保证了断流的安全。没流的情况下会继续播放黑屏，而不是程序崩溃。</p>
+<p><strong>注意</strong>：</p>
+<p>demux后分别处理视音频的时候要decodebin然后在执行videoconvert、videoscale的操作。</p>
+<h2 id="videomixer结合intervideosrc和sink保证不断流测试"><a href="#videomixer结合intervideosrc和sink保证不断流测试" class="headerlink" title="videomixer结合intervideosrc和sink保证不断流测试"></a>videomixer结合intervideosrc和sink保证不断流测试</h2><h3 id="测试通过-一个输入源为文件视频另外一个为文件视频流：测试通过-输出在屏幕上"><a href="#测试通过-一个输入源为文件视频另外一个为文件视频流：测试通过-输出在屏幕上" class="headerlink" title="测试通过 一个输入源为文件视频另外一个为文件视频流：测试通过 输出在屏幕上"></a>测试通过 一个输入源为文件视频另外一个为文件视频流：测试通过 输出在屏幕上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 filesrc location=1.mp4 ! qtdemux name=demux1 demux1.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! intervideosink channel=c1 intervideosrc channel=c1 ! \</span><br><span class="line">video/x-raw,format =I420, framerate=25/1, width=1280, height=720 ! \</span><br><span class="line">videomixer name=mix sink_0::alpha=1 sink_0::xpos=0 sink_0::ypos=0 sink_1::alpha=0.3 sink_1::xpos=150 sink_1::ypos=150 ! videoconvert ! timeoverlay ! ximagesink \</span><br><span class="line">filesrc location=1.mp4 ! qtdemux name=  demux2.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! intervideosink channel=c2 intervideosrc channel=c2  ! \</span><br><span class="line">video/x-raw,format=I420, framerate=25/1, width=1280, height=720 ! mix.</span><br></pre></td></tr></table></figure>
+
+<h3 id="测试通过-一个输入源为文件视频另外一个为文件视频流：测试通过-输出在rtmp上"><a href="#测试通过-一个输入源为文件视频另外一个为文件视频流：测试通过-输出在rtmp上" class="headerlink" title="测试通过 一个输入源为文件视频另外一个为文件视频流：测试通过 输出在rtmp上"></a>测试通过 一个输入源为文件视频另外一个为文件视频流：测试通过 输出在rtmp上</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 filesrc location=1.mp4 ! qtdemux name=demux1 demux1.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! intervideosink channel=c1 intervideosrc channel=c1 ! \</span><br><span class="line">video/x-raw,format =I420, framerate=25/1, width=1280, height=720 ! \</span><br><span class="line">videomixer name=mix sink_0::alpha=1 sink_0::xpos=0 sink_0::ypos=0 sink_1::alpha=0.3 sink_1::xpos=150 sink_1::ypos=150 ! videoconvert ! timeoverlay !  x264enc ! flvmux streamable=true ! queue ! rtmpsink location=&apos;rtmp://192.168.18.188/live/888&apos; \</span><br><span class="line">filesrc location=1.mp4 ! qtdemux name=demux2 demux2.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! intervideosink channel=c2 intervideosrc channel=c2  ! \</span><br><span class="line">video/x-raw,format=I420, framerate=25/1, width=1280, height=720 ! mix.</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改视频分辨率"><a href="#修改视频分辨率" class="headerlink" title="修改视频分辨率"></a>修改视频分辨率</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 filesrc location=1.mp4 ! qtdemux name=demux1 demux1.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! videorate ! video/x-raw,format =I420, framerate=25/1, width=640, height=360 ! intervideosink channel=c1 intervideosrc channel=c1 ! \</span><br><span class="line">video/x-raw,format =I420, framerate=25/1, width=640, height=360 ! \</span><br><span class="line">videomixer name=mix sink_0::alpha=1 sink_0::xpos=0 sink_0::ypos=0 sink_1::alpha=0.3 sink_1::xpos=150 sink_1::ypos=150 ! videoconvert  ! timeoverlay ! ximagesink \</span><br><span class="line">filesrc location=1.mp4 ! qtdemux name=  demux2.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! intervideosink channel=c2 intervideosrc channel=c2  ! \</span><br><span class="line">video/x-raw,format=I420, framerate=25/1, width=1280, height=720 ! mix.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">gst-launch-1.0 filesrc location=1.mp4 ! qtdemux name=demux1 demux1.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! videorate ! video/x-raw,format =I420, framerate=25/1, width=640, height=360 ! intervideosink channel=c1 intervideosrc channel=c1 ! \</span><br><span class="line">video/x-raw,format =I420, framerate=25/1, width=640, height=360 ! \</span><br><span class="line">videomixer name=mix sink_0::alpha=1 sink_0::xpos=0 sink_0::ypos=0 sink_1::alpha=0.3 sink_1::xpos=150 sink_1::ypos=150 ! videoconvert ! videoscale ! videorate ! video/x-raw,format =I420, framerate=25/1, width=1920, height=1080 ! timeoverlay ! x264enc ! flvmux streamable=true ! queue ! rtmpsink location=&apos;rtmp://192.168.18.188/live/888&apos; \</span><br><span class="line">filesrc location=1.mp4 ! qtdemux name=  demux2.video_0 ! queue ! decodebin ! videoconvert ! videoscale ! intervideosink channel=c2 intervideosrc channel=c2  ! \</span><br><span class="line">video/x-raw,format=I420, framerate=25/1, width=1280, height=720 ! mix.</span><br></pre></td></tr></table></figure>
+
+<p><strong>videorate</strong>用来改变视频分辨率。后面跟<code>video/x-raw,format =I420, framerate=25/1, width=640, height=360</code>然后保证intervideosrc作为videomixer的输入的时候也要保证相同的分辨率。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/02/GStreamer%E4%B8%ADvideomixer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/02/GStreamer%E4%B8%ADvideomixer/" class="post-title-link" itemprop="url">GStreamer中videomixer</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-02 15:52:00" itemprop="dateCreated datePublished" datetime="2018-06-02T15:52:00+08:00">2018-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GStreamer/" itemprop="url" rel="index">
+                    <span itemprop="name">GStreamer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="GStreamer中videomixer"><a href="#GStreamer中videomixer" class="headerlink" title="GStreamer中videomixer"></a>GStreamer中videomixer</h1><blockquote>
+<p>Videomixer可以接受YUV，ARGB和BGRA视频流。<br>对于每个请求的接收器，它将比较输入流的几何（画面分辨率）和帧率用来定义输出参数。<br>实际上输出视频流的参数具有输入视频流中最大的几何（画面分辨率）和最高的帧率。</p>
+<p>Videomixer会对色彩空间进行装换</p>
+<p>可以在GstVideoMixer2Pad上配置每个输入流的各个参数。</p>
+</blockquote>
+<h2 id="pipeline-例子"><a href="#pipeline-例子" class="headerlink" title="pipeline 例子"></a>pipeline 例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 \</span><br><span class="line">  videotestsrc pattern=1 ! \</span><br><span class="line">  video/x-raw,format=AYUV,framerate=\(fraction\)10/1,width=100,height=100 ! \</span><br><span class="line">  videobox border-alpha=0 top=-70 bottom=-70 right=-220 ! \</span><br><span class="line">  videomixer name=mix sink_0::alpha=0.7 sink_1::alpha=0.5 ! \</span><br><span class="line">  videoconvert ! xvimagesink \</span><br><span class="line">  videotestsrc ! \</span><br><span class="line">  video/x-raw,format=AYUV,framerate=\(fraction\)5/1,width=320,height=240 ! mix.</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-020914.jpg" alt></p>
+<p>效果说明：</p>
+<p>测试视频一是雪花。因为视频一外有一个videobox。</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-021302.jpg" alt></p>
+<p>视频二就是后面的背景。</p>
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><ul>
+<li>videotestsrc ：测试视频源</li>
+<li>videobox ：视频盒子</li>
+</ul>
+<h2 id="videotestsrc"><a href="#videotestsrc" class="headerlink" title="videotestsrc"></a>videotestsrc</h2><blockquote>
+<p>videotestsrc元素用于生成各种格式的测试视频数据。 所产生的视频测试数据可以通过“pattern”属性进行控制。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 -v videotestsrc pattern=snow ! video/x-raw,width=1280,height=720 ! autovideosink</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-021908.jpg" alt></p>
+<p>通过控制pattern可以控制视频样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">GST_VIDEO_TEST_SRC_SMPTE</span><br><span class="line">A standard SMPTE test pattern</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SNOW</span><br><span class="line">Random noise</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BLACK</span><br><span class="line">A black image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_WHITE</span><br><span class="line">A white image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_RED</span><br><span class="line">A red image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_GREEN</span><br><span class="line">A green image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BLUE</span><br><span class="line">A blue image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS1</span><br><span class="line">Checkers pattern (1px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS2</span><br><span class="line">Checkers pattern (2px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS4</span><br><span class="line">Checkers pattern (4px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS8</span><br><span class="line">Checkers pattern (8px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CIRCULAR</span><br><span class="line">Circular pattern</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BLINK</span><br><span class="line">Alternate between black and white</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SMPTE75</span><br><span class="line">SMPTE test pattern (75% color bars)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_ZONE_PLATE</span><br><span class="line">Zone plate</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_GAMUT</span><br><span class="line">Gamut checking pattern</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHROMA_ZONE_PLATE</span><br><span class="line">Chroma zone plate</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SOLID</span><br><span class="line">A solid color, defined by the “foreground-color” property</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BALL</span><br><span class="line">Moving ball</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SMPTE100</span><br><span class="line">SMPTE test pattern (100% color bars)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BAR</span><br><span class="line">Bar with foreground color</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_PINWHEEL</span><br><span class="line">Pinwheel</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SPOKES</span><br><span class="line">Spokes</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_GRADIENT</span><br><span class="line">Gradient</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_COLORS</span><br><span class="line">All colors</span><br></pre></td></tr></table></figure>
+<h3 id="个别样式"><a href="#个别样式" class="headerlink" title="个别样式"></a>个别样式</h3><ul>
+<li>pattern=gamut</li>
+</ul>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-022245.jpg" alt></p>
+<ul>
+<li>pattern=colors</li>
+</ul>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-022410.jpg" alt></p>
+<ul>
+<li>pattern=pinwheel</li>
+</ul>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-022523.jpg" alt></p>
+<h2 id="videobox"><a href="#videobox" class="headerlink" title="videobox"></a>videobox</h2><blockquote>
+<p>此插件裁剪或放大图像。它需要4个值作为输入，顶部，底部，左侧和右侧偏移量。正值将从图像的相应边框裁剪出许多像素，负值将添加很多像素。添加像素时，可以指定其颜色。一些预定义的颜色可用于枚举属性。</p>
+</blockquote>
+<blockquote>
+<p>该插件是可以设置Alpha通道的。当alpha通道处于活动状态时，可以使用alpha和border_alpha来分别设置内部图片和边框的alpha值。 alpha值为0.0表示总透明度，1.0是不透明的。</p>
+</blockquote>
+<blockquote>
+<p>视频盒插件有许多用途，如做马赛克的图片，信箱视频(就是所说的宽屏幕视频)，剪辑视频，画中画等。</p>
+</blockquote>
+<blockquote>
+<p>将autocrop设置为true会更改插件的行为，以便帽子确定裁剪属性而不是其他方式：给定的输入和输出尺寸，裁剪值被选中，以便较小的框架在较大的框架中有效居中。这涉及裁剪或填充。</p>
+</blockquote>
+<blockquote>
+<p>如果您使用自动裁剪，手动设置其他属性将不会有任何意义，因为如果大小更改会覆盖其他属性，但没有任何操作可以阻止您执行此操作。</p>
+</blockquote>
+<h3 id="pipeline-例子-1"><a href="#pipeline-例子-1" class="headerlink" title="pipeline 例子"></a>pipeline 例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0   videotestsrc pattern=1 !   video/x-raw,format=AYUV,framerate=\(fraction\)10/1,width=100,height=100 !   videobox border-alpha=1 top=-20 bottom=-20 right=-220 !   videoconvert ! xvimagesink</span><br></pre></td></tr></table></figure>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-030000.jpg" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0   videotestsrc pattern=1 !   video/x-raw,format=AYUV,framerate=\(fraction\)10/1,width=100,height=100 !   videobox border-alpha=1 top=-70 bottom=-50 right=-220 !   videoconvert ! xvimagesink</span><br></pre></td></tr></table></figure>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-030046.jpg" alt></p>
+<p>对比：</p>
+<p>通过对比可以看到参数的意义。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/01/GStreamer%E4%B8%ADaudiomixer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/01/GStreamer%E4%B8%ADaudiomixer/" class="post-title-link" itemprop="url">GStreamer中audiomixer</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-01 15:50:09" itemprop="dateCreated datePublished" datetime="2018-06-01T15:50:09+08:00">2018-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GStreamer/" itemprop="url" rel="index">
+                    <span itemprop="name">GStreamer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="GStreamer中audiomixer"><a href="#GStreamer中audiomixer" class="headerlink" title="GStreamer中audiomixer"></a>GStreamer中audiomixer</h1><blockquote>
+<p>GStreamear中audiomixer允许合并多路输出流。与叠加器不同可以同步所以输入流。但是这里的混合原理还是不算了解。不同频率的音频合并原理？</p>
+</blockquote>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>首先测试频率为100的音频：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 audiotestsrc freq=100 ! alsasink</span><br></pre></td></tr></table></figure>
+
+<p>然后测试频率为500的音频：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 audiotestsrc freq=500 ! alsasink</span><br></pre></td></tr></table></figure>
+
+<p>然后测试混合音频：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 audiotestsrc freq=100 ! audiomixer name=mix ! audioconvert ! alsasink audiotestsrc freq=500 ! mix.</span><br></pre></td></tr></table></figure>
+<p>混合后的音频感觉频率处在100和500之间但是。具体多大不了解。</p>
+<h2 id="audiotestsrc"><a href="#audiotestsrc" class="headerlink" title="audiotestsrc"></a>audiotestsrc</h2><blockquote>
+<p>测试音频可以产生基本的音频信号，可以提供不同的波形，可以设置不同的频率和音量。</p>
+</blockquote>
+<h3 id="例子（Example）"><a href="#例子（Example）" class="headerlink" title="例子（Example）"></a>例子（Example）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 audiotestsrc ! audioconvert ! autoaudiosink</span><br></pre></td></tr></table></figure>
+<p>这个pipeline默认产生了默认频率40Hz默认音量为0.8的正弦波。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 audiotestsrc wave=2 freq=200 ! tee name=t ! queue ! audioconvert ! autoaudiosink t. ! queue ! audioconvert ! libvisual_lv_scope ! videoconvert ! autovideosink</span><br></pre></td></tr></table></figure>
+<p>这个pipeline是生成锯波。 波形显示使用libvisual的展示给显示器，让您可视化地验证锯波是否正确。</p>
+<h3 id="audiotestsrc波形"><a href="#audiotestsrc波形" class="headerlink" title="audiotestsrc波形"></a>audiotestsrc波形</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">GST_AUDIO_TEST_SRC_WAVE_SINE</span><br><span class="line">a sine wave</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_SQUARE</span><br><span class="line">a square wave</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_SAW</span><br><span class="line">a saw wave</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_TRIANGLE</span><br><span class="line">a tringle wave</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_SILENCE</span><br><span class="line">silence</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_WHITE_NOISE</span><br><span class="line">white uniform noise</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_PINK_NOISE</span><br><span class="line">pink noise</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_SINE_TAB</span><br><span class="line">sine wave using a table</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_TICKS</span><br><span class="line">periodic ticks</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_GAUSSIAN_WHITE_NOISE</span><br><span class="line">white (zero mean) Gaussian noise; volume sets the standard deviation of the noise in units of the range of values of the sample type, e.g. volume=0.1 produces noise with a standard deviation of 0.1*32767=3277 with 16-bit integer samples, or 0.1*1.0=0.1 with floating-point samples.</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_RED_NOISE</span><br><span class="line">red (brownian) noise</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_BLUE_NOISE</span><br><span class="line">spectraly inverted pink noise</span><br><span class="line"> </span><br><span class="line">GST_AUDIO_TEST_SRC_WAVE_VIOLET_NOISE</span><br><span class="line">spectraly inverted red (brownian) noise</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/01/Argparse-Tutorial/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/06/01/Argparse-Tutorial/" class="post-title-link" itemprop="url">Argparse Tutorial</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-01 15:46:28" itemprop="dateCreated datePublished" datetime="2018-06-01T15:46:28+08:00">2018-06-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Argparse-Tutorial"><a href="#Argparse-Tutorial" class="headerlink" title="Argparse Tutorial"></a>Argparse Tutorial</h1><p>这篇教程简明地介绍了Python标准库推荐使用的命令行参数解析模块——Argparse的使用</p>
+<blockquote>
+<p>注意  还有两个完成相同任务的其他模块，即getopt （与C语言相当的getopt() ）和已弃用的optparse 。 还要注意， argparse基于optparse ，因此在使用方面非常相似。</p>
+</blockquote>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>让我们来看看我们将在本入门教程中使用ls命令的功能：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br><span class="line">cpython  devguide  prog.py  pypy  rm-unused-function.patch</span><br><span class="line">$ ls pypy</span><br><span class="line">ctypes_configure  demo  dotviewer  include  lib_pypy  lib-python ...</span><br><span class="line">$ ls -l</span><br><span class="line">total 20</span><br><span class="line">drwxr-xr-x 19 wena wena 4096 Feb 18 18:51 cpython</span><br><span class="line">drwxr-xr-x  4 wena wena 4096 Feb  8 12:04 devguide</span><br><span class="line">-rwxr-xr-x  1 wena wena  535 Feb 19 00:05 prog.py</span><br><span class="line">drwxr-xr-x 14 wena wena 4096 Feb  7 00:59 pypy</span><br><span class="line">-rw-r--r--  1 wena wena  741 Feb 18 01:01 rm-unused-function.patch</span><br><span class="line">$ ls --help</span><br><span class="line">Usage: ls [OPTION]... [FILE]...</span><br><span class="line">List information about the FILEs (the current directory by default).</span><br><span class="line">Sort entries alphabetically if none of -cftuvSUX nor --sort is specified.</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><p>让我们开始一个简单的例子（它什么也没做）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.parse_args()</span><br></pre></td></tr></table></figure>
+
+<p>以下是运行代码的结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py</span><br><span class="line">$ python3 prog.py --help</span><br><span class="line">usage: prog.py [-h]</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help  show this help message and exit</span><br><span class="line">$ python3 prog.py --verbose</span><br><span class="line">usage: prog.py [-h]</span><br><span class="line">prog.py: error: unrecognized arguments: --verbose</span><br><span class="line">$ python3 prog.py foo</span><br><span class="line">usage: prog.py [-h]</span><br><span class="line">prog.py: error: unrecognized arguments: foo</span><br></pre></td></tr></table></figure>
+
+<p>运行结果分析：</p>
+<ul>
+<li>不提供参数运行这个脚本，不会输出任何东西</li>
+<li>第二步显示了argparse的好处，你什么也没做，却得到了一个很好的帮助信息。</li>
+<li>–help可以简写成-h，可以得到帮助信息</li>
+</ul>
+<h2 id="介绍位置参数"><a href="#介绍位置参数" class="headerlink" title="介绍位置参数"></a>介绍位置参数</h2><p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;echo&quot;)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.echo)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py</span><br><span class="line">usage: prog.py [-h] echo</span><br><span class="line">prog.py: error: the following arguments are required: echo</span><br><span class="line">$ python3 prog.py --help</span><br><span class="line">usage: prog.py [-h] echo</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  echo</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help  show this help message and exit</span><br><span class="line">$ python3 prog.py foo</span><br><span class="line">foo</span><br></pre></td></tr></table></figure>
+
+<p>运行分析：</p>
+<ul>
+<li>我们添加了<code>add_argument（）</code>方法，这个方法是我们用来指定程序接受的哪些命令行选项。 在这种情况下，我将其命名为echo，使其符合其功能。</li>
+<li>现在调用我们的程序要求我们指定一个参数。<br>parse_args（）方法实际上从指定的选项返回一些数据，在这种情况下为echo。</li>
+<li>该变量argparse自动执行的的（即不需要指定该值存储在哪里）。 您还会注意到它的名称与给定的方法echo的字符串参数匹配。</li>
+</ul>
+<p>补充需要输入一个参数。然后脚本输出这个参数。</p>
+<p>尽管自动产生的信息已经很友好，但是我们仍然不能知道参数的具体信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;echo&quot;, help=&quot;echo the string you use here&quot;)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.echo)</span><br></pre></td></tr></table></figure>
+<p>运行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py -h</span><br><span class="line">usage: prog.py [-h] echo</span><br><span class="line"></span><br><span class="line">positional arguments:</span><br><span class="line">  echo        echo the string you use here</span><br><span class="line"></span><br><span class="line">optional arguments:</span><br><span class="line">  -h, --help  show this help message and exit</span><br></pre></td></tr></table></figure>
+
+<p>现在，在做一些更有意义的事：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;square&quot;, help=&quot;display a square of a given number&quot;)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.square**2)</span><br></pre></td></tr></table></figure>
+
+<p>运行结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py 4</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;prog.py&quot;, line 5, in &lt;module&gt;</span><br><span class="line">    print(args.square**2)</span><br><span class="line">TypeError: unsupported operand type(s) for ** or pow(): &apos;str&apos; and &apos;int&apos;</span><br></pre></td></tr></table></figure>
+
+<p>脚本运行出错。因为默认情况下，argparse会把给他的选项视为字符串。所以我们应该对类型进行另外的说明。告诉argparse把输入的参数视为整数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import argparse</span><br><span class="line">parser = argparse.ArgumentParser()</span><br><span class="line">parser.add_argument(&quot;square&quot;, help=&quot;display a square of a given number&quot;,</span><br><span class="line">                    type=int)</span><br><span class="line">args = parser.parse_args()</span><br><span class="line">print(args.square**2)</span><br></pre></td></tr></table></figure>
+<p>运行代码查看结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ python3 prog.py 4</span><br><span class="line">16</span><br><span class="line">$ python3 prog.py four</span><br><span class="line">usage: prog.py [-h] square</span><br><span class="line">prog.py: error: argument square: invalid int value: &apos;four&apos;</span><br></pre></td></tr></table></figure>
+<p>运行成功，而且可以检测非法输入。</p>
+<h2 id="介绍可选参数"><a href="#介绍可选参数" class="headerlink" title="介绍可选参数"></a>介绍可选参数</h2><p>2017年07月07日16:12:05<br>后面继续翻译<br><a href="https://docs.python.org/3/howto/argparse.html#id1" target="_blank" rel="noopener">https://docs.python.org/3/howto/argparse.html#id1</a></p>
+<p><a href="https://blog.ixxoo.me/argparse.html" target="_blank" rel="noopener">中文https://blog.ixxoo.me/argparse.html</a></p>
+<pre><code></code></pre>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/01/30/%E4%B8%8B%E8%BD%BDGooglePlay%E4%B8%AD%E5%BA%94%E7%94%A8%E7%9A%84apk%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/01/30/%E4%B8%8B%E8%BD%BDGooglePlay%E4%B8%AD%E5%BA%94%E7%94%A8%E7%9A%84apk%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">下载GooglePlay中应用的apk文件</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-01-30 16:52:20" itemprop="dateCreated datePublished" datetime="2018-01-30T16:52:20+08:00">2018-01-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%88%E7%8E%87/" itemprop="url" rel="index">
+                    <span itemprop="name">效率</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="下载GooglePlay中应用的apk文件"><a href="#下载GooglePlay中应用的apk文件" class="headerlink" title="下载GooglePlay中应用的apk文件"></a>下载GooglePlay中应用的apk文件</h1><blockquote>
+<p>下载Google Play中应用的apk</p>
+</blockquote>
+<p>想要下载原生的Google Play中应用但是电脑打开了Google Play却不能直接下载apk文件。使用APK Downloader这个网站，或者使用Direct APK Downloader这个插件。</p>
+<h2 id="使用APK-Downloader网站下载"><a href="#使用APK-Downloader网站下载" class="headerlink" title="使用APK Downloader网站下载"></a>使用APK Downloader网站下载</h2><p>复制Google Play中应用的地址到APK Downloader网站中，可以获取下载地址。</p>
+<h2 id="安装Direct-APK-Downloader插件"><a href="#安装Direct-APK-Downloader插件" class="headerlink" title="安装Direct APK Downloader插件"></a>安装Direct APK Downloader插件</h2><p>需要你的google play账号信息和设备ID</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2018-01-30-084939.png" alt></p>
+<h2 id="镜像网站"><a href="#镜像网站" class="headerlink" title="镜像网站"></a>镜像网站</h2><p>直接去下面的网站搜索下载：</p>
+<p><a href="https://www.apkmirror.com/" target="_blank" rel="noopener">https://www.apkmirror.com/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/12/01/GStreamer%E7%9A%84%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/12/01/GStreamer%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">GStreamer的安装</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-12-01 11:02:25" itemprop="dateCreated datePublished" datetime="2017-12-01T11:02:25+08:00">2017-12-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GStreamer/" itemprop="url" rel="index">
+                    <span itemprop="name">GStreamer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="GStreamer在mac上的安装"><a href="#GStreamer在mac上的安装" class="headerlink" title="GStreamer在mac上的安装"></a>GStreamer在mac上的安装</h1><blockquote>
+<p>GStreamer 是一个基于流水线的多媒体框架，基于GObject，以C语言写成。凭借GStreamer，程序员可以很容易地创建各种多媒体功能组件，包括简单的音频回放，音频和视频播放,录音，流媒体和音频编辑。基于流水线设计，可以创建诸如视频编辑器、流媒体广播和媒体播放器等等的很多多媒体应用。</p>
+</blockquote>
+<h2 id="Mac安装"><a href="#Mac安装" class="headerlink" title="Mac安装"></a>Mac安装</h2><p> 推荐使用Homebrew安装</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly</span><br></pre></td></tr></table></figure>
+
+<p> 官网下载pkg包安装比较复杂还需要自己去安装很多依赖和插件这里推荐使用Homebrew安装。</p>
+<p> 同样linux下同样推荐使用包管理工具安装。自己编译安装需要很长时间。而且容易出现依赖问题可能会出错。</p>
+<p> 我只在Ubuntu上测试过自己编译安装，mac上没有测试过。</p>
+<p> 安装完成后终端输入<code>gst-launch-1.0 --version</code>。如果出现版本信息后说明安装成功。</p>
+<p> <img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fr6aj3mtvbj30h204wab5.jpg" alt></p>
+<h2 id="linux上安装"><a href="#linux上安装" class="headerlink" title="linux上安装"></a>linux上安装</h2><p> 和mac上安装类似，安装命令：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools</span><br></pre></td></tr></table></figure>
+
+<p> <a href="http://os.is-programmer.com/categories/9417/posts" target="_blank" rel="noopener">GStreamer资料</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

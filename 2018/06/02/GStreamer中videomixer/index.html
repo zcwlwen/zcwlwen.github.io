@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="GStreamer中videomixer Videomixer可以接受YUV，ARGB和BGRA视频流。对于每个请求的接收器，它将比较输入流的几何（画面分辨率）和帧率用来定义输出参数。实际上输出视频流的参数具有输入视频流中最大的几何（画面分辨率）和最高的帧率。 Videomixer会对色彩空间进行装换 可以在GstVideoMixer2Pad上配置每个输入流的各个参数。  pipeline 例子1">
+<meta name="keywords" content="GStreamer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GStreamer中videomixer">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2018&#x2F;06&#x2F;02&#x2F;GStreamer%E4%B8%ADvideomixer&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="GStreamer中videomixer Videomixer可以接受YUV，ARGB和BGRA视频流。对于每个请求的接收器，它将比较输入流的几何（画面分辨率）和帧率用来定义输出参数。实际上输出视频流的参数具有输入视频流中最大的几何（画面分辨率）和最高的帧率。 Videomixer会对色彩空间进行装换 可以在GstVideoMixer2Pad上配置每个输入流的各个参数。  pipeline 例子1">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-020914.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-021302.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-021908.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-022245.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-022410.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-022523.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-030000.jpg">
+<meta property="og:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-030046.jpg">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.426Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com&#x2F;2017-07-12-020914.jpg">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2018/06/02/GStreamer%E4%B8%ADvideomixer/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>GStreamer中videomixer | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/06/02/GStreamer%E4%B8%ADvideomixer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GStreamer中videomixer
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-06-02 15:52:00" itemprop="dateCreated datePublished" datetime="2018-06-02T15:52:00+08:00">2018-06-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GStreamer/" itemprop="url" rel="index">
+                    <span itemprop="name">GStreamer</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="GStreamer中videomixer"><a href="#GStreamer中videomixer" class="headerlink" title="GStreamer中videomixer"></a>GStreamer中videomixer</h1><blockquote>
+<p>Videomixer可以接受YUV，ARGB和BGRA视频流。<br>对于每个请求的接收器，它将比较输入流的几何（画面分辨率）和帧率用来定义输出参数。<br>实际上输出视频流的参数具有输入视频流中最大的几何（画面分辨率）和最高的帧率。</p>
+<p>Videomixer会对色彩空间进行装换</p>
+<p>可以在GstVideoMixer2Pad上配置每个输入流的各个参数。</p>
+</blockquote>
+<h2 id="pipeline-例子"><a href="#pipeline-例子" class="headerlink" title="pipeline 例子"></a>pipeline 例子</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 \</span><br><span class="line">  videotestsrc pattern=1 ! \</span><br><span class="line">  video/x-raw,format=AYUV,framerate=\(fraction\)10/1,width=100,height=100 ! \</span><br><span class="line">  videobox border-alpha=0 top=-70 bottom=-70 right=-220 ! \</span><br><span class="line">  videomixer name=mix sink_0::alpha=0.7 sink_1::alpha=0.5 ! \</span><br><span class="line">  videoconvert ! xvimagesink \</span><br><span class="line">  videotestsrc ! \</span><br><span class="line">  video/x-raw,format=AYUV,framerate=\(fraction\)5/1,width=320,height=240 ! mix.</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-020914.jpg" alt></p>
+<p>效果说明：</p>
+<p>测试视频一是雪花。因为视频一外有一个videobox。</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-021302.jpg" alt></p>
+<p>视频二就是后面的背景。</p>
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><ul>
+<li>videotestsrc ：测试视频源</li>
+<li>videobox ：视频盒子</li>
+</ul>
+<h2 id="videotestsrc"><a href="#videotestsrc" class="headerlink" title="videotestsrc"></a>videotestsrc</h2><blockquote>
+<p>videotestsrc元素用于生成各种格式的测试视频数据。 所产生的视频测试数据可以通过“pattern”属性进行控制。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 -v videotestsrc pattern=snow ! video/x-raw,width=1280,height=720 ! autovideosink</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-021908.jpg" alt></p>
+<p>通过控制pattern可以控制视频样式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">GST_VIDEO_TEST_SRC_SMPTE</span><br><span class="line">A standard SMPTE test pattern</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SNOW</span><br><span class="line">Random noise</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BLACK</span><br><span class="line">A black image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_WHITE</span><br><span class="line">A white image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_RED</span><br><span class="line">A red image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_GREEN</span><br><span class="line">A green image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BLUE</span><br><span class="line">A blue image</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS1</span><br><span class="line">Checkers pattern (1px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS2</span><br><span class="line">Checkers pattern (2px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS4</span><br><span class="line">Checkers pattern (4px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHECKERS8</span><br><span class="line">Checkers pattern (8px)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CIRCULAR</span><br><span class="line">Circular pattern</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BLINK</span><br><span class="line">Alternate between black and white</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SMPTE75</span><br><span class="line">SMPTE test pattern (75% color bars)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_ZONE_PLATE</span><br><span class="line">Zone plate</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_GAMUT</span><br><span class="line">Gamut checking pattern</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_CHROMA_ZONE_PLATE</span><br><span class="line">Chroma zone plate</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SOLID</span><br><span class="line">A solid color, defined by the “foreground-color” property</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BALL</span><br><span class="line">Moving ball</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SMPTE100</span><br><span class="line">SMPTE test pattern (100% color bars)</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_BAR</span><br><span class="line">Bar with foreground color</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_PINWHEEL</span><br><span class="line">Pinwheel</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_SPOKES</span><br><span class="line">Spokes</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_GRADIENT</span><br><span class="line">Gradient</span><br><span class="line"> </span><br><span class="line">GST_VIDEO_TEST_SRC_COLORS</span><br><span class="line">All colors</span><br></pre></td></tr></table></figure>
+<h3 id="个别样式"><a href="#个别样式" class="headerlink" title="个别样式"></a>个别样式</h3><ul>
+<li>pattern=gamut</li>
+</ul>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-022245.jpg" alt></p>
+<ul>
+<li>pattern=colors</li>
+</ul>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-022410.jpg" alt></p>
+<ul>
+<li>pattern=pinwheel</li>
+</ul>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-022523.jpg" alt></p>
+<h2 id="videobox"><a href="#videobox" class="headerlink" title="videobox"></a>videobox</h2><blockquote>
+<p>此插件裁剪或放大图像。它需要4个值作为输入，顶部，底部，左侧和右侧偏移量。正值将从图像的相应边框裁剪出许多像素，负值将添加很多像素。添加像素时，可以指定其颜色。一些预定义的颜色可用于枚举属性。</p>
+</blockquote>
+<blockquote>
+<p>该插件是可以设置Alpha通道的。当alpha通道处于活动状态时，可以使用alpha和border_alpha来分别设置内部图片和边框的alpha值。 alpha值为0.0表示总透明度，1.0是不透明的。</p>
+</blockquote>
+<blockquote>
+<p>视频盒插件有许多用途，如做马赛克的图片，信箱视频(就是所说的宽屏幕视频)，剪辑视频，画中画等。</p>
+</blockquote>
+<blockquote>
+<p>将autocrop设置为true会更改插件的行为，以便帽子确定裁剪属性而不是其他方式：给定的输入和输出尺寸，裁剪值被选中，以便较小的框架在较大的框架中有效居中。这涉及裁剪或填充。</p>
+</blockquote>
+<blockquote>
+<p>如果您使用自动裁剪，手动设置其他属性将不会有任何意义，因为如果大小更改会覆盖其他属性，但没有任何操作可以阻止您执行此操作。</p>
+</blockquote>
+<h3 id="pipeline-例子-1"><a href="#pipeline-例子-1" class="headerlink" title="pipeline 例子"></a>pipeline 例子</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0   videotestsrc pattern=1 !   video/x-raw,format=AYUV,framerate=\(fraction\)10/1,width=100,height=100 !   videobox border-alpha=1 top=-20 bottom=-20 right=-220 !   videoconvert ! xvimagesink</span><br></pre></td></tr></table></figure>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-030000.jpg" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0   videotestsrc pattern=1 !   video/x-raw,format=AYUV,framerate=\(fraction\)10/1,width=100,height=100 !   videobox border-alpha=1 top=-70 bottom=-50 right=-220 !   videoconvert ! xvimagesink</span><br></pre></td></tr></table></figure>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-12-030046.jpg" alt></p>
+<p>对比：</p>
+<p>通过对比可以看到参数的意义。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/GStreamer/" rel="tag"># GStreamer</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2018/06/01/GStreamer%E4%B8%ADaudiomixer/" rel="next" title="GStreamer中audiomixer">
+                  <i class="fa fa-chevron-left"></i> GStreamer中audiomixer
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2018/06/02/intervideosrc%E5%92%8Cintervideosink%E7%9A%84%E4%BD%BF%E7%94%A8%E6%80%BB%E7%BB%93/" rel="prev" title="intervideosrc和intervideosink的使用总结">
+                  intervideosrc和intervideosink的使用总结 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GStreamer中videomixer"><span class="nav-number">1.</span> <span class="nav-text">GStreamer中videomixer</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pipeline-例子"><span class="nav-number">1.1.</span> <span class="nav-text">pipeline 例子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参数说明"><span class="nav-number">1.1.1.</span> <span class="nav-text">参数说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#videotestsrc"><span class="nav-number">1.2.</span> <span class="nav-text">videotestsrc</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#个别样式"><span class="nav-number">1.2.1.</span> <span class="nav-text">个别样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#videobox"><span class="nav-number">1.3.</span> <span class="nav-text">videobox</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pipeline-例子-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">pipeline 例子</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

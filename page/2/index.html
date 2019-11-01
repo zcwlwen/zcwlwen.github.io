@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="iOS,linux,shell,">
+<meta name="keywords" content="iOS,ZCW,Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ZCW">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;page&#x2F;2&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="iOS,linux,shell,">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/page/2/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/10/26/%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90AppIcon%E8%84%9A%E6%9C%AC-%E6%94%B9%E8%BF%9B%E7%89%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/10/26/%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90AppIcon%E8%84%9A%E6%9C%AC-%E6%94%B9%E8%BF%9B%E7%89%88/" class="post-title-link" itemprop="url">一键生成AppIcon脚本(改进版)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-26 16:33:14" itemprop="dateCreated datePublished" datetime="2017-10-26T16:33:14+08:00">2017-10-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="一键生成AppIcon脚本-改进版"><a href="#一键生成AppIcon脚本-改进版" class="headerlink" title="一键生成AppIcon脚本(改进版)"></a>一键生成AppIcon脚本(改进版)</h1><blockquote>
+<p>看到了一篇文章是一个脚本用来生成AppIcon，这篇文章的作者用的是swift写的。然后我就把我之前写的一个自己用的shell脚本优化了下。<br>一键生成AppIcon的shell脚本.</p>
+</blockquote>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>准备的东西：</p>
+<ul>
+<li>一键生成AppIcon的脚本</li>
+<li>分辨率高于1024x1024的图片（以为在iOS 11以后需要一张1024的图片用在App Store中）</li>
+</ul>
+<p>首先下载脚本到本地，然后把脚本和图片放到一个文件夹下。然后确认脚本是否有执行权限。</p>
+<p>没有权限的脚本，执行的时候会报错<code>permission denied:</code>这时候要给脚本加上执行权限，命令是<code>chmod +x ios_icon_shell_sips.sh</code>。这样就给脚本加上了执行权限。（这边有关文件权限的问题可以自己去查看有关linux文件权限的东西。）</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075012.jpg" alt></p>
+<p>下面的图就是有执行权限的脚本</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075142.jpg" alt></p>
+<p>在终端中执行这个脚本<code>./ios_icon_shell_sips.sh</code></p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075600.jpg" alt></p>
+<p>然后输入图片名：</p>
+<p>可以看到输入的图片为<code>test.png</code>，然后你可以看到这样土拍你的信息，然后输入你要生成哪里用的图标。可以选择iPhone、iPad、Apple Watch、macOS。目前暂时不支持AppleTV。（我这里的图片的分辨率是512x512。这样生成的1024x1024的图片可能会出现不清楚的情况，最好还是用大于1024的图片）</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075709.jpg" alt></p>
+<p>然后输入你想要生成的设备对应的编号。（可以多次输入，会多次生成）</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-080302.jpg" alt></p>
+<p>生成结束后，输入<code>q</code>可以退出。</p>
+<p>这样生成的图标就按照固定的格式和命名生成在了当前的文件夹下。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-080402.jpg" alt></p>
+<h2 id="脚本分析"><a href="#脚本分析" class="headerlink" title="脚本分析"></a>脚本分析</h2><p>首先说一下之前的那个脚本，那个脚本很简单，只需要在执行的时候接受一个图片参数就可以，只能满足基本要求，不够灵活。</p>
+<p>技术难点：</p>
+<ul>
+<li>键盘输入交互</li>
+<li>生成图标</li>
+</ul>
+<p><strong>接受键盘输入</strong>：这里使用的是read来监听键盘输入。使用do while循环。具体的逻辑看下脚本内容会很清楚。</p>
+<p>遇到的问题是监听键盘的时候，当什么都不输入的情况下直接回车。会出现错误。错误的原因是逻辑运算的问题。因为我这里要比较输入的参数所以这里会报错<code>$aNum = 1</code>。（这里的aNum就是你输入的设备参数。如果你这时候没有输入直接回车会出现 <code>= 1</code>的比较所以会报错。使用<code>&quot;$aNum&quot; = 1</code>加上双引号就不会出现这样的情况。因为不会出现一个空值，只会是一个空字符串。）具体的东西可以去参考shell的语法。</p>
+<p><strong>生成图标</strong>：这里使用的是macOS系统中自带的图片处理命令<code>sips</code><br>详细的使用说明可以参考 <code>man sips</code>。</p>
+<p>这里只用到了改变大小和获取图片mete信息的功能。</p>
+<p>改变大小： <code>sips -z 512 512 $Pic --out Mac512@1x.png</code><br>获取图片信息：<code>sips -g all $Pic</code></p>
+<p>图片处理框架还要其他可以选择。macOS下比较好用的就是这个<code>sips</code>。可以通过这个命令完成很多东西。比如一些图片的批处理操作。当然也可以安装其他图片处理库。这里我还在linux上用过<code>ImageMagick</code><br>可以参考另一篇文章</p>
+<p><a href="https://zcwlwen.online/2017/01/09/shell%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90icon/" target="_blank" rel="noopener">shell脚本一键生成icon</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/10/20/Linux%E6%9D%83%E9%99%90%EF%BC%9ASUID-SGID%E4%BB%A5%E5%8F%8A%E7%B2%98%E6%BB%9E%E4%BD%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/10/20/Linux%E6%9D%83%E9%99%90%EF%BC%9ASUID-SGID%E4%BB%A5%E5%8F%8A%E7%B2%98%E6%BB%9E%E4%BD%8D/" class="post-title-link" itemprop="url">Linux权限：SUID,SGID以及粘滞位</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-10-20 16:02:18" itemprop="dateCreated datePublished" datetime="2017-10-20T16:02:18+08:00">2017-10-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux权限：SUID-SGID以及粘滞位"><a href="#Linux权限：SUID-SGID以及粘滞位" class="headerlink" title="Linux权限：SUID,SGID以及粘滞位"></a>Linux权限：SUID,SGID以及粘滞位</h1>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/08/16/realm%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91%E8%B8%A9%E5%9D%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/16/realm%E5%AE%89%E8%A3%85%E4%B8%8E%E7%BC%96%E8%AF%91%E8%B8%A9%E5%9D%91/" class="post-title-link" itemprop="url">realm安装与编译踩坑</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-16 13:26:10" itemprop="dateCreated datePublished" datetime="2017-08-16T13:26:10+08:00">2017-08-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="realm安装与编译踩坑"><a href="#realm安装与编译踩坑" class="headerlink" title="realm安装与编译踩坑"></a>realm安装与编译踩坑</h1><blockquote>
+<p>realm是一个简单易用的跨平台数据库</p>
+</blockquote>
+<ul>
+<li><a href="https://realm.io/" target="_blank" rel="noopener">realm官网</a></li>
+<li><a href="https://realm.io/docs/" target="_blank" rel="noopener">realm文档</a></li>
+<li><a href="https://github.com/realm" target="_blank" rel="noopener">realm Github地址</a></li>
+</ul>
+<p>我这里用的是iOS版本，所以这里的问题只针对于iOS的版本。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>文档中有安装步骤，根据文档中的教程去安装即可。</p>
+<h3 id="CocoaPods方式"><a href="#CocoaPods方式" class="headerlink" title="CocoaPods方式"></a>CocoaPods方式</h3><p>在podfile文件中添加<code>pod &#39;Realm&#39;</code>，然后执行<code>pod install</code>国内用户可能会出现下面的错误。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Downloading core failed. Please try again once you have an Internet connection..</span><br></pre></td></tr></table></figure>
+<p>出错的原因是因为被墙了，这时候你需要一个VPN，然后重新执行<code>pod install</code>就可以了。没有VPN的话使用静态库的方式去安装就可以。</p>
+<h3 id="静态库的安装"><a href="#静态库的安装" class="headerlink" title="静态库的安装"></a>静态库的安装</h3><p>下载你想要安装的版本。</p>
+<p><a href="https://github.com/realm/realm-cocoa/releases" target="_blank" rel="noopener">下载地址</a></p>
+<p>下载之后解压，把<code>ios/static/</code>目录下的<code>Realm.framework</code>推进项目中。然后在<code>Build Phases</code>下的. <code>Link Binary with Libraries</code>中添加<code>libc++.tbd</code>和<code>libz.tbd</code>，然后编译。</p>
+<h2 id="踩坑"><a href="#踩坑" class="headerlink" title="踩坑"></a>踩坑</h2><p>第一问题就是被墙问题。解决办法就是翻墙使用VPN或者采用另一种办法。</p>
+<p>还有一个是升级编译报错问题。我这里升级realm到最新版，然后编译报错。而且还有很多警告。下面是其中一个警告</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ld: warning: object file (/Users/abai/Library/Developer/Xcode/DerivedData/Diary-dadfyxaqgthxebftmnqlhyfwcfpv/Build/Products/Debug-iphoneos/libRealm.a(collection_change_builder.o)) was built for newer iOS version (10.1) than being linked (9.0)</span><br><span class="line"></span><br><span class="line">  &quot;realm::sync::make_sync_history(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; &gt; const&amp;)&quot;, referenced from:</span><br></pre></td></tr></table></figure>
+
+<p>这里发现问题应该出在了这个派生文件。所以删除掉<code>/Users/abai/Library/Developer/Xcode/DerivedData/</code>下面关于我这个项目的文件。然后重新编译，正常运行。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/08/16/iOS%E5%88%A0%E9%99%A4DerivedData%E5%92%8CArchives/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/16/iOS%E5%88%A0%E9%99%A4DerivedData%E5%92%8CArchives/" class="post-title-link" itemprop="url">iOS删除DerivedData和Archives</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-16 13:25:54" itemprop="dateCreated datePublished" datetime="2017-08-16T13:25:54+08:00">2017-08-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="iOS删除DerivedData和Archives"><a href="#iOS删除DerivedData和Archives" class="headerlink" title="iOS删除DerivedData和Archives"></a>iOS删除DerivedData和Archives</h1><p>DerivedData文件夹下包含项目的所有中间构建信息，debug版本和release版本的的build target(构建目标)。（项目索引、build输出以及日志）。当你遇到索引问题是（编译错误、重复索引、或者编译缓慢的问题的话）删除对应的项目的文件夹后，然后重新编译会有作用。</p>
+<p>Archives文件夹中包含目标的归档形式。也就是发布版本以及dSYM数据供以后调试，如果您希望能够调试应用程序的部署版本，那么您不应该删除它。这里建议不删除这个文件夹中的内容。</p>
+<p>关于如何清理空间参考下面前两篇中文的资料。</p>
+<p>如何正确删除derivedData文件夹和Archives文件，参考下面3、4两篇文章。</p>
+<p>参考文件：</p>
+<ul>
+<li><a href="http://blog.csdn.net/hdfqq188816190/article/details/71553376" target="_blank" rel="noopener">Xcode缓存DerivedData目录 archives 和iOS DeviceSupport等</a></li>
+<li><a href="http://www.cocoachina.com/ios/20170711/19814.html" target="_blank" rel="noopener">Xcode 清理存储空间</a></li>
+<li><a href="https://stackoverflow.com/questions/18933321/can-i-safely-delete-contents-of-xcode-derived-data-folder" target="_blank" rel="noopener">Can I safely delete contents of Xcode Derived data folder</a></li>
+<li><a href="https://stackoverflow.com/questions/7279141/how-can-i-safely-delete-in-my-library-developer-xcode-deriveddata-directory" target="_blank" rel="noopener">How can I safely delete in my ~/Library/Developer/Xcode/DerivedData directory?</a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/08/10/haskell%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/10/haskell%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" class="post-title-link" itemprop="url">haskell学习资料</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-10 13:26:29" itemprop="dateCreated datePublished" datetime="2017-08-10T13:26:29+08:00">2017-08-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/haskell/" itemprop="url" rel="index">
+                    <span itemprop="name">haskell</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="haskell学习资料"><a href="#haskell学习资料" class="headerlink" title="haskell学习资料"></a>haskell学习资料</h1><ul>
+<li><a href="https://www.gitbook.com/book/mno2/learnyouahaskell-zh/details" target="_blank" rel="noopener">Haskell 趣學指南</a></li>
+<li><a href="http://aducode.github.io/posts/2015-07-02/learn_haskell_lession1.html" target="_blank" rel="noopener">haskell学习总结(一)::初级篇</a></li>
+<li><a href="http://learnyouahaskell.com/" target="_blank" rel="noopener">learnyouahaskell电子书</a></li>
+<li><a href="https://ocharles.org.uk/blog/posts/2014-12-01-24-days-of-ghc-extensions.html" target="_blank" rel="noopener">24 Days of GHC </a></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/08/08/Evernote%E4%BD%BF%E7%94%A8Markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/08/08/Evernote%E4%BD%BF%E7%94%A8Markdown/" class="post-title-link" itemprop="url">Evernote使用Markdown</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-08-08 16:09:56" itemprop="dateCreated datePublished" datetime="2017-08-08T16:09:56+08:00">2017-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%88%E7%8E%87/" itemprop="url" rel="index">
+                    <span itemprop="name">效率</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Evernote使用Markdown（2017年08月）"><a href="#Evernote使用Markdown（2017年08月）" class="headerlink" title="Evernote使用Markdown（2017年08月）"></a>Evernote使用Markdown（2017年08月）</h1><blockquote>
+<p>Evernote支持Markdown了？不，这是一个笑话。曾经出现了很多次新闻说官方要支持Markdown，但是最后都没了消息。尝试了很多种方案。从使用体验来说，目前认为最好的方案是马克飞象，但是马克飞象是单向的，他生成的笔记只能通过马克飞象去编辑同步，而且比较局限，想要单独保留md文件还要单独去复制保存。而且目前是订阅收费79一年。我的会员到期了，所以找了找替代方案。</p>
+</blockquote>
+<h2 id="Sublime-Text"><a href="#Sublime-Text" class="headerlink" title="Sublime Text"></a>Sublime Text</h2><p>配合插件MarkdownEditing编写markdown很方便。但是同步到印象笔记我这里有问题。而且我没有找到很好的预览方式。我习惯的预览方式是左右两栏、能实时预览。然后试了下之后放弃了。可能有更好的插件方案与使用方案。</p>
+<h2 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h2><p>Atom配合插件ever-notedown一直有错误，不知道是不是配置有错误。不过Atom的主题感觉很好看渲染出来的效果也很好看。单纯的做一个Markdown的编辑器的话还是可以的。</p>
+<p><a href="https://github.com/cs150bf/ever-notedown/issues/8" target="_blank" rel="noopener">Uncaught TypeError: Cannot read property ‘addnote’ of null</a></p>
+<h2 id="Visual-Studio-Code"><a href="#Visual-Studio-Code" class="headerlink" title="Visual Studio Code"></a>Visual Studio Code</h2><p>Visual Studio Code 配合evermonkey插件目前能够满足我现在的需求，</p>
+<p><a href="https://github.com/michalyao/evermonkey" target="_blank" rel="noopener">evermonkey-github</a></p>
+<p><a href="http://monkey.yoryor.me/#/" target="_blank" rel="noopener">evermonkey官网</a></p>
+<p>文档比较详细，可以直接查看文档，安装和使用。</p>
+<h3 id="踩坑指南"><a href="#踩坑指南" class="headerlink" title="踩坑指南"></a>踩坑指南</h3><p>安装：直接搜索并安装</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-08-08-075100.jpg" alt></p>
+<p>配置：填好账号信息</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-08-08-075315.jpg" alt></p>
+<p><strong>关于Visual Studio Code中控制字符问题</strong></p>
+<p>publish的过程中遇到问题：</p>
+<p>参考我和作者的交流：</p>
+<p><a href="https://github.com/michalyao/evermonkey/issues/72" target="_blank" rel="noopener">Evernote Error: 11</a></p>
+<p>参考知乎上我的的一个回答：</p>
+<p><a href="https://www.zhihu.com/question/61638859/answer/210664958" target="_blank" rel="noopener">Mac 上的 VSCode 编写 Markdown 总是出现隐藏字符？</a></p>
+<p>总结一下，感觉这里的问题全是Visual Studio Code的控制字符的问题。</p>
+<p>首先说明一种肯定会产生退格字符的情况：</p>
+<p>输入中文的情况下，输入一个或者多个字母后，不要点空格选择汉字，点击退格删除按钮，等删除到只剩一个字母时候会出现一个退格键，同样的操作在其他编辑器上不会出现，这里我怀疑是设置问题（目前2017年08月08日还没有找到解决办法）。</p>
+<p>解决：</p>
+<p>首先要能看到退格符，测试发现在Sublime中可以显示退格符，在Atom、Visual Studio Code中都不显示以及在好多IDE中都不显示，后来查到Visual Studio Code后来支持显示控制字符了。所以是设置问题。</p>
+<p>添加下面的配置后Visual Studio Code成功显示了控制字符，但是这样并不能根本解决问题。目前我也不知道这些控制字符怎么产生的。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-08-08-050936.jpg" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/07/18/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%94%AF%E6%8C%81CocoaPods/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/07/18/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%94%AF%E6%8C%81CocoaPods/" class="post-title-link" itemprop="url">开源项目支持CocoaPods</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-07-18 16:35:42" itemprop="dateCreated datePublished" datetime="2017-07-18T16:35:42+08:00">2017-07-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="开源项目支持CocoaPods"><a href="#开源项目支持CocoaPods" class="headerlink" title="开源项目支持CocoaPods"></a>开源项目支持CocoaPods</h1><blockquote>
+<p>CocoaPods可以方便的管理你使用的第三方框架，这里讲解下怎么让你的项目支持CocoaPods。</p>
+<p>这里使用ZCWDropDownMenu这个项目做例子，从头说明</p>
+</blockquote>
+<h2 id="Github上创建项目"><a href="#Github上创建项目" class="headerlink" title="Github上创建项目"></a>Github上创建项目</h2><p>首先要在Github上创建项目ZCWDropDownMenu，然后把自己的项目push上去。具体步骤这里不做详细介绍。</p>
+<h2 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h2><h3 id="首先在终端下进到项目目录"><a href="#首先在终端下进到项目目录" class="headerlink" title="首先在终端下进到项目目录"></a>首先在终端下进到项目目录</h3><p><code>cd ZCWDropDownMenu/</code></p>
+<h3 id="创建podspec文件"><a href="#创建podspec文件" class="headerlink" title="创建podspec文件"></a>创建podspec文件</h3><p><code>pod spec create ZCWDropDownMenu</code></p>
+<p>创建完成后会创建一个通用的podspec文件，我们只需要去修改下其中的内容就可以。</p>
+<h3 id="编辑修改podspec文件"><a href="#编辑修改podspec文件" class="headerlink" title="编辑修改podspec文件"></a>编辑修改podspec文件</h3><p><code>vim ZCWDropDownMenu.podspec</code></p>
+<p>我们可以根据里面的注释去修改。</p>
+<p>下面是自动创建的模板，包括了所以详细信息，后面会弄一个简单版本。（可以参考下其他优秀开源框架的中的podspec文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line">#  Be sure to run `pod spec lint ZCWDropDownMenu.podspec&apos; to ensure this is a</span><br><span class="line">#  valid spec and to remove all comments including this before submitting the spec.</span><br><span class="line">#</span><br><span class="line">#  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html</span><br><span class="line">#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/</span><br><span class="line">#</span><br><span class="line"></span><br><span class="line">Pod::Spec.new do |s|</span><br><span class="line"></span><br><span class="line">  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  These will help people to find your library, and whilst it</span><br><span class="line">  #  can feel like a chore to fill in it&apos;s definitely to your advantage. The</span><br><span class="line">  #  summary should be tweet-length, and the description more in depth.</span><br><span class="line">  #</span><br><span class="line">  # 项目名</span><br><span class="line">  s.name         = &quot;ZCWDropDownMenu&quot;</span><br><span class="line">  # 项目版本</span><br><span class="line">  s.version      = &quot;0.0.3&quot;</span><br><span class="line">  # 项目简单描述</span><br><span class="line">  s.summary      = &quot;Drop-down Menu&quot;</span><br><span class="line"></span><br><span class="line">  # This description is used to generate tags and improve search results.</span><br><span class="line">  #   * Think: What does it do? Why did you write it? What is the focus?</span><br><span class="line">  #   * Try to keep it short, snappy and to the point.</span><br><span class="line">  #   * Write the description between the DESC delimiters below.</span><br><span class="line">  #   * Finally, don&apos;t worry about the indent, CocoaPods strips it!</span><br><span class="line">  s.description  = &apos;Drop-down Menu 下拉菜单&apos;</span><br><span class="line"></span><br><span class="line">  s.homepage     = &quot;https://github.com/zcwlwen/ZCWDropDownMenu&quot;</span><br><span class="line">  # s.screenshots  = &quot;www.example.com/screenshots_1.gif&quot;, &quot;www.example.com/screenshots_2.gif&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  # ―――  Spec License  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  Licensing your code is important. See http://choosealicense.com for more info.</span><br><span class="line">  #  CocoaPods will detect a license file if there is a named LICENSE*</span><br><span class="line">  #  Popular ones are &apos;MIT&apos;, &apos;BSD&apos; and &apos;Apache License, Version 2.0&apos;.</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  s.license      = &quot;MIT&quot;</span><br><span class="line">  # s.license      = &#123; :type =&gt; &quot;MIT&quot;, :file =&gt; &quot;FILE_LICENSE&quot; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  Specify the authors of the library, with email addresses. Email addresses</span><br><span class="line">  #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also</span><br><span class="line">  #  accepts just a name if you&apos;d rather not provide an email address.</span><br><span class="line">  #</span><br><span class="line">  #  Specify a social_media_url where others can refer to, for example a twitter</span><br><span class="line">  #  profile URL.</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  s.author             = &#123; &quot;zcw&quot; =&gt; &quot;zcw_lwen@sina.cn&quot; &#125;</span><br><span class="line">  # Or just: s.author    = &quot;zcw&quot;</span><br><span class="line">  # s.authors            = &#123; &quot;zcw&quot; =&gt; &quot;zcw_lwen@sina.cn&quot; &#125;</span><br><span class="line">  # s.social_media_url   = &quot;http://twitter.com/zcw&quot;</span><br><span class="line"></span><br><span class="line">  # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  If this Pod runs only on iOS or OS X, then specify the platform and</span><br><span class="line">  #  the deployment target. You can optionally include the target after the platform.</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  s.platform     = :ios</span><br><span class="line">  # s.platform     = :ios, &quot;5.0&quot;</span><br><span class="line"></span><br><span class="line">  #  When using multiple platforms</span><br><span class="line">  # s.ios.deployment_target = &quot;5.0&quot;</span><br><span class="line">  # s.osx.deployment_target = &quot;10.7&quot;</span><br><span class="line">  # s.watchos.deployment_target = &quot;2.0&quot;</span><br><span class="line">  # s.tvos.deployment_target = &quot;9.0&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  Specify the location from where the source should be retrieved.</span><br><span class="line">  #  Supports git, hg, bzr, svn and HTTP.</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  s.source       = &#123; :git =&gt; &quot;https://github.com/zcwlwen/ZCWDropDownMenu.git&quot;, :tag =&gt; &quot;0.0.3&quot; &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  CocoaPods is smart about how it includes source code. For source files</span><br><span class="line">  #  giving a folder will include any swift, h, m, mm, c &amp; cpp files.</span><br><span class="line">  #  For header files it will include any header in the folder.</span><br><span class="line">  #  Not including the public_header_files will make all headers public.</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  s.source_files  = &quot;ZCWDropDownMenu/ZCWDropDownMenu/*&quot;</span><br><span class="line">  # s.exclude_files = &quot;Classes/Exclude&quot;</span><br><span class="line"></span><br><span class="line">  # s.public_header_files = &quot;Classes/**/*.h&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  A list of resources included with the Pod. These are copied into the</span><br><span class="line">  #  target bundle with a build phase script. Anything else will be cleaned.</span><br><span class="line">  #  You can preserve files from being cleaned, please don&apos;t preserve</span><br><span class="line">  #  non-essential files like tests, examples and documentation.</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  # s.resource  = &quot;icon.png&quot;</span><br><span class="line">  # s.resources = &quot;Resources/*.png&quot;</span><br><span class="line"></span><br><span class="line">  # s.preserve_paths = &quot;FilesToSave&quot;, &quot;MoreFilesToSave&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  Link your library with frameworks, or libraries. Libraries do not include</span><br><span class="line">  #  the lib prefix of their name.</span><br><span class="line">  #</span><br><span class="line"></span><br><span class="line">  # s.framework  = &quot;SomeFramework&quot;</span><br><span class="line">  # s.frameworks = &quot;SomeFramework&quot;, &quot;AnotherFramework&quot;</span><br><span class="line"></span><br><span class="line">  # s.library   = &quot;iconv&quot;</span><br><span class="line">  # s.libraries = &quot;iconv&quot;, &quot;xml2&quot;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #</span><br><span class="line">  #</span><br><span class="line">  #  If your library depends on compiler flags you can set them in the xcconfig hash</span><br><span class="line">  #  where they will only apply to your library. If you depend on other Podspecs</span><br><span class="line">  #  you can include multiple dependencies to ensure it works.</span><br><span class="line"></span><br><span class="line">  # s.requires_arc = true</span><br><span class="line"></span><br><span class="line">  # s.xcconfig = &#123; &quot;HEADER_SEARCH_PATHS&quot; =&gt; &quot;$(SDKROOT)/usr/include/libxml2&quot; &#125;</span><br><span class="line">  # s.dependency &quot;JSONKit&quot;, &quot;~&gt; 1.4&quot;</span><br><span class="line">  </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>简单版本：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Pod::Spec.new do |s|</span><br><span class="line"></span><br><span class="line">  s.name         = &quot;ZCWDropDownMenu&quot;</span><br><span class="line">  s.version      = &quot;0.0.3&quot;</span><br><span class="line">  s.summary      = &quot;Drop-down Menu&quot;</span><br><span class="line"></span><br><span class="line">  s.description  = &apos;Drop-down Menu 下拉菜单&apos;</span><br><span class="line"></span><br><span class="line">  s.homepage     = &quot;https://github.com/zcwlwen/ZCWDropDownMenu&quot;</span><br><span class="line"></span><br><span class="line">  s.license      = &quot;MIT&quot;</span><br><span class="line">  </span><br><span class="line">  s.author             = &#123; &quot;zcw&quot; =&gt; &quot;zcw_lwen@sina.cn&quot; &#125;</span><br><span class="line"></span><br><span class="line">  s.platform     = :ios</span><br><span class="line">  s.platform     = :ios, &quot;8.0&quot;</span><br><span class="line"></span><br><span class="line">  s.source       = &#123; :git =&gt; &quot;https://github.com/zcwlwen/ZCWDropDownMenu.git&quot;, :tag =&gt; &quot;0.0.3&quot; &#125;</span><br><span class="line"></span><br><span class="line">  s.source_files  = &quot;ZCWDropDownMenu/ZCWDropDownMenu/*&quot;</span><br><span class="line"></span><br><span class="line">  s.requires_arc = true</span><br><span class="line">  </span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建tag并且推送到github"><a href="#创建tag并且推送到github" class="headerlink" title="创建tag并且推送到github"></a>创建tag并且推送到github</h3><p>在项目目录下依次执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;你要添加的注释内容&quot;</span><br><span class="line">git tag 0.0.3</span><br><span class="line">git push --tags</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<h3 id="验证podspec文件"><a href="#验证podspec文件" class="headerlink" title="验证podspec文件"></a>验证podspec文件</h3><p>执行：</p>
+<p><code>pod spec lint ZCWDropDownMenu.podspec</code></p>
+<p>然后验证结果通过情况如图：</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-18-064514.jpg" alt></p>
+<p>验证结果不通过的情况：（错误情况会有很多种，这里可以根据错误信息去修改对应的错误，我这里是因为格式错误，把podspec文件末尾的end误删除导致加载失败）。错误信息比较详细。根据错误提示去修改对应的错误直到通过即可。</p>
+<p>这里要注意的是如果测试不通过就要重新去执行添加tag这一步操作。在执行添加tag操作前，我们要先把刚刚创建的本地的tag和远程仓库的tag删掉：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git tag -d 0.0.3</span><br><span class="line">git push origin  :refs/tags/0.0.3</span><br></pre></td></tr></table></figure>
+<p>然后在执行添加tag命令。</p>
+<p>这里还有一个注意的点就是在podspec文件中的<code>s.version</code>一定要在tags中的某一个。比如如果项目的tag只有0.0.3和0.0.4，你在<code>s.version</code>后面跟0.0.5是不行的。这里的版本要和项目的tag对应。</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-18-064631.jpg" alt></p>
+<h3 id="验证通过后就可以提交到CocoaPods"><a href="#验证通过后就可以提交到CocoaPods" class="headerlink" title="验证通过后就可以提交到CocoaPods"></a>验证通过后就可以提交到CocoaPods</h3><p>注意如果是第一次提交需要先注册，要执行下面的命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod trunk register 这里写邮箱 &apos;用户名&apos; --description=&apos; 描述&apos;</span><br></pre></td></tr></table></figure>
+
+<p>然后你的邮箱会收到一封邮件。点击邮件中的链接完成认证。之后就可以提交。</p>
+<p>如果已经提交过就可以忽略这一步直接提交。</p>
+<p>提交命令：</p>
+<p><code>pod trunk push ZCWDropDownMenu.podspec</code></p>
+<p>提交也会出现错误情况：根据错误信息去修改提交内容</p>
+<p>这里是我一个提交错误的情况与解决办法：</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-18-070052.jpg" alt></p>
+<p>根据错误提示发现是因为之前提交过0.0.3版本所以不能重复提交了。所以这个时候要提交不同的版本。</p>
+<p>首先在添加一个tag：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git tag 0.0.4</span><br><span class="line">git push --tags</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>然后修改podspec文件：中的<code>s.version</code>和<code>s.source</code>。然后在执行验证步骤与提交步骤。</p>
+<p>提交成功如图显示：</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-07-18-070409.jpg" alt></p>
+<p>这时候就可以通过pod去集成到项目中去。</p>
+<h2 id="问题描述与解决"><a href="#问题描述与解决" class="headerlink" title="问题描述与解决"></a>问题描述与解决</h2><p>这里还有一个问题就是集成到项目中遇到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZCWDropDownMenu.m:44:1: Cannot synthesize weak property because the current deployment target does not support weak references</span><br></pre></td></tr></table></figure>
+<p>是因为项目不支持ARC的原因。根本原因是我在填写<code>podspec</code>文件的时候漏掉了一句话<strong><code>s.requires_arc = true</code></strong></p>
+<p>这个问题在我们集成比较老的开源项目的时候可能也会遇到，但是目前的新项目解决办法就是要加上这句话后，重新提交一个版本。</p>
+<p>这也不是唯一的解决办法，在stackoverflow中找到了<br><a href="https://stackoverflow.com/questions/37160688/set-deployment-target-for-cocoapodss-pod" target="_blank" rel="noopener">https://stackoverflow.com/questions/37160688/set-deployment-target-for-cocoapodss-pod</a></p>
+<p>在podfile中加上下面这些话：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">post_install do |installer|</span><br><span class="line">  installer.pods_project.targets.each do |target|</span><br><span class="line">    target.build_configurations.each do |config|</span><br><span class="line">      config.build_settings[&apos;IPHONEOS_DEPLOYMENT_TARGET&apos;] = &apos;9.2&apos;</span><br><span class="line">    end</span><br><span class="line">  end</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>然后在执行下pod install这样也是可以使用。</p>
+<p>但是如果是我们自己的新的项目，还是要从根本上解决解决问题把<code>s.requires_arc = true</code>加上然后发布一个更新版本。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/06/22/Gitlab%E9%85%8D%E7%BD%AE%E9%82%AE%E7%AE%B1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/22/Gitlab%E9%85%8D%E7%BD%AE%E9%82%AE%E7%AE%B1/" class="post-title-link" itemprop="url">Gitlab配置邮箱</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-06-22 10:58:48" itemprop="dateCreated datePublished" datetime="2017-06-22T10:58:48+08:00">2017-06-22</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Gitlab/" itemprop="url" rel="index">
+                    <span itemprop="name">Gitlab</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Gitlab配置邮箱"><a href="#Gitlab配置邮箱" class="headerlink" title="Gitlab配置邮箱"></a>Gitlab配置邮箱</h1><blockquote>
+<p>注意这里是Gitlab Omnibus版本的配置。配置邮箱后可以通过邮箱来做到注册、找回密码、已经通知的功能。这里配置的是腾讯的企业邮箱。</p>
+</blockquote>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>编辑修改<code>/etc/gitlab/gitlab.rb</code>来配置邮件功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">gitlab_rails[&apos;smtp_enable&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_address&apos;] = &quot;smtp.server&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_port&apos;] = 465</span><br><span class="line">gitlab_rails[&apos;smtp_user_name&apos;] = &quot;smtp user&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_password&apos;] = &quot;smtp password&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_domain&apos;] = &quot;example.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_authentication&apos;] = &quot;login&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_enable_starttls_auto&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_openssl_verify_mode&apos;] = &apos;peer&apos;</span><br><span class="line"></span><br><span class="line"># 如果你使用的SMTP服务是默认的 &apos;From:gitlab@localhost&apos;</span><br><span class="line"># 你可以修改这里的 &apos;From&apos; 的值。</span><br><span class="line">gitlab_rails[&apos;gitlab_email_from&apos;] = &apos;gitlab@example.com&apos;</span><br><span class="line">gitlab_rails[&apos;gitlab_email_reply_to&apos;] = &apos;noreply@example.com&apos;</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置实例"><a href="#配置实例" class="headerlink" title="配置实例"></a>配置实例</h2><h3 id="QQ-exmail-腾讯企业邮箱"><a href="#QQ-exmail-腾讯企业邮箱" class="headerlink" title="QQ exmail (腾讯企业邮箱)"></a>QQ exmail (腾讯企业邮箱)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">gitlab_rails[&apos;smtp_enable&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_address&apos;] = &quot;smtp.exmail.qq.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_port&apos;] = 465</span><br><span class="line">gitlab_rails[&apos;smtp_user_name&apos;] = &quot;xxxx@xx.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_password&apos;] = &quot;password&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_authentication&apos;] = &quot;login&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_enable_starttls_auto&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_tls&apos;] = true</span><br><span class="line">gitlab_rails[&apos;gitlab_email_from&apos;] = &apos;xxxx@xx.com&apos;</span><br></pre></td></tr></table></figure>
+<h3 id="Gmail"><a href="#Gmail" class="headerlink" title="Gmail"></a>Gmail</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gitlab_rails[&apos;smtp_enable&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_address&apos;] = &quot;smtp.gmail.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_port&apos;] = 587</span><br><span class="line">gitlab_rails[&apos;smtp_user_name&apos;] = &quot;my.email@gmail.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_password&apos;] = &quot;my-gmail-password&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_domain&apos;] = &quot;smtp.gmail.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_authentication&apos;] = &quot;login&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_enable_starttls_auto&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_tls&apos;] = false</span><br><span class="line">gitlab_rails[&apos;smtp_openssl_verify_mode&apos;] = &apos;peer&apos; # Can be: &apos;none&apos;, &apos;peer&apos;, &apos;client_once&apos;, &apos;fail_if_no_peer_cert&apos;, see http://api.rubyonrails.org/classes/ActionMailer/Base.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="网易163邮箱"><a href="#网易163邮箱" class="headerlink" title="网易163邮箱"></a>网易163邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># 通过SMTP来发送邮件</span><br><span class="line">gitlab_rails[&apos;smtp_enable&apos;] = true</span><br><span class="line">gitlab_rails[&apos;smtp_address&apos;] = &quot;smtp.163.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_port&apos;] = 25 </span><br><span class="line"># 邮箱账号</span><br><span class="line">gitlab_rails[&apos;smtp_user_name&apos;] = &quot;xxuser@163.com&quot; </span><br><span class="line"># 邮箱密码</span><br><span class="line">gitlab_rails[&apos;smtp_password&apos;] = &quot;xxpassword&quot;</span><br><span class="line"># 邮箱域：这里填写163.com就好</span><br><span class="line">gitlab_rails[&apos;smtp_domain&apos;] = &quot;163.com&quot;</span><br><span class="line">gitlab_rails[&apos;smtp_authentication&apos;] = :login</span><br><span class="line">gitlab_rails[&apos;smtp_enable_starttls_auto&apos;] = true</span><br><span class="line">##修改gitlab配置的发信人</span><br><span class="line"># 第一行配置一定要和163邮箱的账户名一样否则可能发送失败</span><br><span class="line">gitlab_rails[&apos;gitlab_email_from&apos;] = &quot;xxuser@163.com&quot;</span><br><span class="line">user[&quot;git_user_email&quot;] = &quot;xxuser@163.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p><strong><a href="https://docs.gitlab.com.cn/omnibus/settings/smtp.html" target="_blank" rel="noopener">更多实例查看中文文档</a></strong></p>
+<p>这里使用腾讯企业邮箱测试通过</p>
+<h2 id="测试邮件发送功能"><a href="#测试邮件发送功能" class="headerlink" title="测试邮件发送功能"></a>测试邮件发送功能</h2><p>配置完成后可以用Rails控制台验证邮件是否能发送成功。 在GitLab服务器上，执行 gitlab-rails console 进入控制台。 然后在控制台提示符后输入下面的命令 发送一封测试邮件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">irb(main):003:0&gt; Notify.test_email(&apos;destination_email@address.com&apos;, &apos;Message Subject&apos;, &apos;Message Body&apos;).deliver_now</span><br><span class="line"># 示例</span><br><span class="line">Notify.test_email(&apos;收件人邮箱&apos;, &apos;邮件标题&apos;, &apos;邮件正文&apos;).deliver_now</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/06/21/Ubuntu%E4%BF%AE%E6%94%B9apt%E6%BA%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/06/21/Ubuntu%E4%BF%AE%E6%94%B9apt%E6%BA%90/" class="post-title-link" itemprop="url">Ubuntu修改apt源</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-06-21 15:22:28" itemprop="dateCreated datePublished" datetime="2017-06-21T15:22:28+08:00">2017-06-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Ubuntu修改apt源"><a href="#Ubuntu修改apt源" class="headerlink" title="Ubuntu修改apt源"></a>Ubuntu修改apt源</h1><blockquote>
+<p>本地安装了一个Ubuntu系统，为了方便使用，把apt源替换为国内的阿里云的源地址</p>
+</blockquote>
+<h2 id="直接设置中去修改"><a href="#直接设置中去修改" class="headerlink" title="直接设置中去修改"></a>直接设置中去修改</h2><blockquote>
+<p>打开SystemSettings，选择Software &amp; Updates 选择中国的镜像就可以。</p>
+</blockquote>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-06-21-072802.jpg" alt></p>
+<h2 id="手动修改配置文件"><a href="#手动修改配置文件" class="headerlink" title="手动修改配置文件"></a>手动修改配置文件</h2><blockquote>
+<p>手动修改配置文件并更新</p>
+</blockquote>
+<h3 id="备份原先的配置文件"><a href="#备份原先的配置文件" class="headerlink" title="备份原先的配置文件"></a>备份原先的配置文件</h3><p><code>sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</code></p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p><code>sudo vim /etc/apt/sources.list</code></p>
+<p>删除里面的内容添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ trusty-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure>
+<h3 id="更新源"><a href="#更新源" class="headerlink" title="更新源"></a>更新源</h3><p><code>sudo apt-get update</code></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/04/25/php7%E5%AE%89%E8%A3%85redis%E6%89%A9%E5%B1%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/04/25/php7%E5%AE%89%E8%A3%85redis%E6%89%A9%E5%B1%95/" class="post-title-link" itemprop="url">php7安装redis扩展</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-25 16:28:25" itemprop="dateCreated datePublished" datetime="2017-04-25T16:28:25+08:00">2017-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="php7安装redis扩展"><a href="#php7安装redis扩展" class="headerlink" title="php7安装redis扩展"></a>php7安装redis扩展</h1><blockquote>
+<p><code>PHP Version 7.0.15-0ubuntu0.16.10.4</code><br>Ubuntu下安装php7的redis扩展</p>
+</blockquote>
+<h2 id="安装phpredis"><a href="#安装phpredis" class="headerlink" title="安装phpredis"></a>安装phpredis</h2><p>Redis有php7版本，直接去github上克隆下来后，切换到php7分支，然后编译安装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ cd /opt/</span><br><span class="line">$ $ git clone https://github.com/phpredis/phpredis.git </span><br><span class="line">$ cd phpredis/ </span><br><span class="line">$ git checkout php7 </span><br><span class="line">$ phpize </span><br><span class="line">$ ./configure </span><br><span class="line">$ make </span><br><span class="line">$ makeinstall</span><br></pre></td></tr></table></figure>
+<p>注意：如果提示phpize没有的话，需要安装php7.0-dev。<br>直接执行<code>sudo apt install php7.0-dev</code></p>
+<h2 id="启动redis扩展"><a href="#启动redis扩展" class="headerlink" title="启动redis扩展"></a>启动redis扩展</h2><p>编辑php配置文件，打开<code>vim /etc/php/7.0/fpm/php .ini</code><br>添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">extension=redis.so</span><br></pre></td></tr></table></figure>
+
+<p>然后重启php服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/php7.0-fpm restart</span><br></pre></td></tr></table></figure>
+
+<p>然后在phpinfo()中如果看到下面信息。说明安装成功<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-25-085557.jpg" alt></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
