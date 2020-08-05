@@ -189,116 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/10/26/%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90AppIcon%E8%84%9A%E6%9C%AC-%E6%94%B9%E8%BF%9B%E7%89%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/10/26/%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90AppIcon%E8%84%9A%E6%9C%AC-%E6%94%B9%E8%BF%9B%E7%89%88/" class="post-title-link" itemprop="url">一键生成AppIcon脚本(改进版)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-10-26 16:33:14" itemprop="dateCreated datePublished" datetime="2017-10-26T16:33:14+08:00">2017-10-26</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一键生成AppIcon脚本-改进版"><a href="#一键生成AppIcon脚本-改进版" class="headerlink" title="一键生成AppIcon脚本(改进版)"></a>一键生成AppIcon脚本(改进版)</h1><blockquote>
-<p>看到了一篇文章是一个脚本用来生成AppIcon，这篇文章的作者用的是swift写的。然后我就把我之前写的一个自己用的shell脚本优化了下。<br>一键生成AppIcon的shell脚本.</p>
-</blockquote>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>准备的东西：</p>
-<ul>
-<li>一键生成AppIcon的脚本</li>
-<li>分辨率高于1024x1024的图片（以为在iOS 11以后需要一张1024的图片用在App Store中）</li>
-</ul>
-<p>首先下载脚本到本地，然后把脚本和图片放到一个文件夹下。然后确认脚本是否有执行权限。</p>
-<p>没有权限的脚本，执行的时候会报错<code>permission denied:</code>这时候要给脚本加上执行权限，命令是<code>chmod +x ios_icon_shell_sips.sh</code>。这样就给脚本加上了执行权限。（这边有关文件权限的问题可以自己去查看有关linux文件权限的东西。）</p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075012.jpg" alt></p>
-<p>下面的图就是有执行权限的脚本</p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075142.jpg" alt></p>
-<p>在终端中执行这个脚本<code>./ios_icon_shell_sips.sh</code></p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075600.jpg" alt></p>
-<p>然后输入图片名：</p>
-<p>可以看到输入的图片为<code>test.png</code>，然后你可以看到这样土拍你的信息，然后输入你要生成哪里用的图标。可以选择iPhone、iPad、Apple Watch、macOS。目前暂时不支持AppleTV。（我这里的图片的分辨率是512x512。这样生成的1024x1024的图片可能会出现不清楚的情况，最好还是用大于1024的图片）</p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-075709.jpg" alt></p>
-<p>然后输入你想要生成的设备对应的编号。（可以多次输入，会多次生成）</p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-080302.jpg" alt></p>
-<p>生成结束后，输入<code>q</code>可以退出。</p>
-<p>这样生成的图标就按照固定的格式和命名生成在了当前的文件夹下。<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-10-26-080402.jpg" alt></p>
-<h2 id="脚本分析"><a href="#脚本分析" class="headerlink" title="脚本分析"></a>脚本分析</h2><p>首先说一下之前的那个脚本，那个脚本很简单，只需要在执行的时候接受一个图片参数就可以，只能满足基本要求，不够灵活。</p>
-<p>技术难点：</p>
-<ul>
-<li>键盘输入交互</li>
-<li>生成图标</li>
-</ul>
-<p><strong>接受键盘输入</strong>：这里使用的是read来监听键盘输入。使用do while循环。具体的逻辑看下脚本内容会很清楚。</p>
-<p>遇到的问题是监听键盘的时候，当什么都不输入的情况下直接回车。会出现错误。错误的原因是逻辑运算的问题。因为我这里要比较输入的参数所以这里会报错<code>$aNum = 1</code>。（这里的aNum就是你输入的设备参数。如果你这时候没有输入直接回车会出现 <code>= 1</code>的比较所以会报错。使用<code>&quot;$aNum&quot; = 1</code>加上双引号就不会出现这样的情况。因为不会出现一个空值，只会是一个空字符串。）具体的东西可以去参考shell的语法。</p>
-<p><strong>生成图标</strong>：这里使用的是macOS系统中自带的图片处理命令<code>sips</code><br>详细的使用说明可以参考 <code>man sips</code>。</p>
-<p>这里只用到了改变大小和获取图片mete信息的功能。</p>
-<p>改变大小： <code>sips -z 512 512 $Pic --out Mac512@1x.png</code><br>获取图片信息：<code>sips -g all $Pic</code></p>
-<p>图片处理框架还要其他可以选择。macOS下比较好用的就是这个<code>sips</code>。可以通过这个命令完成很多东西。比如一些图片的批处理操作。当然也可以安装其他图片处理库。这里我还在linux上用过<code>ImageMagick</code><br>可以参考另一篇文章</p>
-<p><a href="https://zcwlwen.online/2017/01/09/shell%E8%84%9A%E6%9C%AC%E4%B8%80%E9%94%AE%E7%94%9F%E6%88%90icon/" target="_blank" rel="noopener">shell脚本一键生成icon</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/10/20/Linux%E6%9D%83%E9%99%90%EF%BC%9ASUID-SGID%E4%BB%A5%E5%8F%8A%E7%B2%98%E6%BB%9E%E4%BD%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1086,6 +976,132 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/04/13/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85MySQL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/04/13/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">Ubuntu下安装MySQL</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-04-13 15:44:22" itemprop="dateCreated datePublished" datetime="2017-04-13T15:44:22+08:00">2017-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Ubuntu下安装MySQL"><a href="#Ubuntu下安装MySQL" class="headerlink" title="Ubuntu下安装MySQL"></a>Ubuntu下安装MySQL</h1><blockquote>
+<p>mysql-server :mysql服务器</p>
+<p>mysql-client :mysql命令行工具</p>
+<p>mysql workbench :mysqlGUI管理工具</p>
+</blockquote>
+<h2 id="安装mysql-server"><a href="#安装mysql-server" class="headerlink" title="安装mysql-server"></a>安装mysql-server</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<p>安装过程中会有一个输入用户名和密码的步骤。记住用户名密码后面登录的时候会用到。</p>
+<p>安装完成后可以使用：<code>mysql --version</code>查看安装的版本</p>
+<h3 id="启动停止"><a href="#启动停止" class="headerlink" title="启动停止"></a>启动停止</h3><p>查看状态：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql status</span><br></pre></td></tr></table></figure>
+
+<p>启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br></pre></td></tr></table></figure>
+
+<p>停止：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql stop</span><br></pre></td></tr></table></figure>
+
+<p>查看网络端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -lnpt |grep mysql</span><br></pre></td></tr></table></figure>
+
+<p>如下图：mysql在3306端口启动（默认端口就是3306）</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-13-075642.jpg" alt></p>
+<h2 id="安装mysql-client"><a href="#安装mysql-client" class="headerlink" title="安装mysql-client"></a>安装mysql-client</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-client</span><br></pre></td></tr></table></figure>
+
+<p>安装成功后就可以在终端管理数据库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u user -p</span><br></pre></td></tr></table></figure>
+<p>-u后面跟的是用户名（默认root）</p>
+<p>-p密码 （安装mysql是输入的密码）</p>
+<h2 id="mysqlGUI管理工具"><a href="#mysqlGUI管理工具" class="headerlink" title="mysqlGUI管理工具"></a>mysqlGUI管理工具</h2><p>这里推荐两个</p>
+<p><strong>Navicat</strong>： 收费 只提供官网地址，要使用破解版自行搜索</p>
+<p><a href="https://www.navicat.com.cn/" target="_blank" rel="noopener">中国官网</a> </p>
+<p><a href="https://www.navicat.com/" target="_blank" rel="noopener">官网</a></p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-13-080651.jpg" alt><br><strong>MySQL Workbench</strong>：官方的GUI免费</p>
+<p>下载地址：</p>
+<p><a href="https://www.mysql.com/products/workbench/" target="_blank" rel="noopener">MySQL Workbench</a></p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-13-080710.jpg" alt></p>
+<h2 id="安装过程中的遇到的问题"><a href="#安装过程中的遇到的问题" class="headerlink" title="安装过程中的遇到的问题"></a>安装过程中的遇到的问题</h2><h3 id="远程连接权限问题："><a href="#远程连接权限问题：" class="headerlink" title="远程连接权限问题："></a>远程连接权限问题：</h3><p>安装完mysql遇到了本地能连接到mysql。但是数据库管理工具连接到数据库，提示权限问题。</p>
+<h4 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h4><ul>
+<li>检查网络问题，服务器网络是否联通</li>
+<li>mysql状态是否启动</li>
+<li>防火墙是否禁用可3306端口</li>
+<li>3306端口绑定只能本地访问</li>
+<li>mysql用户访问权限</li>
+</ul>
+<h4 id="访问权限问题"><a href="#访问权限问题" class="headerlink" title="访问权限问题"></a>访问权限问题</h4><p>我这里不能访问的原因是因为mysql的访问权限问题和3306端口和localhost绑定。</p>
+<p><strong>修改访问权限</strong></p>
+<p>mysql的用户访问权限都在数据库mysql的user表里面。<br>如下图root用户的Host默认为localhost，所以root用户只能通过localhost访问数据库，简单的办法是直接修改localhost为%，意思是任何ip都可以连接数据库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql; </span><br><span class="line">mysql&gt; select host,user form user; </span><br><span class="line">mysql&gt; update user set host = &apos;%&apos; where user =&apos;root&apos;; </span><br><span class="line">mysql&gt; select host,user from user; </span><br><span class="line">mysql&gt; flush privileges; </span><br><span class="line">mysql&gt; quit;</span><br></pre></td></tr></table></figure>
+
+<p>还有一种就是新增一个用户用来运行远程连接</p>
+<p>在终端中连接到mysql </p>
+<p><code>mysql -u user -ppasswor</code></p>
+<p><strong>添加用户授权方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &apos;user&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-14-021009.jpg" alt></p>
+<p>如图上面的root用户已经修改，amai用户为新增用户。</p>
+<h4 id="修改mysql配置文件"><a href="#修改mysql配置文件" class="headerlink" title="修改mysql配置文件"></a>修改mysql配置文件</h4><p>配置文件地址：</p>
+<p>配置文件的路径根据版本可能略有差异，我这里的配置文件是<br><code>/etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
+<p>注释掉配置文件中<code>bind-address = 127.0.0.1</code></p>
+<p>保存后重启下mysql。</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -1136,7 +1152,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1182,7 +1198,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -189,132 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/04/13/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85MySQL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/04/13/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85MySQL/" class="post-title-link" itemprop="url">Ubuntu下安装MySQL</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-04-13 15:44:22" itemprop="dateCreated datePublished" datetime="2017-04-13T15:44:22+08:00">2017-04-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Ubuntu下安装MySQL"><a href="#Ubuntu下安装MySQL" class="headerlink" title="Ubuntu下安装MySQL"></a>Ubuntu下安装MySQL</h1><blockquote>
-<p>mysql-server :mysql服务器</p>
-<p>mysql-client :mysql命令行工具</p>
-<p>mysql workbench :mysqlGUI管理工具</p>
-</blockquote>
-<h2 id="安装mysql-server"><a href="#安装mysql-server" class="headerlink" title="安装mysql-server"></a>安装mysql-server</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>安装命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
-<p>安装过程中会有一个输入用户名和密码的步骤。记住用户名密码后面登录的时候会用到。</p>
-<p>安装完成后可以使用：<code>mysql --version</code>查看安装的版本</p>
-<h3 id="启动停止"><a href="#启动停止" class="headerlink" title="启动停止"></a>启动停止</h3><p>查看状态：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql status</span><br></pre></td></tr></table></figure>
-
-<p>启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql start</span><br></pre></td></tr></table></figure>
-
-<p>停止：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service mysql stop</span><br></pre></td></tr></table></figure>
-
-<p>查看网络端口：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo netstat -lnpt |grep mysql</span><br></pre></td></tr></table></figure>
-
-<p>如下图：mysql在3306端口启动（默认端口就是3306）</p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-13-075642.jpg" alt></p>
-<h2 id="安装mysql-client"><a href="#安装mysql-client" class="headerlink" title="安装mysql-client"></a>安装mysql-client</h2><h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-client</span><br></pre></td></tr></table></figure>
-
-<p>安装成功后就可以在终端管理数据库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u user -p</span><br></pre></td></tr></table></figure>
-<p>-u后面跟的是用户名（默认root）</p>
-<p>-p密码 （安装mysql是输入的密码）</p>
-<h2 id="mysqlGUI管理工具"><a href="#mysqlGUI管理工具" class="headerlink" title="mysqlGUI管理工具"></a>mysqlGUI管理工具</h2><p>这里推荐两个</p>
-<p><strong>Navicat</strong>： 收费 只提供官网地址，要使用破解版自行搜索</p>
-<p><a href="https://www.navicat.com.cn/" target="_blank" rel="noopener">中国官网</a> </p>
-<p><a href="https://www.navicat.com/" target="_blank" rel="noopener">官网</a></p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-13-080651.jpg" alt><br><strong>MySQL Workbench</strong>：官方的GUI免费</p>
-<p>下载地址：</p>
-<p><a href="https://www.mysql.com/products/workbench/" target="_blank" rel="noopener">MySQL Workbench</a></p>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-13-080710.jpg" alt></p>
-<h2 id="安装过程中的遇到的问题"><a href="#安装过程中的遇到的问题" class="headerlink" title="安装过程中的遇到的问题"></a>安装过程中的遇到的问题</h2><h3 id="远程连接权限问题："><a href="#远程连接权限问题：" class="headerlink" title="远程连接权限问题："></a>远程连接权限问题：</h3><p>安装完mysql遇到了本地能连接到mysql。但是数据库管理工具连接到数据库，提示权限问题。</p>
-<h4 id="问题分析："><a href="#问题分析：" class="headerlink" title="问题分析："></a>问题分析：</h4><ul>
-<li>检查网络问题，服务器网络是否联通</li>
-<li>mysql状态是否启动</li>
-<li>防火墙是否禁用可3306端口</li>
-<li>3306端口绑定只能本地访问</li>
-<li>mysql用户访问权限</li>
-</ul>
-<h4 id="访问权限问题"><a href="#访问权限问题" class="headerlink" title="访问权限问题"></a>访问权限问题</h4><p>我这里不能访问的原因是因为mysql的访问权限问题和3306端口和localhost绑定。</p>
-<p><strong>修改访问权限</strong></p>
-<p>mysql的用户访问权限都在数据库mysql的user表里面。<br>如下图root用户的Host默认为localhost，所以root用户只能通过localhost访问数据库，简单的办法是直接修改localhost为%，意思是任何ip都可以连接数据库。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; use mysql; </span><br><span class="line">mysql&gt; select host,user form user; </span><br><span class="line">mysql&gt; update user set host = &apos;%&apos; where user =&apos;root&apos;; </span><br><span class="line">mysql&gt; select host,user from user; </span><br><span class="line">mysql&gt; flush privileges; </span><br><span class="line">mysql&gt; quit;</span><br></pre></td></tr></table></figure>
-
-<p>还有一种就是新增一个用户用来运行远程连接</p>
-<p>在终端中连接到mysql </p>
-<p><code>mysql -u user -ppasswor</code></p>
-<p><strong>添加用户授权方法</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;GRANT ALL PRIVILEGES ON *.* TO &apos;user&apos;@&apos;%&apos; IDENTIFIED BY &apos;password&apos; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-04-14-021009.jpg" alt></p>
-<p>如图上面的root用户已经修改，amai用户为新增用户。</p>
-<h4 id="修改mysql配置文件"><a href="#修改mysql配置文件" class="headerlink" title="修改mysql配置文件"></a>修改mysql配置文件</h4><p>配置文件地址：</p>
-<p>配置文件的路径根据版本可能略有差异，我这里的配置文件是<br><code>/etc/mysql/mysql.conf.d/mysqld.cnf</code></p>
-<p>注释掉配置文件中<code>bind-address = 127.0.0.1</code></p>
-<p>保存后重启下mysql。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/03/24/%E5%AD%90%E5%85%83%E7%B4%A0%E5%9E%82%E7%9B%B4%E3%80%81%E5%B7%A6%E5%8F%B3%E5%B1%85%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1156,6 +1030,159 @@
   
   
 
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/01/11/%E4%BB%93%E9%BC%A0%E5%B0%8F%E8%AF%BE%E5%A0%82%E7%B3%BB%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2017/01/11/%E4%BB%93%E9%BC%A0%E5%B0%8F%E8%AF%BE%E5%A0%82%E7%B3%BB%E5%88%97/" class="post-title-link" itemprop="url">仓鼠小课堂系列</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-01-11 13:46:02" itemprop="dateCreated datePublished" datetime="2017-01-11T13:46:02+08:00">2017-01-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="仓鼠小课堂系列"><a href="#仓鼠小课堂系列" class="headerlink" title="仓鼠小课堂系列"></a>仓鼠小课堂系列</h1><h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><blockquote>
+<p>2017年01月13日 讲解人：骑神</p>
+</blockquote>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-015746.jpg" alt><br>简单的计算机内部结构。</p>
+<p>那么我们的代码在执行的时候会发生什么事情呢？通常来说，我们的APP存储的位置在存储硬盘</p>
+<p>先说一个基础知识，上面的结构图当中越往上执行速度越高</p>
+<p>在启动应用之后，CPU会到硬盘中寻址找到应用的存储位置，把app的内存加载到内存当中</p>
+<p>然后在程序运行期间，基本上就是CPU不断的在寄存器和内存之后交换数据，当然还有其他虚拟内存的东西，这里就不讲了，因为我也不太懂</p>
+<p>寄存器是什么呢？在CPU核心周围分布着一堆的存储元件，这些元件的存储容量很小，一半来说基本都是K为单位的</p>
+<p>这些元件被称为寄存器，寄存器会因为自身的功能被分为多种类型，例如寻址寄存器、浮点数寄存器、堆栈等等</p>
+<p>作为开发者，我们一般关心的只有通用寄存器，因为你从汇编中看到的代码基本上也是在操作这些寄存器</p>
+<p>通用寄存器采用的结构是栈式结构，这种结构有什么好处呢？</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-020905.jpg" alt><br>如右边的递归代码，在调用的时候会把函数的地址一个个推入寄存器栈中</p>
+<p>在我们连续调用一系列的方法的时候，为了能让函数执行完毕之后回到原来的代码位置，系统会把当前调用的代码处的地址推入调用栈中</p>
+<p>除此之外，函数调用需要用到的变量会在其他寄存器也进行入栈处理</p>
+<p>函数调用完毕之后出栈获取调用处的地址，然后返回继续执行指令</p>
+<p>接着就是昨天🐹所说的为什么递归无返回或者递归次数达到一定次数的时候会发生崩溃，原因就是寄存器的尺寸是非常有限的</p>
+<p>所以递归次数达到一定数量的时候，寄存器就会容纳不下</p>
+<h2 id="delegate和block"><a href="#delegate和block" class="headerlink" title="delegate和block"></a>delegate和block</h2><blockquote>
+<p>2017年01月13日   讲解人：骑神</p>
+</blockquote>
+<p>先来看看delegate跟block的代码<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064209.jpg" alt><br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064240.jpg" alt></p>
+<p>delegate的是NSURLConnectDataDelegate的方法列表，大家可以看到在NSURLConnection的请求过程中，代理会有多次的回调，分别对应图中注释的情况</p>
+<p>block图上有两个block，上面是一个日常开发常见的网络请求的处理，下面是NSURLSession创建一个请求任务的代码</p>
+<p>NSURLSession除了通过这种方式创建请求任务和传入请求结果处理之外。它自身存在多个类似NSURLConnectionDelegate的回调方法列表。</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064318.jpg" alt></p>
+<p>delegate跟block在设计上的理念就是不同的</p>
+<p>因为如果block不是面向结果的设计，那么block的代码应该会把请求过程中的所有状态都囊括起来</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064350.jpg" alt></p>
+<p>上面是从设计理念来说，接下来聊聊两者的运行效率</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064428.jpg" alt></p>
+<p>大家都知道OC是一门消息发送语言，简单来说，就是[a add: b]; 在消息发送语言中被称作<br>向接收者a发送了一个名为add:的消息，参数是b</p>
+<p>基于runtime的OC在执行这段代码的时候会把它转换成用来发送消息的objc_msgSend函数执行代码。这时候就会变成 objc_msgSend(a, @selector(add:), b);</p>
+<p>由于昨天的🐹小课堂里已经聊过objc_msgSend过程中会发生什么，这里就不再重复阐述。但是大家要注意这个过程中会依次 遍历消息缓存列表、本类的消息列表、父类的消息列表来直到找到对应的执行代码为止，因此即便苹果做成了汇编的调用，消耗还是有的</p>
+<p>那么block的调用消耗呢？<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-064505.jpg" alt></p>
+<p>在runtime里面，提供了imp跟block的相互转换。imp是一种用来把代码表示成变量的类型，简单来说跟block的性质是一样的。在objc_msgSend的过程中，目的是为了找到@selector()对应的IMP代码，然后执行</p>
+<p>因此block的调用等同于直接调用IMP，省去了查找IMP的过程，从效率上来说胜于代理</p>
+<p>是runtime提供了imp跟block的转换方法。实际上block跟imp都等同于指向某段代码的地址，所以效率更高</p>
+<blockquote>
+<p>主要是block-&gt;invoke()的调用效率确实太高。至于block内部的结构实现，这个暂且不说<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-7F26C1597CE1566693BAE5A61A9A3D51.jpg" alt></p>
+</blockquote>
+<p>从使用难度上来说，这个包括debug难度跟使用难度，先从debug难度说。因为要我去写一段崩溃的delegate跟block总觉的蛋疼，所以没图</p>
+<p>上面也说了，delegate的回调过程中因为涉及到了objc_msgSend的过程，如果在这个过程中发生了异常崩溃，那么在控制台会输出消息发送错误的异常信息，可以比较容易的定位到错误位置</p>
+<p>其二，delegate可以通过command+左键的方式跳转到代理方处，所以也能快速的查找到代理双方。从debug的角度来说，难度较低</p>
+<p>至于block，通过上面我发的结构图和调用的流程来说，不存在消息发送的过程。因为block是内部结构直接存在函数的指针，直接调用，另一方面是会引用外部对象。所以相比delegate，一旦发生崩溃，难以定位到崩溃处，崩溃原因也基本是野指针异常</p>
+<p>因此从debug难度来说，block弱于delegate</p>
+<p>那么接下来从使用的角度来说<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-065004.jpg" alt></p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-AC7C32FDFDDA7C6E135AA55AEB6BD905.gif" alt></p>
+<p>上面是一个需求，点击商品会弹出商品信息，要用户输入商品的数量，点击确定后商品对应的单元格会高亮<br>因此代码的逻辑是：<br>点击单元格-&gt;弹窗-&gt;输入数量点击确定-&gt;单元格高亮</p>
+<p>下面放上block跟delegate的处理代码</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-94080AEDDF8FCEE5F20244DCB3818260.jpg" alt><br>首先是两个相关的view的头文件</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-79312506B35BB37620CFB5BF267FCD88.jpg" alt><br>这个是逻辑代码</p>
+<p>block的做法会把处理的逻辑写在一处位置，这样子结构清晰。</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-5D7A2AC512787E51B9D105B2A41173BE.jpg" alt><br>然后是delegate的处理，就要声明两个协议</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-DA45B5B245918BF6D218ECDE2E3A5C8B.jpg" alt><br>这时候弹窗和高亮的逻辑会被分到两个代理事件中处理，在代码量大的时候，连贯性差<br>而且必要的时候还要清空过渡变量</p>
+<p>上面对比的个人总结是：<br>在事件回调的处理上，delegate比不上block。原因不仅限于block的灵活性更强（当参数传递），功能性（适用于大多数的场景），甚至可以说block是iOS回调手段中最强大的</p>
+<p>那么就有一个问题：既然block这么强大，为什么我们还要使用delegate？</p>
+<p>这种是代理优于block的场景之一，因为这些代理的事件第一是没有太多的关联性，第二是类型多，事件状态多</p>
+<p>另外其实很多人对delegate纠结的一点是：只要提到了协议，很多人的第一反应就是代理</p>
+<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-EA9EF93B02DC0BD32387959877AE7FF9.jpg" alt></p>
+<p>协议可以提供一套共同的行为，比如动物都能喝水，汽车都要加油.<br>是一种OC实现多继承的方式</p>
+<p>好了，最后是协议除了delegate还能做什么？<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-01-13-F0BF1196275791CB92BB48DAD5787401.jpg" alt></p>
+<h2 id="NS-DESIGNATED-INITIALIZER的正确使用"><a href="#NS-DESIGNATED-INITIALIZER的正确使用" class="headerlink" title="NS_DESIGNATED _ INITIALIZER的正确使用"></a>NS_DESIGNATED _ INITIALIZER的正确使用</h2><p>2017年02月08日09:54:04</p>
+<p> 我们随便点开一个系统类的 .h，会发现有些 init 方法后面跟了这个标记：NS_DESIGNATED_INITIALIZER，比如 NSURL ：<br> <img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-02-08-83D753A98BE592F2C92068B45A09CEBF.png" alt><br> UIView:<br> <img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-02-08-66305DC6646D3DF3222CA9DB3C68816C.png" alt><br> 有的 init 方法后面有，有的没有。这个标记是什么意思呢？这种设计有什么好处呢？~ </p>
+<p> <a href="http://blog.csdn.net/zcube/article/details/51657417" target="_blank" rel="noopener">NS_DESIGNATED _ INITIALIZER的正确使用</a></p>
+<p> <img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2017-02-09-AC53E52717D3DCEE6217311113DD24B1.png" alt></p>
+<p> 有这个标记的方法称为指定构造器，与之相对的称为便捷构造器。地铁上就打中文了，大家明白意思就好</p>
+<p> 可以说，指定构造器是 核心 的init方法，里面应该做这个类初始化时所有 必须 做的事情。</p>
+<p> 而便捷构造器是搭便车的方法，它不能独立存在，需要调用指定构造器。</p>
+<p> 举个例子，UIView里面有两个指定构造器，分别是initWithFrame 和 initWithCoder，代表了这个类两种截然不同的初始化方式，它们互相独立且缺一不可</p>
+<p> 比如仓鼠喜欢为固定尺寸的UIView写一个便捷init方法叫 initWithDefaultFrame，里面调用initWithFrame后面传预设好的参数，这样它的使用者构造它的时候就不用再设尺寸了</p>
+<p> 我写的这个就是一个典型的便捷构造器</p>
+<p> 有一条原则就是子类的指定构造器必须调用父类的指定构造器，也就不难理解了</p>
+<p> 这样的设计有什么好处呢？我能想到的一点是，当你为一个类添加一个必须初始化的属性时，你只需在指定构造器里对它初始化，就可以保证所有的init方法，包括这个类的所有子类，都能正确初始化这个属性</p>
+<p> 而不是说，我有10个init方法，就得改10个地方</p>
+<p> 或者担心子类会绕过我的关键初始化</p>
+<p> 对这个机制还有兴趣进一步了解的同学，可以参考下swift的文档</p>
+<p> <a href="http://www.cocoachina.com/cms/wap.php?action=article&id=8787" target="_blank" rel="noopener">TheSwiftProgrammingLanguage–语言指南–构造过程</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
   </div>
 
   
@@ -1206,7 +1233,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1252,7 +1279,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2019</span>
+  <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
