@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Voctomix安装配置过程记录更新软件源12apt-get updateapt-get upgrade  nginx编译安装安装依赖sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev 下载nginx和rtmp模块源码（这里下载的是1.12.0可以根据需求选择下载）12wget http:&#x2F;&#x2F;nginx.org">
+<meta name="keywords" content="Voctomix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Voctomix安装配置过程记录">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2018&#x2F;08&#x2F;08&#x2F;Voctomix%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="Voctomix安装配置过程记录更新软件源12apt-get updateapt-get upgrade  nginx编译安装安装依赖sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev 下载nginx和rtmp模块源码（这里下载的是1.12.0可以根据需求选择下载）12wget http:&#x2F;&#x2F;nginx.org">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-08-10T08:41:11.949Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2018/08/08/Voctomix%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Voctomix安装配置过程记录 | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/08/08/Voctomix%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Voctomix安装配置过程记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-08 15:22:28" itemprop="dateCreated datePublished" datetime="2018-08-08T15:22:28+08:00">2018-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-10 16:41:11" itemprop="dateModified" datetime="2020-08-10T16:41:11+08:00">2020-08-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Voctomix安装配置过程记录"><a href="#Voctomix安装配置过程记录" class="headerlink" title="Voctomix安装配置过程记录"></a>Voctomix安装配置过程记录</h1><h2 id="更新软件源"><a href="#更新软件源" class="headerlink" title="更新软件源"></a>更新软件源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx编译安装"><a href="#nginx编译安装" class="headerlink" title="nginx编译安装"></a>nginx编译安装</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p><code>sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev</code></p>
+<h3 id="下载nginx和rtmp模块源码（这里下载的是1-12-0可以根据需求选择下载）"><a href="#下载nginx和rtmp模块源码（这里下载的是1-12-0可以根据需求选择下载）" class="headerlink" title="下载nginx和rtmp模块源码（这里下载的是1.12.0可以根据需求选择下载）"></a>下载nginx和rtmp模块源码（这里下载的是1.12.0可以根据需求选择下载）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.12.0.tar.gz</span><br><span class="line">wget https://github.com/arut/nginx-rtmp-module/archive/master.zip</span><br></pre></td></tr></table></figure>
+<h3 id="安装解压工具："><a href="#安装解压工具：" class="headerlink" title="安装解压工具："></a>安装解压工具：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install unzip</span><br></pre></td></tr></table></figure>
+<h3 id="解压源码："><a href="#解压源码：" class="headerlink" title="解压源码："></a>解压源码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.7.5.tar.gz</span><br><span class="line">unzip master.zip</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择进入nginx源码目录："><a href="#选择进入nginx源码目录：" class="headerlink" title="选择进入nginx源码目录："></a>选择进入nginx源码目录：</h3><p><code>cd nginx-1.12.0/</code></p>
+<h3 id="编译安装："><a href="#编译安装：" class="headerlink" title="编译安装："></a>编译安装：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Nginx-init脚本"><a href="#安装Nginx-init脚本" class="headerlink" title="安装Nginx init脚本"></a>安装Nginx init脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx</span><br><span class="line">sudo chmod +x /etc/init.d/nginx</span><br><span class="line">sudo update-rc.d nginx defaults</span><br></pre></td></tr></table></figure>
+
+<h3 id="nginx配置rtmp：（写在最后面，http外面）"><a href="#nginx配置rtmp：（写在最后面，http外面）" class="headerlink" title="nginx配置rtmp：（写在最后面，http外面）"></a>nginx配置rtmp：（写在最后面，http外面）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 1935;</span><br><span class="line">        chunk_size 4096;</span><br><span class="line">        notify_method get;</span><br><span class="line">        application live &#123;</span><br><span class="line">        live on;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        exec /home/www/bin/stream2switcher.sh $name;</span><br><span class="line">        exec_kill_signal term;</span><br><span class="line"></span><br><span class="line">        record off;</span><br><span class="line">                #exec ffmpeg -i rtmp://localhost/live/$name -threads 1 -c:v libx264 -profile:v baseline -b:v 350K -s 640x360 -f flv -c:a aac -ac 1 -strict -2 -b:a 56k rtmp://localhost/live360p/$name;</span><br><span class="line">        &#125;</span><br><span class="line">        application live360p &#123;</span><br><span class="line">                live on;</span><br><span class="line">                record off;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>重新加载nginx</strong>：</p>
+<p><code>service nginx reload</code></p>
+<p>正常的话查看端口会发现80端口和1935端口都启动了</p>
+<h2 id="安装php7："><a href="#安装php7：" class="headerlink" title="安装php7："></a>安装php7：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install php7.0-fpm</span><br></pre></td></tr></table></figure>
+<h3 id="配置nginx和php"><a href="#配置nginx和php" class="headerlink" title="配置nginx和php"></a>配置nginx和php</h3><p>修改nginx配置文件：</p>
+<p><code>/usr/local/nginx/conf/nginx.conf</code></p>
+<h3 id="修改nginx配置："><a href="#修改nginx配置：" class="headerlink" title="修改nginx配置："></a>修改nginx配置：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">fastcgi_pass unix:/run/php/php7.0-fpm.sock;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="修改php配置："><a href="#修改php配置：" class="headerlink" title="修改php配置："></a>修改php配置：</h3><p><code>vim /etc/php/7.0/fpm/php.ini</code><br>找到<code>cgi.fix_pathinfo</code>修改为1</p>
+<h3 id="然后重新加载php-fpm"><a href="#然后重新加载php-fpm" class="headerlink" title="然后重新加载php-fpm"></a>然后重新加载php-fpm</h3><p><code>service php7.0-fpm reload</code></p>
+<p>为了测试是否成功我们在www目录下创建一个phpinfo.php文件<br><code>vim /home/www/phpinfo.php</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">phpinfo();</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>然后访问你的<code>http://your ip/phpinfo.php</code><br>如果能显示出phpinfo信息就说明正常。<br>如果提示nginx error的话查看nginx 的error.log根据错误提示修改。</p>
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL:"></a>安装MySQL:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+<p>设置用户名密码：（默认）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户名：root</span><br><span class="line">密码：root</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译安装ffmpeg"><a href="#编译安装ffmpeg" class="headerlink" title="编译安装ffmpeg"></a>编译安装ffmpeg</h2><p><a href="https://zcwlwen.online/2016/09/12/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85ffmpeg%E5%92%8C%E4%BE%9D%E8%B5%96%E5%8C%85%E4%BB%A5%E5%8F%8Affmpeg%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Ubuntu下安装ffmpeg和依赖包以及ffmpeg的使用</a></p>
+<h2 id="安装redis与php扩展"><a href="#安装redis与php扩展" class="headerlink" title="安装redis与php扩展"></a>安装redis与php扩展</h2><p>apt-get install redis-server</p>
+<p><a href="http://www.jianshu.com/p/e4487fcf8b6c" target="_blank" rel="noopener">php-redis扩展安装</a></p>
+<h2 id="安装Voctomix"><a href="#安装Voctomix" class="headerlink" title="安装Voctomix"></a>安装Voctomix</h2><h3 id="安装依赖-1"><a href="#安装依赖-1" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Requirements</span><br><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0</span><br><span class="line"></span><br><span class="line"># Optional for the Example-Scripts</span><br><span class="line">apt-get install python3-pyinotify gstreamer1.0-libav rlwrap fbset</span><br></pre></td></tr></table></figure>
+
+<p>如果还要用到GUI还需要安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-alsa gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi python3-gi-cairo gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gir1.2-gtk-3.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="复制项目到指定目录"><a href="#复制项目到指定目录" class="headerlink" title="复制项目到指定目录"></a>复制项目到指定目录</h3><p>因为项目中脚本路径问题这里直接放在<code>/home/sun/</code>目录下。如果放在其他目录下记得修改项目中的路径问题。</p>
+<p>代码上传后记得给对应的文件添加执行权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">└── home</span><br><span class="line">    ├── sun</span><br><span class="line">    │   ├── voctomix</span><br><span class="line">    │   │   ├── Dockerfile</span><br><span class="line">    │   │   ├── LICENSE.txt</span><br><span class="line">    │   │   ├── README.md</span><br><span class="line">    │   │   ├── README_DOCKER.md</span><br><span class="line">    │   │   ├── check_pep8.sh</span><br><span class="line">    │   │   ├── docker-ep.sh</span><br><span class="line">    │   │   ├── example-scripts</span><br><span class="line">    │   │   │   ├── README.md</span><br><span class="line">    │   │   │   ├── control-server</span><br><span class="line">    │   │   │   ├── default-config.sh</span><br><span class="line">    │   │   │   ├── ffmpeg</span><br><span class="line">    │   │   │   ├── ffmpeg_video_src_config.sh</span><br><span class="line">    │   │   │   ├── gstreamer</span><br><span class="line">    │   │   │   ├── misc</span><br><span class="line">    │   │   │   ├── systemd-units</span><br><span class="line">    │   │   │   └── voctomidi</span><br><span class="line">    │   │   ├── pushstream.sh</span><br><span class="line">    │   │   ├── voctocore</span><br><span class="line">    │   │   │   ├── README.md</span><br><span class="line">    │   │   │   ├── default-config.ini</span><br><span class="line">    │   │   │   ├── lib</span><br><span class="line">    │   │   │   └── voctocore.py</span><br><span class="line">    │   │   └── voctogui</span><br><span class="line">    │   │       ├── README.md</span><br><span class="line">    │   │       ├── Shortcut-Cheat-Sheet</span><br><span class="line">    │   │       ├── default-config.ini</span><br><span class="line">    │   │       ├── lib</span><br><span class="line">    │   │       ├── ui</span><br><span class="line">    │   │       ├── voctogui.py</span><br><span class="line">    │   │       └── voctomix.png</span><br><span class="line">    │   └── voctomix-outcasts</span><br><span class="line">    │       ├── LICENSE</span><br><span class="line">    │       ├── README.md</span><br><span class="line">    │       ├── configs</span><br><span class="line">    │       │   ├── 360p.ini</span><br><span class="line">    │       │   ├── 720p.ini</span><br><span class="line">    │       │   ├── lca.ini</span><br><span class="line">    │       │   ├── light.ini</span><br><span class="line">    │       │   └── test_720p.ini</span><br><span class="line">    │       ├── debian</span><br><span class="line">    │       │   ├── changelog</span><br><span class="line">    │       │   ├── compat</span><br><span class="line">    │       │   ├── control</span><br><span class="line">    │       │   ├── copyright</span><br><span class="line">    │       │   ├── rules</span><br><span class="line">    │       │   ├── source</span><br><span class="line">    │       │   └── voctomix-outcasts.dirs</span><br><span class="line">    │       ├── generate-cut-list.py</span><br><span class="line">    │       ├── ingest.py</span><br><span class="line">    │       ├── lib</span><br><span class="line">    │       │   ├── __pycache__</span><br><span class="line">    │       │   └── connection.py</span><br><span class="line">    │       ├── record-mixed-av.sh</span><br><span class="line">    │       ├── record-timestamp.sh</span><br><span class="line">    │       ├── setup</span><br><span class="line">    │       │   └── voc_gits_path.sh</span><br><span class="line">    │       ├── temp</span><br><span class="line">    │       │   └── 111.sh</span><br><span class="line">    │       └── tests</span><br><span class="line">    │           ├── 360p_pushstream_OK.sh</span><br><span class="line">    │           ├── 360p_start_voctomix.sh</span><br><span class="line">    │           ├── 720p_pushstream_OK.sh</span><br><span class="line">    │           ├── 720p_start_voctomix.sh</span><br><span class="line">    │           ├── coupler-server.sh</span><br><span class="line">    │           ├── dummy-server-src.sh</span><br><span class="line">    │           ├── dummy-server.py</span><br><span class="line">    │           ├── mock-stack.sh</span><br><span class="line">    │           ├── pushstream_OK.sh</span><br><span class="line">    │           ├── server-file.sh</span><br><span class="line">    │           ├── test1.sh</span><br><span class="line">    │           ├── test2.sh</span><br><span class="line">    │           ├── test_720p.sh</span><br><span class="line">    │           ├── test_720p_pushstream_OK.sh</span><br><span class="line">    │           ├── test_720p_pushstream_OK_bak.sh</span><br><span class="line">    │           ├── voctomixstatus.sh</span><br><span class="line">    │           ├── voctomixstop.sh</span><br><span class="line">    │           └── zcwtest.sh</span><br><span class="line">    └── www</span><br><span class="line">        ├── bin</span><br><span class="line">        │   ├── logs</span><br><span class="line">        │   │   └── stream2switcher.log</span><br><span class="line">        │   └── stream2switcher.sh</span><br><span class="line">        ├── controller</span><br><span class="line">        │   ├── GeneralMethod.php</span><br><span class="line">        │   ├── StartVoctomix.php</span><br><span class="line">        │   ├── StatusVoctomix.php</span><br><span class="line">        │   ├── StopVoctomix.php</span><br><span class="line">        │   ├── StreamConfig.php</span><br><span class="line">        │   ├── VoctomixConfig.php</span><br><span class="line">        │   ├── VoctomixControl.php</span><br><span class="line">        │   ├── dbConnect.php</span><br><span class="line">        │   ├── dbtest.php</span><br><span class="line">        │   ├── httpStatus.php</span><br><span class="line">        │   ├── index.php</span><br><span class="line">        │   ├── outputStream.php</span><br><span class="line">        │   ├── outputStreamConfig.php</span><br><span class="line">        │   ├── testapi.php</span><br><span class="line">        │   ├── userLogin.php</span><br><span class="line">        │   ├── userSignUp.php</span><br><span class="line">        │   └── voctomix.php</span><br><span class="line">        ├── index.php</span><br><span class="line">        ├── phpinfo.php</span><br><span class="line">        └── stat.xsl</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过redis控制流的输入"><a href="#通过redis控制流的输入" class="headerlink" title="通过redis控制流的输入"></a>通过redis控制流的输入</h3><p>脚本位置<code>/home/www/bin/stream2switcher.sh</code></p>
+<p>修改nginx中的配置自动调用脚本。</p>
+<p>n</p>
+<p>这里需要指定输入的流对应相应的端口，这样就可以作为导播台的输入源。</p>
+<h3 id="APP控制接口"><a href="#APP控制接口" class="headerlink" title="APP控制接口"></a>APP控制接口</h3><p>相关API文档参考</p>
+<p><a href="http://192.168.18.88:8888/Amailive-Developer/API/blob/master/api_streamcontrol.md" target="_blank" rel="noopener">导播台相关API文档</a></p>
+<p>在<code>/home/www/controller/</code>下</p>
+<ul>
+<li><code>StreamConfig.php</code>输入流配置</li>
+<li><code>outputStreamConfig.php</code>配置输出流并且启动服务</li>
+<li><code>outputStreamConfig.php</code>停止服务</li>
+</ul>
+<p>控制接口目前直接使用socket连接的方式去控制</p>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p><a href="http://www.runoob.com/redis/redis-install.html" target="_blank" rel="noopener">Redis安装与使用</a></p>
+<p><a href="http://www.jianshu.com/p/e4487fcf8b6c" target="_blank" rel="noopener">php7安装Redis扩展</a></p>
+<p><a href="https://www.vultr.com/docs/setup-nginx-rtmp-on-ubuntu-14-04" target="_blank" rel="noopener">nginx-rtmp模块编译安装</a></p>
+<p><a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">nginx下载页</a></p>
+<p><a href="http://www.laruence.com/2010/05/20/1495.html" target="_blank" rel="noopener">cgi.fix_pathinfo的安全隐患</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Voctomix/" rel="tag"># Voctomix</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2018/08/07/Voctomix%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" rel="next" title="Voctomix项目介绍">
+                  <i class="fa fa-chevron-left"></i> Voctomix项目介绍
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2018/12/14/GStreamer%E4%BD%BF%E7%94%A8tee%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF/" rel="prev" title="GStreamer使用tee创建分支">
+                  GStreamer使用tee创建分支 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Voctomix安装配置过程记录"><span class="nav-number">1.</span> <span class="nav-text">Voctomix安装配置过程记录</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#更新软件源"><span class="nav-number">1.1.</span> <span class="nav-text">更新软件源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx编译安装"><span class="nav-number">1.2.</span> <span class="nav-text">nginx编译安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载nginx和rtmp模块源码（这里下载的是1-12-0可以根据需求选择下载）"><span class="nav-number">1.2.2.</span> <span class="nav-text">下载nginx和rtmp模块源码（这里下载的是1.12.0可以根据需求选择下载）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装解压工具："><span class="nav-number">1.2.3.</span> <span class="nav-text">安装解压工具：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压源码："><span class="nav-number">1.2.4.</span> <span class="nav-text">解压源码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择进入nginx源码目录："><span class="nav-number">1.2.5.</span> <span class="nav-text">选择进入nginx源码目录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译安装："><span class="nav-number">1.2.6.</span> <span class="nav-text">编译安装：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Nginx-init脚本"><span class="nav-number">1.2.7.</span> <span class="nav-text">安装Nginx init脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx配置rtmp：（写在最后面，http外面）"><span class="nav-number">1.2.8.</span> <span class="nav-text">nginx配置rtmp：（写在最后面，http外面）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装php7："><span class="nav-number">1.3.</span> <span class="nav-text">安装php7：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置nginx和php"><span class="nav-number">1.3.1.</span> <span class="nav-text">配置nginx和php</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改nginx配置："><span class="nav-number">1.3.2.</span> <span class="nav-text">修改nginx配置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改php配置："><span class="nav-number">1.3.3.</span> <span class="nav-text">修改php配置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后重新加载php-fpm"><span class="nav-number">1.3.4.</span> <span class="nav-text">然后重新加载php-fpm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装MySQL"><span class="nav-number">1.4.</span> <span class="nav-text">安装MySQL:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译安装ffmpeg"><span class="nav-number">1.5.</span> <span class="nav-text">编译安装ffmpeg</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装redis与php扩展"><span class="nav-number">1.6.</span> <span class="nav-text">安装redis与php扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Voctomix"><span class="nav-number">1.7.</span> <span class="nav-text">安装Voctomix</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖-1"><span class="nav-number">1.7.1.</span> <span class="nav-text">安装依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制项目到指定目录"><span class="nav-number">1.7.2.</span> <span class="nav-text">复制项目到指定目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过redis控制流的输入"><span class="nav-number">1.7.3.</span> <span class="nav-text">通过redis控制流的输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APP控制接口"><span class="nav-number">1.7.4.</span> <span class="nav-text">APP控制接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考地址"><span class="nav-number">1.8.</span> <span class="nav-text">参考地址</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

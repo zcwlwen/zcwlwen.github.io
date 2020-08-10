@@ -189,76 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2020/07/27/Swift%E4%B8%ADstruct%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/27/Swift%E4%B8%ADstruct%E5%92%8Cclass%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-title-link" itemprop="url">Swift中struct和class的区别</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-27 10:09:24" itemprop="dateCreated datePublished" datetime="2020-07-27T10:09:24+08:00">2020-07-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-01 09:37:51" itemprop="dateModified" datetime="2020-08-01T09:37:51+08:00">2020-08-01</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Swift中struct和class的区别"><a href="#Swift中struct和class的区别" class="headerlink" title="Swift中struct和class的区别"></a>Swift中struct和class的区别</h1><p>在了解Swift中的struct和class的时候要首先区分一下值类型和引用类型这两个概念。</p>
-<h3 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h3><ul>
-<li>值类型和引用类型存储位置是有区别的。值类型存储在栈区，每个值类型变量都有其自己的数据副本，并且对一个变量的操作不会影响另一个变量。</li>
-<li>引用类型存储在其他位置（堆区），我们在内存中有一个指向该位置的引用。 引用类型的变量可以指向相同类型的数据。 因此，对一个变量进行的操作会影响另一变量所指向的数据。</li>
-</ul>
-<h3 id="struct是值类型class是引用类型"><a href="#struct是值类型class是引用类型" class="headerlink" title="struct是值类型class是引用类型"></a>struct是值类型class是引用类型</h3><p>在Swift中struct属于值类型，class是属于引用类型。在Swift官方是大力提倡结构体的，很多在OC中引用类型的类型</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/12/25/iOS%E4%B8%AD%E5%9C%86%E8%A7%92%E5%AF%B9%E6%80%A7%E8%83%BD%E7%9A%84%E5%BD%B1%E5%93%8D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -422,6 +352,249 @@
 <p>而且一定要把tee的两个分支放在不同的queue中。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gst-launch-1.0 ximagesrc startx=0 use-damage=0 ! decodebin ! tee name=t ! \</span><br><span class="line">queue ! videoconvert ! x264enc bitrate=1000 tune=zerolatency ! video/x-h264 ! h264parse ! video/x-h264 ! \</span><br><span class="line">queue max-size-buffers=0 max-size-bytes=0 max-size-time=90000000000 !  queue max-size-buffers=0    max-size-time=90000000000 min-threshold-time=15000000000 ! \</span><br><span class="line">flvmux streamable=true ! rtmpsink location=&apos;rtmp://192.168.18.188/live/999&apos; t. ! \</span><br><span class="line">queue ! videoconvert ! x264enc ! \</span><br><span class="line">queue ! flvmux streamable=true ! rtmpsink location=&apos;rtmp://192.168.18.188/live/888&apos; sync=false</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/08/08/Voctomix%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/08/Voctomix%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="post-title-link" itemprop="url">Voctomix安装配置过程记录</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-08 15:22:28" itemprop="dateCreated datePublished" datetime="2018-08-08T15:22:28+08:00">2018-08-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-10 16:41:11" itemprop="dateModified" datetime="2020-08-10T16:41:11+08:00">2020-08-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Voctomix安装配置过程记录"><a href="#Voctomix安装配置过程记录" class="headerlink" title="Voctomix安装配置过程记录"></a>Voctomix安装配置过程记录</h1><h2 id="更新软件源"><a href="#更新软件源" class="headerlink" title="更新软件源"></a>更新软件源</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<h2 id="nginx编译安装"><a href="#nginx编译安装" class="headerlink" title="nginx编译安装"></a>nginx编译安装</h2><h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p><code>sudo apt-get install build-essential libpcre3 libpcre3-dev libssl-dev</code></p>
+<h3 id="下载nginx和rtmp模块源码（这里下载的是1-12-0可以根据需求选择下载）"><a href="#下载nginx和rtmp模块源码（这里下载的是1-12-0可以根据需求选择下载）" class="headerlink" title="下载nginx和rtmp模块源码（这里下载的是1.12.0可以根据需求选择下载）"></a>下载nginx和rtmp模块源码（这里下载的是1.12.0可以根据需求选择下载）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget http://nginx.org/download/nginx-1.12.0.tar.gz</span><br><span class="line">wget https://github.com/arut/nginx-rtmp-module/archive/master.zip</span><br></pre></td></tr></table></figure>
+<h3 id="安装解压工具："><a href="#安装解压工具：" class="headerlink" title="安装解压工具："></a>安装解压工具：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install unzip</span><br></pre></td></tr></table></figure>
+<h3 id="解压源码："><a href="#解压源码：" class="headerlink" title="解压源码："></a>解压源码：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf nginx-1.7.5.tar.gz</span><br><span class="line">unzip master.zip</span><br></pre></td></tr></table></figure>
+
+<h3 id="选择进入nginx源码目录："><a href="#选择进入nginx源码目录：" class="headerlink" title="选择进入nginx源码目录："></a>选择进入nginx源码目录：</h3><p><code>cd nginx-1.12.0/</code></p>
+<h3 id="编译安装："><a href="#编译安装：" class="headerlink" title="编译安装："></a>编译安装：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --with-http_ssl_module --add-module=../nginx-rtmp-module-master</span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Nginx-init脚本"><a href="#安装Nginx-init脚本" class="headerlink" title="安装Nginx init脚本"></a>安装Nginx init脚本</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https://raw.github.com/JasonGiedymin/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx</span><br><span class="line">sudo chmod +x /etc/init.d/nginx</span><br><span class="line">sudo update-rc.d nginx defaults</span><br></pre></td></tr></table></figure>
+
+<h3 id="nginx配置rtmp：（写在最后面，http外面）"><a href="#nginx配置rtmp：（写在最后面，http外面）" class="headerlink" title="nginx配置rtmp：（写在最后面，http外面）"></a>nginx配置rtmp：（写在最后面，http外面）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 1935;</span><br><span class="line">        chunk_size 4096;</span><br><span class="line">        notify_method get;</span><br><span class="line">        application live &#123;</span><br><span class="line">        live on;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        exec /home/www/bin/stream2switcher.sh $name;</span><br><span class="line">        exec_kill_signal term;</span><br><span class="line"></span><br><span class="line">        record off;</span><br><span class="line">                #exec ffmpeg -i rtmp://localhost/live/$name -threads 1 -c:v libx264 -profile:v baseline -b:v 350K -s 640x360 -f flv -c:a aac -ac 1 -strict -2 -b:a 56k rtmp://localhost/live360p/$name;</span><br><span class="line">        &#125;</span><br><span class="line">        application live360p &#123;</span><br><span class="line">                live on;</span><br><span class="line">                record off;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>重新加载nginx</strong>：</p>
+<p><code>service nginx reload</code></p>
+<p>正常的话查看端口会发现80端口和1935端口都启动了</p>
+<h2 id="安装php7："><a href="#安装php7：" class="headerlink" title="安装php7："></a>安装php7：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get -y install php7.0-fpm</span><br></pre></td></tr></table></figure>
+<h3 id="配置nginx和php"><a href="#配置nginx和php" class="headerlink" title="配置nginx和php"></a>配置nginx和php</h3><p>修改nginx配置文件：</p>
+<p><code>/usr/local/nginx/conf/nginx.conf</code></p>
+<h3 id="修改nginx配置："><a href="#修改nginx配置：" class="headerlink" title="修改nginx配置："></a>修改nginx配置：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">fastcgi_pass unix:/run/php/php7.0-fpm.sock;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="修改php配置："><a href="#修改php配置：" class="headerlink" title="修改php配置："></a>修改php配置：</h3><p><code>vim /etc/php/7.0/fpm/php.ini</code><br>找到<code>cgi.fix_pathinfo</code>修改为1</p>
+<h3 id="然后重新加载php-fpm"><a href="#然后重新加载php-fpm" class="headerlink" title="然后重新加载php-fpm"></a>然后重新加载php-fpm</h3><p><code>service php7.0-fpm reload</code></p>
+<p>为了测试是否成功我们在www目录下创建一个phpinfo.php文件<br><code>vim /home/www/phpinfo.php</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">phpinfo();</span><br><span class="line"></span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>然后访问你的<code>http://your ip/phpinfo.php</code><br>如果能显示出phpinfo信息就说明正常。<br>如果提示nginx error的话查看nginx 的error.log根据错误提示修改。</p>
+<h2 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL:"></a>安装MySQL:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install mysql-server mysql-client</span><br></pre></td></tr></table></figure>
+<p>设置用户名密码：（默认）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户名：root</span><br><span class="line">密码：root</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译安装ffmpeg"><a href="#编译安装ffmpeg" class="headerlink" title="编译安装ffmpeg"></a>编译安装ffmpeg</h2><p><a href="https://zcwlwen.online/2016/09/12/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85ffmpeg%E5%92%8C%E4%BE%9D%E8%B5%96%E5%8C%85%E4%BB%A5%E5%8F%8Affmpeg%E7%9A%84%E4%BD%BF%E7%94%A8/" target="_blank" rel="noopener">Ubuntu下安装ffmpeg和依赖包以及ffmpeg的使用</a></p>
+<h2 id="安装redis与php扩展"><a href="#安装redis与php扩展" class="headerlink" title="安装redis与php扩展"></a>安装redis与php扩展</h2><p>apt-get install redis-server</p>
+<p><a href="http://www.jianshu.com/p/e4487fcf8b6c" target="_blank" rel="noopener">php-redis扩展安装</a></p>
+<h2 id="安装Voctomix"><a href="#安装Voctomix" class="headerlink" title="安装Voctomix"></a>安装Voctomix</h2><h3 id="安装依赖-1"><a href="#安装依赖-1" class="headerlink" title="安装依赖"></a>安装依赖</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Requirements</span><br><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0</span><br><span class="line"></span><br><span class="line"># Optional for the Example-Scripts</span><br><span class="line">apt-get install python3-pyinotify gstreamer1.0-libav rlwrap fbset</span><br></pre></td></tr></table></figure>
+
+<p>如果还要用到GUI还需要安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-alsa gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi python3-gi-cairo gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gir1.2-gtk-3.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="复制项目到指定目录"><a href="#复制项目到指定目录" class="headerlink" title="复制项目到指定目录"></a>复制项目到指定目录</h3><p>因为项目中脚本路径问题这里直接放在<code>/home/sun/</code>目录下。如果放在其他目录下记得修改项目中的路径问题。</p>
+<p>代码上传后记得给对应的文件添加执行权限。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">└── home</span><br><span class="line">    ├── sun</span><br><span class="line">    │   ├── voctomix</span><br><span class="line">    │   │   ├── Dockerfile</span><br><span class="line">    │   │   ├── LICENSE.txt</span><br><span class="line">    │   │   ├── README.md</span><br><span class="line">    │   │   ├── README_DOCKER.md</span><br><span class="line">    │   │   ├── check_pep8.sh</span><br><span class="line">    │   │   ├── docker-ep.sh</span><br><span class="line">    │   │   ├── example-scripts</span><br><span class="line">    │   │   │   ├── README.md</span><br><span class="line">    │   │   │   ├── control-server</span><br><span class="line">    │   │   │   ├── default-config.sh</span><br><span class="line">    │   │   │   ├── ffmpeg</span><br><span class="line">    │   │   │   ├── ffmpeg_video_src_config.sh</span><br><span class="line">    │   │   │   ├── gstreamer</span><br><span class="line">    │   │   │   ├── misc</span><br><span class="line">    │   │   │   ├── systemd-units</span><br><span class="line">    │   │   │   └── voctomidi</span><br><span class="line">    │   │   ├── pushstream.sh</span><br><span class="line">    │   │   ├── voctocore</span><br><span class="line">    │   │   │   ├── README.md</span><br><span class="line">    │   │   │   ├── default-config.ini</span><br><span class="line">    │   │   │   ├── lib</span><br><span class="line">    │   │   │   └── voctocore.py</span><br><span class="line">    │   │   └── voctogui</span><br><span class="line">    │   │       ├── README.md</span><br><span class="line">    │   │       ├── Shortcut-Cheat-Sheet</span><br><span class="line">    │   │       ├── default-config.ini</span><br><span class="line">    │   │       ├── lib</span><br><span class="line">    │   │       ├── ui</span><br><span class="line">    │   │       ├── voctogui.py</span><br><span class="line">    │   │       └── voctomix.png</span><br><span class="line">    │   └── voctomix-outcasts</span><br><span class="line">    │       ├── LICENSE</span><br><span class="line">    │       ├── README.md</span><br><span class="line">    │       ├── configs</span><br><span class="line">    │       │   ├── 360p.ini</span><br><span class="line">    │       │   ├── 720p.ini</span><br><span class="line">    │       │   ├── lca.ini</span><br><span class="line">    │       │   ├── light.ini</span><br><span class="line">    │       │   └── test_720p.ini</span><br><span class="line">    │       ├── debian</span><br><span class="line">    │       │   ├── changelog</span><br><span class="line">    │       │   ├── compat</span><br><span class="line">    │       │   ├── control</span><br><span class="line">    │       │   ├── copyright</span><br><span class="line">    │       │   ├── rules</span><br><span class="line">    │       │   ├── source</span><br><span class="line">    │       │   └── voctomix-outcasts.dirs</span><br><span class="line">    │       ├── generate-cut-list.py</span><br><span class="line">    │       ├── ingest.py</span><br><span class="line">    │       ├── lib</span><br><span class="line">    │       │   ├── __pycache__</span><br><span class="line">    │       │   └── connection.py</span><br><span class="line">    │       ├── record-mixed-av.sh</span><br><span class="line">    │       ├── record-timestamp.sh</span><br><span class="line">    │       ├── setup</span><br><span class="line">    │       │   └── voc_gits_path.sh</span><br><span class="line">    │       ├── temp</span><br><span class="line">    │       │   └── 111.sh</span><br><span class="line">    │       └── tests</span><br><span class="line">    │           ├── 360p_pushstream_OK.sh</span><br><span class="line">    │           ├── 360p_start_voctomix.sh</span><br><span class="line">    │           ├── 720p_pushstream_OK.sh</span><br><span class="line">    │           ├── 720p_start_voctomix.sh</span><br><span class="line">    │           ├── coupler-server.sh</span><br><span class="line">    │           ├── dummy-server-src.sh</span><br><span class="line">    │           ├── dummy-server.py</span><br><span class="line">    │           ├── mock-stack.sh</span><br><span class="line">    │           ├── pushstream_OK.sh</span><br><span class="line">    │           ├── server-file.sh</span><br><span class="line">    │           ├── test1.sh</span><br><span class="line">    │           ├── test2.sh</span><br><span class="line">    │           ├── test_720p.sh</span><br><span class="line">    │           ├── test_720p_pushstream_OK.sh</span><br><span class="line">    │           ├── test_720p_pushstream_OK_bak.sh</span><br><span class="line">    │           ├── voctomixstatus.sh</span><br><span class="line">    │           ├── voctomixstop.sh</span><br><span class="line">    │           └── zcwtest.sh</span><br><span class="line">    └── www</span><br><span class="line">        ├── bin</span><br><span class="line">        │   ├── logs</span><br><span class="line">        │   │   └── stream2switcher.log</span><br><span class="line">        │   └── stream2switcher.sh</span><br><span class="line">        ├── controller</span><br><span class="line">        │   ├── GeneralMethod.php</span><br><span class="line">        │   ├── StartVoctomix.php</span><br><span class="line">        │   ├── StatusVoctomix.php</span><br><span class="line">        │   ├── StopVoctomix.php</span><br><span class="line">        │   ├── StreamConfig.php</span><br><span class="line">        │   ├── VoctomixConfig.php</span><br><span class="line">        │   ├── VoctomixControl.php</span><br><span class="line">        │   ├── dbConnect.php</span><br><span class="line">        │   ├── dbtest.php</span><br><span class="line">        │   ├── httpStatus.php</span><br><span class="line">        │   ├── index.php</span><br><span class="line">        │   ├── outputStream.php</span><br><span class="line">        │   ├── outputStreamConfig.php</span><br><span class="line">        │   ├── testapi.php</span><br><span class="line">        │   ├── userLogin.php</span><br><span class="line">        │   ├── userSignUp.php</span><br><span class="line">        │   └── voctomix.php</span><br><span class="line">        ├── index.php</span><br><span class="line">        ├── phpinfo.php</span><br><span class="line">        └── stat.xsl</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过redis控制流的输入"><a href="#通过redis控制流的输入" class="headerlink" title="通过redis控制流的输入"></a>通过redis控制流的输入</h3><p>脚本位置<code>/home/www/bin/stream2switcher.sh</code></p>
+<p>修改nginx中的配置自动调用脚本。</p>
+<p>n</p>
+<p>这里需要指定输入的流对应相应的端口，这样就可以作为导播台的输入源。</p>
+<h3 id="APP控制接口"><a href="#APP控制接口" class="headerlink" title="APP控制接口"></a>APP控制接口</h3><p>相关API文档参考</p>
+<p><a href="http://192.168.18.88:8888/Amailive-Developer/API/blob/master/api_streamcontrol.md" target="_blank" rel="noopener">导播台相关API文档</a></p>
+<p>在<code>/home/www/controller/</code>下</p>
+<ul>
+<li><code>StreamConfig.php</code>输入流配置</li>
+<li><code>outputStreamConfig.php</code>配置输出流并且启动服务</li>
+<li><code>outputStreamConfig.php</code>停止服务</li>
+</ul>
+<p>控制接口目前直接使用socket连接的方式去控制</p>
+<h2 id="参考地址"><a href="#参考地址" class="headerlink" title="参考地址"></a>参考地址</h2><p><a href="http://www.runoob.com/redis/redis-install.html" target="_blank" rel="noopener">Redis安装与使用</a></p>
+<p><a href="http://www.jianshu.com/p/e4487fcf8b6c" target="_blank" rel="noopener">php7安装Redis扩展</a></p>
+<p><a href="https://www.vultr.com/docs/setup-nginx-rtmp-on-ubuntu-14-04" target="_blank" rel="noopener">nginx-rtmp模块编译安装</a></p>
+<p><a href="http://nginx.org/en/download.html" target="_blank" rel="noopener">nginx下载页</a></p>
+<p><a href="http://www.laruence.com/2010/05/20/1495.html" target="_blank" rel="noopener">cgi.fix_pathinfo的安全隐患</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/08/07/Voctomix%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2018/08/07/Voctomix%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/" class="post-title-link" itemprop="url">Voctomix项目介绍</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-07 15:22:28" itemprop="dateCreated datePublished" datetime="2018-08-07T15:22:28+08:00">2018-08-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-10 16:41:32" itemprop="dateModified" datetime="2020-08-10T16:41:32+08:00">2020-08-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Voctomix项目介绍"><a href="#Voctomix项目介绍" class="headerlink" title="Voctomix项目介绍"></a>Voctomix项目介绍</h1><blockquote>
+<p>简单介绍文档</p>
+</blockquote>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><blockquote>
+<p>开源的实时视频混合器</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>项目名称</th>
+<th>项目地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Voctomix</td>
+<td><a href="https://github.com/voc/voctomix" target="_blank" rel="noopener">源码地址</a></td>
+</tr>
+</tbody></table>
+<p>Voctomix是官方项目主要包含三部分代码：</p>
+<ul>
+<li>Voctocore：实现视频和音频处理的视频处理器核心过程</li>
+<li>Voctogui：GUI实现，可以控制核心功能，并实时显示视频效果</li>
+<li>Voctomix Example Scripts：一些脚本实例，包含使用脚本控制视频混合，视音频切换等。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>项目名称</th>
+<th>项目地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Voctomix-Outcasts</td>
+<td><a href="https://github.com/CarlFK/voctomix-outcasts" target="_blank" rel="noopener">源码地址</a></td>
+</tr>
+</tbody></table>
+<p>Voctomix-Outcasts是一个快速运行测试的Demo帮我们实现了解Voctomix运行过程。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>Voctomix需要一个比较新的GStreamer(至少1.5版本以上，推荐1.6版本)</p>
+<p>安装依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Requirements</span><br><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0</span><br><span class="line"></span><br><span class="line"># Optional for the Example-Scripts</span><br><span class="line">apt-get install python3-pyinotify gstreamer1.0-libav rlwrap fbset</span><br></pre></td></tr></table></figure>
+<p>如果你想用GUI还需要安装下面的依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-alsa gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi python3-gi-cairo gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gir1.2-gtk-3.0</span><br></pre></td></tr></table></figure>
+
+<p>关于cpu的使用情况，如果想用默认配置1920*1080、25fps，建议使用四核cpu，可以根据配置信息中的分辨率和帧率，选择合适的cpu。建议GUI和core运行在同一台机器上。不然会产生很高的流量。</p>
+<h2 id="项目使用介绍"><a href="#项目使用介绍" class="headerlink" title="项目使用介绍"></a>项目使用介绍</h2><h3 id="voctocore"><a href="#voctocore" class="headerlink" title="voctocore"></a>voctocore</h3><h4 id="块级图"><a href="#块级图" class="headerlink" title="块级图"></a>块级图</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">17000… VSource** (Stream-Blanker) ---\</span><br><span class="line">18000  ASource** (Stream-Blanker) ----\</span><br><span class="line">                                       \</span><br><span class="line">16000 VSource (Background)              \</span><br><span class="line">                      \                  \</span><br><span class="line">                       --&gt; VideoMix       \</span><br><span class="line">                      /             \      -&gt; StreamBlanker** -&gt; StreamOutputPort** 15000</span><br><span class="line">                     /               \    /</span><br><span class="line">                    /                 ------&gt; OutputPort 11000</span><br><span class="line">                   /                 /    \-&gt; Encoder* -&gt; PreviewPort* 12000</span><br><span class="line">                  /                 /</span><br><span class="line">                 /----- -&gt; AudioMix</span><br><span class="line">                /</span><br><span class="line">10000… AVSource --&gt; MirrorPort 13000…</span><br><span class="line">                \-&gt; Encoder* -&gt; PreviewPort* 14000…</span><br><span class="line"></span><br><span class="line">9999 Control-Server</span><br><span class="line">9998 GstNetTimeProvider Network-Clock</span><br><span class="line"></span><br><span class="line">*)  only when [previews] enabled=true is configured</span><br><span class="line">**) only when [stream-blanker] enabled=true is configured</span><br></pre></td></tr></table></figure>
+
+<h4 id="网络端口列表"><a href="#网络端口列表" class="headerlink" title="网络端口列表"></a>网络端口列表</h4><ul>
+<li>10000,10001,···-主视频源，取决于配置的视频源数量</li>
+<li>16000 混音器</li>
+<li>17000，17001，···-Stream-Blanker视频输入，取决于配置的Stream-Blanker-Sources的数量</li>
+<li>18000 – Stream-Blanker Audio-Input</li>
+<li>9999 -接收控制协议连接 </li>
+</ul>
 
       
     </div>
@@ -1064,96 +1237,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2017/12/01/GStreamer%E7%9A%84%E5%AE%89%E8%A3%85/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2017/12/01/GStreamer%E7%9A%84%E5%AE%89%E8%A3%85/" class="post-title-link" itemprop="url">GStreamer的安装</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2017-12-01 11:02:25" itemprop="dateCreated datePublished" datetime="2017-12-01T11:02:25+08:00">2017-12-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/GStreamer/" itemprop="url" rel="index">
-                    <span itemprop="name">GStreamer</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="GStreamer在mac上的安装"><a href="#GStreamer在mac上的安装" class="headerlink" title="GStreamer在mac上的安装"></a>GStreamer在mac上的安装</h1><blockquote>
-<p>GStreamer 是一个基于流水线的多媒体框架，基于GObject，以C语言写成。凭借GStreamer，程序员可以很容易地创建各种多媒体功能组件，包括简单的音频回放，音频和视频播放,录音，流媒体和音频编辑。基于流水线设计，可以创建诸如视频编辑器、流媒体广播和媒体播放器等等的很多多媒体应用。</p>
-</blockquote>
-<h2 id="Mac安装"><a href="#Mac安装" class="headerlink" title="Mac安装"></a>Mac安装</h2><p> 推荐使用Homebrew安装</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install gstreamer gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly</span><br></pre></td></tr></table></figure>
-
-<p> 官网下载pkg包安装比较复杂还需要自己去安装很多依赖和插件这里推荐使用Homebrew安装。</p>
-<p> 同样linux下同样推荐使用包管理工具安装。自己编译安装需要很长时间。而且容易出现依赖问题可能会出错。</p>
-<p> 我只在Ubuntu上测试过自己编译安装，mac上没有测试过。</p>
-<p> 安装完成后终端输入<code>gst-launch-1.0 --version</code>。如果出现版本信息后说明安装成功。</p>
-<p> <img src="https://ws1.sinaimg.cn/large/006tKfTcgy1fr6aj3mtvbj30h204wab5.jpg" alt></p>
-<h2 id="linux上安装"><a href="#linux上安装" class="headerlink" title="linux上安装"></a>linux上安装</h2><p> 和mac上安装类似，安装命令：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-doc gstreamer1.0-tools</span><br></pre></td></tr></table></figure>
-
-<p> <a href="http://os.is-programmer.com/categories/9417/posts" target="_blank" rel="noopener">GStreamer资料</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1204,7 +1287,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1217,7 +1300,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

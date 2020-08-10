@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="一块(YeeCall)项目的仿写—第一天项目介绍YeeCall项目介绍直接去YeeCall官网查看。 大概多长时间做完。没有确切时间，一点点做一点点功能去完善。。 仿写过程中记录整个仿写过程，任何一个小的细节都会记录下来。 第一天一块项目分析首先，分析一块App，典型的iOS风格App，底部四个TabBar。整体框架是TabBarController和NavagationController。分析">
+<meta name="keywords" content="iOS">
+<meta property="og:type" content="website">
+<meta property="og:title" content="一块(YeeCall)项目的仿写—第一天">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;%E4%B8%80%E5%9D%97-YeeCall-%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%BF%E5%86%99%E2%80%94%E7%AC%AC%E4%B8%80%E5%A4%A9.html">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="一块(YeeCall)项目的仿写—第一天项目介绍YeeCall项目介绍直接去YeeCall官网查看。 大概多长时间做完。没有确切时间，一点点做一点点功能去完善。。 仿写过程中记录整个仿写过程，任何一个小的细节都会记录下来。 第一天一块项目分析首先，分析一块App，典型的iOS风格App，底部四个TabBar。整体框架是TabBarController和NavagationController。分析">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-05-09T01:33:52.513Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/%E4%B8%80%E5%9D%97-YeeCall-%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%BF%E5%86%99%E2%80%94%E7%AC%AC%E4%B8%80%E5%A4%A9">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: false,
+    isPage: true,
+    isArchive: false
+  };
+</script>
+
+  <title>一块(YeeCall)项目的仿写—第一天 | ZCW
+  </title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">一块(YeeCall)项目的仿写—第一天
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h1 id="一块-YeeCall-项目的仿写—第一天"><a href="#一块-YeeCall-项目的仿写—第一天" class="headerlink" title="一块(YeeCall)项目的仿写—第一天"></a>一块(YeeCall)项目的仿写—第一天</h1><h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>YeeCall项目介绍直接去<a href="http://www.yeecall.com/" target="_blank" rel="noopener">YeeCall官网</a>查看。</p>
+<p>大概多长时间做完。没有确切时间，一点点做一点点功能去完善。。</p>
+<p>仿写过程中记录整个仿写过程，任何一个小的细节都会记录下来。</p>
+<h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="一块项目分析"><a href="#一块项目分析" class="headerlink" title="一块项目分析"></a>一块项目分析</h3><p>首先，分析一块App，典型的iOS风格App，底部四个TabBar。整体框架是TabBarController和NavagationController。分析每一个页面，首先第一个界面（一块）是消息界面，用TableView可以实现，右上角有一个button用来添加新的好友聊天。第二个界面（好友）界面，上边有一个SegmentedControl，整体还是通过TableView实现的，但是上边固定三个不变的cell，切换SegmentedControl时，加载不同的DataSource，或者是用两个TableView实现，实现的时候再具体实验哪一种更方便。第三个界面群组界面，CollectionView实现。第四个界面我的界面，TableView实现，这里是静态的Cell。</p>
+<h3 id="获取到一块官方App的资源图片"><a href="#获取到一块官方App的资源图片" class="headerlink" title="获取到一块官方App的资源图片"></a>获取到一块官方App的资源图片</h3><p>1、第一步要先获得App的ipa包，在iTunes中获得即可，在Finder中找到这个ipa包，右键用归档实用工具打开得到一个解压后的文件，打开<code>Payload</code>，然后右键显示包内容，这里面就有很多资源了，但是很多图片是放在<code>Assets.car</code>这个里面的，所以还要提取这个里面的资源。</p>
+<p>2、使用<code>cartool</code>这个可以获得里面的图片。<br>使用方法：下载这个项目，项目地址：<a href="https://github.com/steventroughtonsmith/cartool" target="_blank" rel="noopener">https://github.com/steventroughtonsmith/cartool</a><br>用Xcode打开运行，运行成功后在目录中的Products下有一个可执行文件，右键在Finder中显示，打开终端把这个文件拖到终端中。在终端中执行<code>./cartool [Assets.car文件] [要解压的位置]</code>例如<code>./cartool /Users/zcw/Documents/chat/Assets.car /Users/zcw/Documents/chat/</code><br>执行结束后就可以拿到所以图片资料了。</p>
+<h3 id="纯代码完成主框架"><a href="#纯代码完成主框架" class="headerlink" title="纯代码完成主框架"></a>纯代码完成主框架</h3><p>首先新建一个项目，创建完成后删除默认的ViewController，在General中修改Main Interface为空，添加一个TabBarController类，在APPDelegate中设置根控制器为这个TabBarController。<br>在TabBarController中添加四个字控制器，分别代表四个控制器。</p>
+<h3 id="实现我的界面"><a href="#实现我的界面" class="headerlink" title="实现我的界面"></a>实现我的界面</h3>
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一块-YeeCall-项目的仿写—第一天"><span class="nav-number">1.</span> <span class="nav-text">一块(YeeCall)项目的仿写—第一天</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍"><span class="nav-number">1.1.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一天"><span class="nav-number">1.2.</span> <span class="nav-text">第一天</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一块项目分析"><span class="nav-number">1.2.1.</span> <span class="nav-text">一块项目分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取到一块官方App的资源图片"><span class="nav-number">1.2.2.</span> <span class="nav-text">获取到一块官方App的资源图片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#纯代码完成主框架"><span class="nav-number">1.2.3.</span> <span class="nav-text">纯代码完成主框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现我的界面"><span class="nav-number">1.2.4.</span> <span class="nav-text">实现我的界面</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

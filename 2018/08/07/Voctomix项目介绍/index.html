@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.4.3',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="Voctomix项目介绍 简单介绍文档  项目介绍 开源的实时视频混合器     项目名称 项目地址    Voctomix 源码地址   Voctomix是官方项目主要包含三部分代码：  Voctocore：实现视频和音频处理的视频处理器核心过程 Voctogui：GUI实现，可以控制核心功能，并实时显示视频效果 Voctomix Example Scripts：一些脚本实例，包含使用脚本控制视">
+<meta name="keywords" content="Voctomix">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Voctomix项目介绍">
+<meta property="og:url" content="https:&#x2F;&#x2F;www.zcwlwen.cn&#x2F;2018&#x2F;08&#x2F;07&#x2F;Voctomix%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D&#x2F;">
+<meta property="og:site_name" content="ZCW">
+<meta property="og:description" content="Voctomix项目介绍 简单介绍文档  项目介绍 开源的实时视频混合器     项目名称 项目地址    Voctomix 源码地址   Voctomix是官方项目主要包含三部分代码：  Voctocore：实现视频和音频处理的视频处理器核心过程 Voctogui：GUI实现，可以控制核心功能，并实时显示视频效果 Voctomix Example Scripts：一些脚本实例，包含使用脚本控制视">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-08-10T08:41:32.161Z">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.zcwlwen.cn/2018/08/07/Voctomix%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Voctomix项目介绍 | ZCW</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ZCW</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">ZCW</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2018/08/07/Voctomix%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Voctomix项目介绍
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-08-07 15:22:28" itemprop="dateCreated datePublished" datetime="2018-08-07T15:22:28+08:00">2018-08-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-08-10 16:41:32" itemprop="dateModified" datetime="2020-08-10T16:41:32+08:00">2020-08-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Voctomix项目介绍"><a href="#Voctomix项目介绍" class="headerlink" title="Voctomix项目介绍"></a>Voctomix项目介绍</h1><blockquote>
+<p>简单介绍文档</p>
+</blockquote>
+<h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><blockquote>
+<p>开源的实时视频混合器</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>项目名称</th>
+<th>项目地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Voctomix</td>
+<td><a href="https://github.com/voc/voctomix" target="_blank" rel="noopener">源码地址</a></td>
+</tr>
+</tbody></table>
+<p>Voctomix是官方项目主要包含三部分代码：</p>
+<ul>
+<li>Voctocore：实现视频和音频处理的视频处理器核心过程</li>
+<li>Voctogui：GUI实现，可以控制核心功能，并实时显示视频效果</li>
+<li>Voctomix Example Scripts：一些脚本实例，包含使用脚本控制视频混合，视音频切换等。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>项目名称</th>
+<th>项目地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Voctomix-Outcasts</td>
+<td><a href="https://github.com/CarlFK/voctomix-outcasts" target="_blank" rel="noopener">源码地址</a></td>
+</tr>
+</tbody></table>
+<p>Voctomix-Outcasts是一个快速运行测试的Demo帮我们实现了解Voctomix运行过程。</p>
+<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>Voctomix需要一个比较新的GStreamer(至少1.5版本以上，推荐1.6版本)</p>
+<p>安装依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Requirements</span><br><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0</span><br><span class="line"></span><br><span class="line"># Optional for the Example-Scripts</span><br><span class="line">apt-get install python3-pyinotify gstreamer1.0-libav rlwrap fbset</span><br></pre></td></tr></table></figure>
+<p>如果你想用GUI还需要安装下面的依赖项：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install gstreamer1.0-plugins-bad gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-ugly gstreamer1.0-alsa gstreamer1.0-tools libgstreamer1.0-0 python3 python3-gi python3-gi-cairo gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gir1.2-gtk-3.0</span><br></pre></td></tr></table></figure>
+
+<p>关于cpu的使用情况，如果想用默认配置1920*1080、25fps，建议使用四核cpu，可以根据配置信息中的分辨率和帧率，选择合适的cpu。建议GUI和core运行在同一台机器上。不然会产生很高的流量。</p>
+<h2 id="项目使用介绍"><a href="#项目使用介绍" class="headerlink" title="项目使用介绍"></a>项目使用介绍</h2><h3 id="voctocore"><a href="#voctocore" class="headerlink" title="voctocore"></a>voctocore</h3><h4 id="块级图"><a href="#块级图" class="headerlink" title="块级图"></a>块级图</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">17000… VSource** (Stream-Blanker) ---\</span><br><span class="line">18000  ASource** (Stream-Blanker) ----\</span><br><span class="line">                                       \</span><br><span class="line">16000 VSource (Background)              \</span><br><span class="line">                      \                  \</span><br><span class="line">                       --&gt; VideoMix       \</span><br><span class="line">                      /             \      -&gt; StreamBlanker** -&gt; StreamOutputPort** 15000</span><br><span class="line">                     /               \    /</span><br><span class="line">                    /                 ------&gt; OutputPort 11000</span><br><span class="line">                   /                 /    \-&gt; Encoder* -&gt; PreviewPort* 12000</span><br><span class="line">                  /                 /</span><br><span class="line">                 /----- -&gt; AudioMix</span><br><span class="line">                /</span><br><span class="line">10000… AVSource --&gt; MirrorPort 13000…</span><br><span class="line">                \-&gt; Encoder* -&gt; PreviewPort* 14000…</span><br><span class="line"></span><br><span class="line">9999 Control-Server</span><br><span class="line">9998 GstNetTimeProvider Network-Clock</span><br><span class="line"></span><br><span class="line">*)  only when [previews] enabled=true is configured</span><br><span class="line">**) only when [stream-blanker] enabled=true is configured</span><br></pre></td></tr></table></figure>
+
+<h4 id="网络端口列表"><a href="#网络端口列表" class="headerlink" title="网络端口列表"></a>网络端口列表</h4><ul>
+<li>10000,10001,···-主视频源，取决于配置的视频源数量</li>
+<li>16000 混音器</li>
+<li>17000，17001，···-Stream-Blanker视频输入，取决于配置的Stream-Blanker-Sources的数量</li>
+<li>18000 – Stream-Blanker Audio-Input</li>
+<li>9999 -接收控制协议连接 </li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Voctomix/" rel="tag"># Voctomix</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2018/06/15/GStreamer%E6%B7%BB%E5%8A%A0%E6%B5%81%E5%BB%B6%E6%97%B6%E6%93%8D%E4%BD%9C/" rel="next" title="GStreamer添加流延时操作">
+                  <i class="fa fa-chevron-left"></i> GStreamer添加流延时操作
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2018/08/08/Voctomix%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" rel="prev" title="Voctomix安装配置过程记录">
+                  Voctomix安装配置过程记录 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Voctomix项目介绍"><span class="nav-number">1.</span> <span class="nav-text">Voctomix项目介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目介绍"><span class="nav-number">1.1.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装步骤"><span class="nav-number">1.2.</span> <span class="nav-text">安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目使用介绍"><span class="nav-number">1.3.</span> <span class="nav-text">项目使用介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#voctocore"><span class="nav-number">1.3.1.</span> <span class="nav-text">voctocore</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#块级图"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">块级图</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络端口列表"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">网络端口列表</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="zcwlwen"
+    src="/images/avatar.gif">
+  <p class="site-author-name" itemprop="name">zcwlwen</p>
+  <div class="site-description" itemprop="description">iOS,linux,shell,</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">37</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zcwlwen" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;zcwlwen" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zcwlwen@gmail.com" title="E-Mail &amp;rarr; mailto:zcwlwen@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">zcwlwen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.4.3
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

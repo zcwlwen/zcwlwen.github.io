@@ -189,260 +189,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/28/LeetCode%E7%AE%97%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/28/LeetCode%E7%AE%97%E6%B3%95/" class="post-title-link" itemprop="url">LeetCode算法</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-28 14:04:10" itemprop="dateCreated datePublished" datetime="2016-12-28T14:04:10+08:00">2016-12-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="LeetCode算法笔记"><a href="#LeetCode算法笔记" class="headerlink" title="LeetCode算法笔记"></a>LeetCode算法笔记</h1><h2 id="1-Two-Sum"><a href="#1-Two-Sum" class="headerlink" title="1. Two Sum"></a>1. Two Sum</h2><p><a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="noopener">Two Sum题目地址</a></p>
-<p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.<br>You may assume that each input would have exactly one solution.</p>
-<p><strong>Example:</strong></p>
-<blockquote>
-<p>Given nums = [2, 7, 11, 15], target = 9,</p>
-</blockquote>
-<blockquote>
-<p>Because nums[0] + nums[1] = 2 + 7 = 9,</p>
-</blockquote>
-<blockquote>
-<p>return [0, 1].</p>
-</blockquote>
-<p>题目意思：</p>
-<p>给一个Int数组nums，一个Int值target，查找数组中是否存在两个元素相加等于target的值，存在的话返回两个值在数组中的下标。</p>
-<p>解题思路：</p>
-<ol>
-<li>循环遍历</li>
-<li>hash</li>
-</ol>
-<p><strong>循环遍历</strong><br>循环嵌套，复杂度为O（n*n）</p>
-<p><strong>hash</strong><br>遍历一遍数组，存到map中，再遍历一遍找到符合的值。复杂度O(n)</p>
-<p>循环遍历代码实现：(swift实现)</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// - Parameters:</span></span><br><span class="line"><span class="comment">///   - nums: 输入的Int数组</span></span><br><span class="line"><span class="comment">///   - target: 相加得到的值</span></span><br><span class="line"><span class="comment">/// - Returns: 返回结果为[Int]</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">TwoSum</span><span class="params">(<span class="number">_</span> nums: [Int], <span class="number">_</span> target: Int)</span></span> -&gt; [<span class="type">Int</span>] &#123;</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="number">0</span>  ..&lt; nums.<span class="built_in">count</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> i+<span class="number">1</span>  ..&lt; nums.<span class="built_in">count</span>&#123;</span><br><span class="line">            <span class="keyword">if</span> nums[j] == target - nums[i]&#123;</span><br><span class="line">                <span class="keyword">let</span> result = [i,j]</span><br><span class="line">                <span class="built_in">print</span>(result)</span><br><span class="line">                <span class="keyword">return</span> result</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>hash代码实现：</p>
-<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//todo</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/27/Mac%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/27/Mac%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Mac开发笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-27 16:10:49" itemprop="dateCreated datePublished" datetime="2016-12-27T16:10:49+08:00">2016-12-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Mac开发笔记"><a href="#Mac开发笔记" class="headerlink" title="Mac开发笔记"></a>Mac开发笔记</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p><strong>开发工具</strong> ：macOS系统、Xcode</p>
-<p><strong>上架到App Store的App必须打开<code>App Sandbox</code>功能</strong></p>
-<p><strong>“要访问服务器的 API 接口，必须打开 <code>Outgoing Connections</code>。 <code>Hardware</code> 里面必须选择打开 <code>Printing</code>，否则审核不通过。</strong></p>
-<p>*<em>如果使用了非系统的第3方framework或者自己开发的framework，Code Signing 里面Other Code Signing Flags 必须设置为 –deep，否则无法正常打包发布到Mac Appstore<br>*</em></p>
-<h2 id="窗口对象"><a href="#窗口对象" class="headerlink" title="窗口对象"></a>窗口对象</h2><blockquote>
-<p>窗口是应用 UI 界面视图的容器，它负责接收用户的鼠标键盘等系统事件,转发消息到相关的接收者对象。<br>可以接收输入事件(键盘,鼠标,触控板等外设)的窗口对象称为 keyWindow（keyboard window)；当前的活动窗口也称为 mainWindow。一个时刻只能有一个 keyWindow 和一个 mainWindow</p>
-</blockquote>
-<h3 id="窗口界面组成"><a href="#窗口界面组成" class="headerlink" title="窗口界面组成"></a>窗口界面组成</h3><blockquote>
-<p>窗口对象包括 titleBar, contentView 内容视图, contentBorder 底部边框区</p>
-</blockquote>
-<p>Title Bar：去掉后b</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/20/%E7%B2%BE%E9%80%9ALinux-%E7%AC%AC%E4%BA%8C%E7%89%88-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/12/20/%E7%B2%BE%E9%80%9ALinux-%E7%AC%AC%E4%BA%8C%E7%89%88-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">精通Linux(第二版)读书笔记</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-12-20 13:17:11" itemprop="dateCreated datePublished" datetime="2016-12-20T13:17:11+08:00">2016-12-20</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="精通Linux（第二版）读书笔记"><a href="#精通Linux（第二版）读书笔记" class="headerlink" title="精通Linux（第二版）读书笔记"></a>精通Linux（第二版）读书笔记</h1><h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 - 概述"></a>第一章 - 概述</h2><h3 id="1-1-Linux操作系统中的抽象级别和层次"><a href="#1-1-Linux操作系统中的抽象级别和层次" class="headerlink" title="1.1-Linux操作系统中的抽象级别和层次"></a>1.1-Linux操作系统中的抽象级别和层次</h3><blockquote>
-<p>Linux操作系统主要分为三层。最底层是硬件系统。硬件系统上是Linux内核，最顶层是进程。</p>
-</blockquote>
-<p><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-072527.jpg" alt></p>
-<h3 id="1-2-硬件系统：理解主内存"><a href="#1-2-硬件系统：理解主内存" class="headerlink" title="1.2-硬件系统：理解主内存"></a>1.2-硬件系统：理解主内存</h3><h3 id="1-3-内核"><a href="#1-3-内核" class="headerlink" title="1.3-内核"></a>1.3-内核</h3><h4 id="1-3-1-进程管理"><a href="#1-3-1-进程管理" class="headerlink" title="1.3.1 进程管理"></a>1.3.1 进程管理</h4><h4 id="1-3-2-内存管理"><a href="#1-3-2-内存管理" class="headerlink" title="1.3.2 内存管理"></a>1.3.2 内存管理</h4><h4 id="1-3-3设备驱动程序和设备管理"><a href="#1-3-3设备驱动程序和设备管理" class="headerlink" title="1.3.3设备驱动程序和设备管理"></a>1.3.3设备驱动程序和设备管理</h4><h4 id="1-3-4-系统调用和系统支持"><a href="#1-3-4-系统调用和系统支持" class="headerlink" title="1.3.4 系统调用和系统支持"></a>1.3.4 系统调用和系统支持</h4><h3 id="1-4-用户空间"><a href="#1-4-用户空间" class="headerlink" title="1.4-用户空间"></a>1.4-用户空间</h3><h3 id="1-5-用户"><a href="#1-5-用户" class="headerlink" title="1.5-用户"></a>1.5-用户</h3><h3 id="1-6-前瞻"><a href="#1-6-前瞻" class="headerlink" title="1.6-前瞻"></a>1.6-前瞻</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/12/03/%E9%98%BF%E9%87%8C%E4%BA%91IPv6%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -782,160 +528,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/10/21/shell%E8%84%9A%E6%9C%AC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/10/21/shell%E8%84%9A%E6%9C%AC/" class="post-title-link" itemprop="url">shell脚本</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-10-21 13:21:05" itemprop="dateCreated datePublished" datetime="2016-10-21T13:21:05+08:00">2016-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="shell脚本"><a href="#shell脚本" class="headerlink" title="shell脚本"></a>shell脚本</h1><p>新建一个shell脚本。直接在终端vim <code>first.sh</code>就会创建一个名字为first的shell脚本。</p>
-<p>第一个shell脚本</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh   //指定解释器 </span><br><span class="line">pwd</span><br><span class="line">hello=&quot;hello shell&quot;</span><br><span class="line">echo $hello</span><br></pre></td></tr></table></figure>
-
-<p>“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行</p>
-<p><code>pwd</code>显示当前文件的路径</p>
-<p><code>hello=&quot;hello shell&quot;</code>定义一个变量</p>
-<p><code>echo $hello</code>输出这个变量</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/10/12/%E4%B8%80%E5%9D%97-YeeCall-%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%BF%E5%86%99%E2%80%94%E7%AC%AC%E4%B8%80%E5%A4%A9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zcwlwen">
-      <meta itemprop="description" content="iOS,linux,shell,">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="ZCW">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2016/10/12/%E4%B8%80%E5%9D%97-YeeCall-%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%BB%BF%E5%86%99%E2%80%94%E7%AC%AC%E4%B8%80%E5%A4%A9/" class="post-title-link" itemprop="url">一块(YeeCall)项目的仿写—第一天</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2016-10-12 17:26:39" itemprop="dateCreated datePublished" datetime="2016-10-12T17:26:39+08:00">2016-10-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="一块-YeeCall-项目的仿写—第一天"><a href="#一块-YeeCall-项目的仿写—第一天" class="headerlink" title="一块(YeeCall)项目的仿写—第一天"></a>一块(YeeCall)项目的仿写—第一天</h1><h2 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h2><p>YeeCall项目介绍直接去<a href="http://www.yeecall.com/" target="_blank" rel="noopener">YeeCall官网</a>查看。</p>
-<p>大概多长时间做完。没有确切时间，一点点做一点点功能去完善。。</p>
-<p>仿写过程中记录整个仿写过程，任何一个小的细节都会记录下来。</p>
-<h2 id="第一天"><a href="#第一天" class="headerlink" title="第一天"></a>第一天</h2><h3 id="一块项目分析"><a href="#一块项目分析" class="headerlink" title="一块项目分析"></a>一块项目分析</h3><p>首先，分析一块App，典型的iOS风格App，底部四个TabBar。整体框架是TabBarController和NavagationController。分析每一个页面，首先第一个界面（一块）是消息界面，用TableView可以实现，右上角有一个button用来添加新的好友聊天。第二个界面（好友）界面，上边有一个SegmentedControl，整体还是通过TableView实现的，但是上边固定三个不变的cell，切换SegmentedControl时，加载不同的DataSource，或者是用两个TableView实现，实现的时候再具体实验哪一种更方便。第三个界面群组界面，CollectionView实现。第四个界面我的界面，TableView实现，这里是静态的Cell。</p>
-<h3 id="获取到一块官方App的资源图片"><a href="#获取到一块官方App的资源图片" class="headerlink" title="获取到一块官方App的资源图片"></a>获取到一块官方App的资源图片</h3><p>1、第一步要先获得App的ipa包，在iTunes中获得即可，在Finder中找到这个ipa包，右键用归档实用工具打开得到一个解压后的文件，打开<code>Payload</code>，然后右键显示包内容，这里面就有很多资源了，但是很多图片是放在<code>Assets.car</code>这个里面的，所以还要提取这个里面的资源。</p>
-<p>2、使用<code>cartool</code>这个可以获得里面的图片。<br>使用方法：下载这个项目，项目地址：<a href="https://github.com/steventroughtonsmith/cartool" target="_blank" rel="noopener">https://github.com/steventroughtonsmith/cartool</a><br>用Xcode打开运行，运行成功后在目录中的Products下有一个可执行文件，右键在Finder中显示，打开终端把这个文件拖到终端中。在终端中执行<code>./cartool [Assets.car文件] [要解压的位置]</code>例如<code>./cartool /Users/zcw/Documents/chat/Assets.car /Users/zcw/Documents/chat/</code><br>执行结束后就可以拿到所以图片资料了。</p>
-<h3 id="纯代码完成主框架"><a href="#纯代码完成主框架" class="headerlink" title="纯代码完成主框架"></a>纯代码完成主框架</h3><p>首先新建一个项目，创建完成后删除默认的ViewController，在General中修改Main Interface为空，添加一个TabBarController类，在APPDelegate中设置根控制器为这个TabBarController。<br>在TabBarController中添加四个字控制器，分别代表四个控制器。</p>
-<h3 id="实现我的界面"><a href="#实现我的界面" class="headerlink" title="实现我的界面"></a>实现我的界面</h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/28/iOS%E4%B8%8A%E7%BA%BF%E5%8A%A0%E6%80%A5%E7%94%B3%E8%AF%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1014,7 +606,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/22/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/21/Mac%E5%AE%9E%E7%94%A8Tips/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1028,7 +620,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2016/09/22/HTML%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">HTML学习笔记</a>
+            <a href="/2016/09/21/Mac%E5%AE%9E%E7%94%A8Tips/" class="post-title-link" itemprop="url">Mac实用Tips</a>
         </h1>
 
         <div class="post-meta">
@@ -1038,7 +630,75 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2016-09-22 16:01:58" itemprop="dateCreated datePublished" datetime="2016-09-22T16:01:58+08:00">2016-09-22</time>
+              <time title="创建时间：2016-09-21 17:44:19" itemprop="dateCreated datePublished" datetime="2016-09-21T17:44:19+08:00">2016-09-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Mac实用Tips"><a href="#Mac实用Tips" class="headerlink" title="Mac实用Tips"></a>Mac实用Tips</h1><p><strong>Mac下查看cpu信息</strong></p>
+<p>打开终端输入<code>sysctl -n machdep.cpu.brand_string</code>命令就可以<br><img src="https://zcwlwenblogimage.oss-cn-shanghai.aliyuncs.com/2016-12-30-073828.jpg" alt></p>
+<p><strong>打开文件</strong></p>
+<p>快捷键 Command + O</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/20/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0%E8%BD%AC%E7%A0%81%E5%B9%B3%E5%8F%B0%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/20/%E8%A7%86%E9%A2%91%E4%B8%8A%E4%BC%A0%E8%BD%AC%E7%A0%81%E5%B9%B3%E5%8F%B0%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="post-title-link" itemprop="url">视频上传转码平台中遇到的问题与解决办法</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-20 15:06:13" itemprop="dateCreated datePublished" datetime="2016-09-20T15:06:13+08:00">2016-09-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -1053,8 +713,8 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
             </span>
@@ -1070,7 +730,543 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><strong>表单</strong></p>
+          <h1 id="视频上传转码平台中遇到的问题与解决办法"><a href="#视频上传转码平台中遇到的问题与解决办法" class="headerlink" title="视频上传转码平台中遇到的问题与解决办法"></a>视频上传转码平台中遇到的问题与解决办法</h1><p><strong>时间</strong> 2016-09-20</p>
+<p>想要实现能够记录转码结果与转码时间的功能。</p>
+<p>转码使用的是在php中调用popen()开一个进程去调用命令行函数去进行转码。</p>
+<p>想要记录转码时间和转码进度。因为开一个异步的进程没有返回值所以没办法检测转码状态，所以只能想其他思路。<br>转码代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$cmd = &quot;转码操作命令&quot;;</span><br><span class="line">	//异步执行转码操作</span><br><span class="line">	pclose(popen($cmd, &apos;r&apos;));</span><br></pre></td></tr></table></figure>
+
+<p>这里的解决办法是：</p>
+<p>在开始转码前执行一个脚本，用来记录转码开始时间已经是否需要转码的那个操作。然后执行转操作。转码结束后在执行一个脚本用来记录此时的时间，已经转码结束。这样在数据库中就可以获得开始转码时间与转码结束的时间，就可以获得转码时间。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$cmd = &quot;php -f 第一个脚本 &amp;&amp; 转码操作命令 &amp;&amp; php -f 第二个脚本&quot;;</span><br><span class="line">	//异步执行转码操作</span><br><span class="line">	pclose(popen($cmd, &apos;r&apos;));</span><br></pre></td></tr></table></figure>
+
+<p>&amp;&amp;命令在命令行中用来串联两个命令所以我们这里可以记录转码时间。</p>
+<p><strong>时间：</strong>2016年10月09日17:41:33</p>
+<p>问题描述：执行php脚本是传参数遇到的问题。参数中有空格 导致这个参数编成了两个参数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$zcw_one = &apos;zcw is&apos;;</span><br><span class="line">$cmd = &quot;php -f test.php $zcw_one&quot;</span><br><span class="line">system($cmd);</span><br></pre></td></tr></table></figure>
+
+<p>这是好在test.php中通过argc取到的参数有三个 第一个是 test.php 、第二个是zcw、第三个是is。<br>我这里在传参数前把空格去掉<br>方法如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function trimall($str)//删除空格</span><br><span class="line">&#123;</span><br><span class="line">	$qian=array(&quot; &quot;,&quot;　&quot;,&quot;\t&quot;,&quot;\n&quot;,&quot;\r&quot;);</span><br><span class="line">	$hou=array(&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;,&quot;&quot;);</span><br><span class="line">	return str_replace($qian,$hou,$str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/20/MongoDB%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/20/MongoDB%E7%9A%84%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">MongoDB的进阶使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-20 14:00:00" itemprop="dateCreated datePublished" datetime="2016-09-20T14:00:00+08:00">2016-09-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="MongoDB的进阶使用"><a href="#MongoDB的进阶使用" class="headerlink" title="MongoDB的进阶使用"></a>MongoDB的进阶使用</h1><h2 id="在终端使用shell命令操作数据库"><a href="#在终端使用shell命令操作数据库" class="headerlink" title="在终端使用shell命令操作数据库"></a>在终端使用shell命令操作数据库</h2><h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>创建或者切换到当前数据库:</p>
+<p><code>use DATABASE_NAME</code></p>
+<p>使用<code>use</code>命令，如果当前数据库存在则是切换到对应的数据库，如果数据库不存在则是创建数据库。</p>
+<p>查看数据库：</p>
+<p><code>show dbs</code></p>
+<p>删除数据库：</p>
+<p>使用<code>use</code>命令进入到要删除的数据库中，然后执行删除命令：</p>
+<p><code>db.dropDatabase()</code></p>
+<p>就可以删除当前数据库了。</p>
+<h3 id="集合操作（表）"><a href="#集合操作（表）" class="headerlink" title="集合操作（表）"></a>集合操作（表）</h3><p>查看当前数据库中包含的集合</p>
+<p><code>show collections</code></p>
+<p>创建集合</p>
+<p><code>db.createCollection(集合名)</code></p>
+<p>删除集合</p>
+<p><code>db.COLLECTION_NAME.drop()</code></p>
+<h3 id="文档操作"><a href="#文档操作" class="headerlink" title="文档操作"></a>文档操作</h3><p>插入文档</p>
+<p><code>db.COLLECTION_NAME.insert(document)</code></p>
+<p>查询文档</p>
+<p><code>db.COLLECTION_NAME.find()</code></p>
+<p>使用pretty()方法格式化返回</p>
+<p><code>db.COLLECTION_NAME.find().pretty()</code></p>
+<p>find()中可以添加条件筛选要查询的内容</p>
+<p>更新文档</p>
+<p><code>db.COLLECTION_NAME.update(SELECTIOIN_CRITERIA, UPDATED_DATA)</code></p>
+<p>例子：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$collection-&gt;update(<span class="keyword">array</span>(<span class="string">"endTime"</span>=&gt;<span class="string">""</span>),<span class="keyword">array</span>(<span class="string">'$set'</span>=&gt;<span class="keyword">array</span>(<span class="string">"endTime"</span>=&gt;time())));</span><br><span class="line">$collection-&gt;update(<span class="keyword">array</span>(<span class="string">"isTranscoding"</span>=&gt;<span class="number">0</span>),<span class="keyword">array</span>(<span class="string">'$set'</span>=&gt;<span class="keyword">array</span>(<span class="string">"isTranscoding"</span>=&gt;<span class="number">1</span>)));</span><br></pre></td></tr></table></figure>
+<p>删除文档</p>
+<p><code>db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)</code></p>
+<p>如果remove()括号中不写东西默认删除全部内容</p>
+<hr>
+<h2 id="在php中操作MongoDB数据库"><a href="#在php中操作MongoDB数据库" class="headerlink" title="在php中操作MongoDB数据库"></a>在php中操作MongoDB数据库</h2><h3 id="连接和选择一个数据库"><a href="#连接和选择一个数据库" class="headerlink" title="连接和选择一个数据库"></a>连接和选择一个数据库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$m = new MongoClient(); // 连接默认主机和端口为：mongodb://localhost:27017</span><br><span class="line">$db = $m-&gt;test; // 获取名称为 &quot;test&quot; 的数据库</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$m = new MongoClient(); // 连接</span><br><span class="line">$db = $m-&gt;test; // 获取名称为 &quot;test&quot; 的数据库</span><br><span class="line">$collection = $db-&gt;createCollection(&quot;testCollection&quot;);</span><br><span class="line">echo &quot;集合创建成功&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$m = new MongoClient();    // 连接到mongodb</span><br><span class="line">$db = $m-&gt;test;            // 选择一个数据库</span><br><span class="line">$collection = $db-&gt;testCollection; // 选择集合</span><br><span class="line">$document = array( </span><br><span class="line">	&quot;title&quot; =&gt; &quot;MongoDB&quot;, </span><br><span class="line">	&quot;description&quot; =&gt; &quot;database&quot;, </span><br><span class="line">	&quot;likes&quot; =&gt; 100,</span><br><span class="line">	&quot;url&quot; =&gt; &quot;http://www.runoob.com/mongodb/&quot;</span><br><span class="line">);</span><br><span class="line">$collection-&gt;insert($document);</span><br><span class="line">echo &quot;数据插入成功&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找文档"><a href="#查找文档" class="headerlink" title="查找文档"></a>查找文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$m = new MongoClient();    // 连接到mongodb</span><br><span class="line">$db = $m-&gt;test;            // 选择一个数据库</span><br><span class="line">$collection = $db-&gt; testCollection; // 选择集合</span><br><span class="line"></span><br><span class="line">$cursor = $collection-&gt;find();</span><br><span class="line">// 迭代显示文档标题</span><br><span class="line">foreach ($cursor as $document) &#123;</span><br><span class="line">	echo $document[&quot;title&quot;] . &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$m = new MongoClient();    // 连接到mongodb</span><br><span class="line">$db = $m-&gt;test;            // 选择一个数据库</span><br><span class="line">$collection = $db-&gt; testCollection; // 选择集合</span><br><span class="line">// 更新文档</span><br><span class="line">$collection-&gt;update(array(&quot;title&quot;=&gt;&quot;MongoDB&quot;), array(&apos;$set&apos;=&gt;array(&quot;title&quot;=&gt;&quot;MongoDB 教程&quot;)));</span><br><span class="line">// 显示更新后的文档</span><br><span class="line">$cursor = $collection-&gt;find();</span><br><span class="line">// 循环显示文档标题</span><br><span class="line">foreach ($cursor as $document) &#123;</span><br><span class="line">	echo $document[&quot;title&quot;] . &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$m = new MongoClient();    // 连接到mongodb</span><br><span class="line">$db = $m-&gt;test;            // 选择一个数据库</span><br><span class="line">$collection = $db-&gt;testCollection; // 选择集合</span><br><span class="line">   </span><br><span class="line">// 移除文档</span><br><span class="line">$collection-&gt;remove(array(&quot;title&quot;=&gt;&quot;MongoDB 教程&quot;), array(&quot;justOne&quot; =&gt; true));</span><br><span class="line"></span><br><span class="line">// 显示可用文档数据</span><br><span class="line">$cursor = $collection-&gt;find();</span><br><span class="line">foreach ($cursor as $document) &#123;</span><br><span class="line">	echo $document[&quot;title&quot;] . &quot;\n&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/12/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85ffmpeg%E5%92%8C%E4%BE%9D%E8%B5%96%E5%8C%85%E4%BB%A5%E5%8F%8Affmpeg%E7%9A%84%E4%BD%BF%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/12/Ubuntu%E4%B8%8B%E5%AE%89%E8%A3%85ffmpeg%E5%92%8C%E4%BE%9D%E8%B5%96%E5%8C%85%E4%BB%A5%E5%8F%8Affmpeg%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">Ubuntu下安装ffmpeg和依赖包以及ffmpeg的使用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-12 17:43:53" itemprop="dateCreated datePublished" datetime="2016-09-12T17:43:53+08:00">2016-09-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Ubuntu下安装ffmpeg和依赖包以及ffmpeg的使用"><a href="#Ubuntu下安装ffmpeg和依赖包以及ffmpeg的使用" class="headerlink" title="Ubuntu下安装ffmpeg和依赖包以及ffmpeg的使用"></a>Ubuntu下安装ffmpeg和依赖包以及ffmpeg的使用</h1><p>多次尝试后通过<a href="http://www.liaoxuefeng.com/article/001456198314370db046cbe5e5a45388bf3ade4bc2c5cb0000" target="_blank" rel="noopener">廖雪峰这篇教程</a>安装成功了。<br><a href="https://trac.ffmpeg.org/wiki/CompilationGuide/Ubuntu" target="_blank" rel="noopener">官方文档</a>也很详细，但是我安装失败了，原因应该是配置中路径的问题。这里不推荐使用。<br>使用廖雪峰老师的这篇教程安装成功环境如下：</p>
+<blockquote>
+<p>Distributor ID:    Ubuntu<br>Description:    Ubuntu 14.04.5 LTS<br>Release:    14.04<br>Codename:    trusty</p>
+</blockquote>
+<p>编译的时候的一些命令不要完全复制，要根据你下载的版本和压缩包类型使用不同的命令。</p>
+<p>FFmpeg是最流行的开源视频转码工具包，在Ubuntu上可以直接通过apt-get安装，但是默认的编码器不提供x264这些non-free的编码器，所以需要自己编译。</p>
+<p><strong>安装过程</strong></p>
+<p>使用<code>apt-get update</code>和 <code>apt-get upgrade</code>把系统升级到最新版，然后安装下面的安装包：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install autoconf automake build-essential libass-dev libfreetype6-dev  libtheora-dev libtool libvorbis-dev pkg-config texinfo zlib1g-dev unzip cmake yasm libx264-dev libmp3lame-dev libopus-dev</span><br></pre></td></tr></table></figure>
+
+<p>FFmpeg依赖的几个软件包有个最低版本要求：</p>
+<blockquote>
+<p>yasm &gt;= 1.2.0<br>libx264-dev &gt;= 0.118<br>libmp3lame-dev &gt;= 3.98.3<br>libopus-dev &gt;= 1.1</p>
+</blockquote>
+<p>在这几个包在Ubuntu 14.04上都符合FFmpeg的要求，所以可以直接用<code>apt-get</code>安装。<br>编译的bin目录放在<strong>/opt/</strong>目录下<br>先在<strong>/opt/</strong>目录下创建三个文件夹，分别为<strong>ffmpeg_sources、ffmpeg_build、bin</strong>。<br>然后下载源码包放到<strong>/opt/ffmpeg_sources/</strong>目录下。<br>源码包下载地址：（请自己选择最新的版本下载）<br>x265：<a href="https://bitbucket.org/multicoreware/x265/downloads" target="_blank" rel="noopener">https://bitbucket.org/multicoreware/x265/downloads</a></p>
+<p>fdk-aac：<a href="https://github.com/mstorsjo/fdk-aac/releases" target="_blank" rel="noopener">https://github.com/mstorsjo/fdk-aac/releases</a></p>
+<p>ffmpeg：<a href="http://ffmpeg.org/download.html" target="_blank" rel="noopener">http://ffmpeg.org/download.html</a></p>
+<p><strong>编译x265</strong><br>依次执行下面的命令这里你根据你下载的文件去执行，这里下载的是1.9版本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/ffmpeg_sources</span><br><span class="line">tar zxvf x265_1.9.tar.gz</span><br><span class="line">cd x265_1.9/build/linux</span><br><span class="line">PATH=&quot;/opt/bin:$PATH&quot; cmake -G &quot;Unix Makefiles&quot; -DCMAKE_INSTALL_PREFIX=&quot;/opt/ffmpeg_build&quot; -DENABLE_SHARED:bool=off ../../source</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">make distclean</span><br></pre></td></tr></table></figure>
+
+<p><strong>编译fdk-aac</strong></p>
+<p>依次执行下面的命令 （这里你根据你下载的文件去执行，这里下载的是0.1.4版本）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/ffmpeg_sources</span><br><span class="line">tar zxvf fdk-aac-v0.1.4.tar.gz</span><br><span class="line">cd fdk-aac-0.1.4</span><br><span class="line">autoreconf -fiv</span><br><span class="line">./configure --prefix=&quot;/opt/ffmpeg_build&quot; --disable-shared</span><br><span class="line">make</span><br><span class="line">make install</span><br><span class="line">make distclean</span><br></pre></td></tr></table></figure>
+<p><strong>编译ffmpeg</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/ffmpeg_sources</span><br><span class="line">unzip FFmpeg-release-3.0.zip</span><br><span class="line">cd FFmpeg-release-3.0</span><br><span class="line">PATH=&quot;/opt/bin:$PATH&quot; PKG_CONFIG_PATH=&quot;/opt/ffmpeg_build/lib/pkgconfig&quot; ./configure \</span><br><span class="line">  --prefix=&quot;/opt/ffmpeg_build&quot; \</span><br><span class="line">  --pkg-config-flags=&quot;--static&quot; \</span><br><span class="line">  --extra-cflags=&quot;-I/opt/ffmpeg_build/include&quot; \</span><br><span class="line">  --extra-ldflags=&quot;-L/opt/ffmpeg_build/lib&quot; \</span><br><span class="line">  --bindir=&quot;/opt/bin&quot; \</span><br><span class="line">  --enable-gpl \</span><br><span class="line">  --enable-libass \</span><br><span class="line">  --enable-libfdk-aac \</span><br><span class="line">  --enable-libfreetype \</span><br><span class="line">  --enable-libmp3lame \</span><br><span class="line">  --enable-libopus \</span><br><span class="line">  --enable-libtheora \</span><br><span class="line">  --enable-libvorbis \</span><br><span class="line">  --enable-libvpx \</span><br><span class="line">  --enable-libx264 \</span><br><span class="line">  --enable-libx265 \</span><br><span class="line">  --enable-nonfree</span><br><span class="line">PATH=&quot;/opt/bin:$PATH&quot; make</span><br><span class="line">make install</span><br><span class="line">make distclean</span><br><span class="line">hash -r</span><br></pre></td></tr></table></figure>
+
+<p>编译时间很长，成功的话会在<code>/opt/bin</code>目录下出现ffmpeg、ffprobe、ffserver程序。<br>最后，创建几个软连接，便于任意用户在任意目录下直接调用ffmpeg：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ln -s /opt/bin/ffmpeg /usr/bin/ffmpeg</span><br><span class="line">ln -s /opt/bin/ffprobe /usr/bin/ffprobe</span><br><span class="line">ln -s /opt/bin/ffserver /usr/bin/ffserver</span><br></pre></td></tr></table></figure>
+
+<p>成功后执行<code>ffmpeg -version</code>就可以查看到ffmpeg的版本信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@iZbp1c4rg6py5h26u4210bZ:/opt/bin# ffmpeg -version</span><br><span class="line">ffmpeg version 3.2.4 Copyright (c) 2000-2017 the FFmpeg developers</span><br><span class="line">built with gcc 5.4.0 (Ubuntu 5.4.0-6ubuntu1~16.04.4) 20160609</span><br><span class="line">configuration: --prefix=/opt/ffmpeg_build --pkg-config-flags=--static --extra-cflags=-I/opt/ffmpeg_build/include --extra-ldflags=-L/opt/ffmpeg_build/lib --bindir=/opt/bin --enable-gpl --enable-libass --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libx264 --enable-nonfree</span><br><span class="line">libavutil      55. 34.101 / 55. 34.101</span><br><span class="line">libavcodec     57. 64.101 / 57. 64.101</span><br><span class="line">libavformat    57. 56.101 / 57. 56.101</span><br><span class="line">libavdevice    57.  1.100 / 57.  1.100</span><br><span class="line">libavfilter     6. 65.100 /  6. 65.100</span><br><span class="line">libswscale      4.  2.100 /  4.  2.100</span><br><span class="line">libswresample   2.  3.100 /  2.  3.100</span><br><span class="line">libpostproc    54.  1.100 / 54.  1.100</span><br></pre></td></tr></table></figure>
+
+<p>ffmpeg是转码程序，ffprobe可以用来分析视频文件，ffserver可以实现流媒体服务器。</p>
+<p><strong>使用ffmpeg</strong></p>
+<p>直接在终端执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i yanshi.flv -c:v libx264 -b:v 1024k -c:a libfdk_aac -b:a 128k -ar 16000 final.mp4</span><br></pre></td></tr></table></figure>
+
+<p>这里的<strong>yanshi.flv</strong>是要转码的文件，<strong>final.mp4</strong>是转码后的文件。</p>
+<p><strong>ffmpeg的常用参数详解</strong><br><strong>主要参数</strong></p>
+<ul>
+<li>-i ——设置输入文档名</li>
+<li>-f ——设置输出格式</li>
+<li>-y——若输出文件已存在时则覆盖文件</li>
+<li>-fs——超过指定的文件大小时则结束转换</li>
+<li>-ss——从指定时间开始转换</li>
+<li>-t从-ss时间开始转换（如-ss 00:00:01.00 -t 00:00:10.00即从00:00:01.00开始到00:00:11.00</li>
+<li>-title——设置标题</li>
+<li>-timestamp——设置时间戳</li>
+<li>-vsync——增减Frame使影音同步</li>
+</ul>
+<p><strong>视频参数</strong></p>
+<ul>
+<li>-b:v——设置视频流量，默认为200Kbit/秒</li>
+<li>-r——设置帧率值，默认为25</li>
+<li>-s——设置画面的宽与高</li>
+<li>-aspect——设置画面的比例</li>
+<li>-vn——不处理视频，于仅针对声音做处理时使用</li>
+<li>-vcodec( -c:v )——设置视频视频编解码器，未设置时则使用与输入文件相同之编解码器</li>
+</ul>
+<p><strong>音频参数</strong></p>
+<ul>
+<li>-b:a——设置每Channel（最近的SVN版为所有Channel的总合）的流量</li>
+<li>-ar——设置采样率</li>
+<li>-ac——设置声音的Channel数</li>
+<li>-acodec ( -c:a ) ——设置声音编解码器，未设置时与视频相同，使用与输入文件相同之编解码器</li>
+<li>-an——不处理声音，于仅针对视频做处理时使用</li>
+<li>-vol——设置音量大小，256为标准音量。（要设置成两倍音量时则输入512，依此类推。）</li>
+</ul>
+<p><strong>注意事项</strong></p>
+<ul>
+<li>以-b:v及-b:a首选项流量时，根据使用的ffmpeg版本，须注意单位会有kbits/sec与bits/sec的不同。（可用ffmpeg -h显示说明来确认单位。）<br>例如，单位为bits/sec的情况时，欲指定流量64kbps时需输入 -b:a 64k；单位为kbits/sec的情况时则需输入 -b:a 64。</li>
+<li>以-acodec及-vcodec所指定的编解码器名称，会根据使用的ffmpeg版本而有所不同。例如使用AAC编解码器时，会有输入aac与libfaac的情况。此外，编解码器有分为仅供解码时使用与仅供编码时使用，因此一定要利用ffmpeg -formats确认输入的编解码器是否能运作。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/08/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/08/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Linux常用命令</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-08 16:59:22" itemprop="dateCreated datePublished" datetime="2016-09-08T16:59:22+08:00">2016-09-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Linux常用命令"><a href="#Linux常用命令" class="headerlink" title="Linux常用命令"></a>Linux常用命令</h1><h2 id="文件"><a href="#文件" class="headerlink" title="文件"></a><strong>文件</strong></h2><ul>
+<li><code>ls</code> 命令 ——显示当前目录中的文件</li>
+<li><code>ls -l</code> 命令——查看详细信息</li>
+</ul>
+<hr>
+<h2 id="文件权限："><a href="#文件权限：" class="headerlink" title="文件权限："></a><strong>文件权限：</strong></h2><p>总共十位，第一位代表文件类型，后面每三位一组分别代表，文件所有者权限、所属组其他用户权限、其他人权限。</p>
+<p><code>-rw-r--r--</code>第一位<code>-</code>代表文件类型为文件，<code>rw-</code>代表文件所有者对这个文件可读可写，<code>r--</code>代表所属组其他用户对这个文件可读，<code>r--</code>代表可读。</p>
+<p><code>drwxrwxrwx</code>第一位<code>d</code>代表文件类型为目录，<code>rwx</code>代表文件所有者对这个文件可读可写可执行，后面的两个同理。</p>
+<p>修改文件命令：</p>
+<p><code>chmod</code>修改权限</p>
+<p><code>chown</code>修改文件所有者</p>
+<p><code>chgrp</code>修改文件所有组</p>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.zcwlwen.cn/2016/09/07/Chrome%E8%84%B1%E7%A6%BB%E9%BC%A0%E6%A0%87%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="zcwlwen">
+      <meta itemprop="description" content="iOS,linux,shell,">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ZCW">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2016/09/07/Chrome%E8%84%B1%E7%A6%BB%E9%BC%A0%E6%A0%87%E4%BD%BF%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">Chrome快捷键</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-09-07 17:26:05" itemprop="dateCreated datePublished" datetime="2016-09-07T17:26:05+08:00">2016-09-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-05-09 09:33:52" itemprop="dateModified" datetime="2019-05-09T09:33:52+08:00">2019-05-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%88%E7%8E%87/" itemprop="url" rel="index">
+                    <span itemprop="name">效率</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="优雅的使用Chrome快捷键"><a href="#优雅的使用Chrome快捷键" class="headerlink" title="优雅的使用Chrome快捷键"></a>优雅的使用Chrome快捷键</h1><p> 这里只介绍<strong>Mac</strong>上Chrome上的快捷键</p>
+<p>一直使用Chrome但是没有系统的看过他的所有快捷键的使用。之前虽然也在使用快捷键，但是并没有完全使用快捷键。<br>今天查看了一下Chrome的帮助文档，重新学习一些使用快捷键。并且附上我认为的使用频率。</p>
+<hr>
+<table>
+<thead>
+<tr>
+<th align="left">操作</th>
+<th align="right">快捷键</th>
+<th align="right">使用频率</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">打开新的窗口</td>
+<td align="right">⌘ + n</td>
+<td align="right">⭐️</td>
+</tr>
+<tr>
+<td align="left">跳转到下一个打开的标签页</td>
+<td align="right">⌘ + Option + 向右箭头键</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">跳转到上一个打开的标签页</td>
+<td align="right">⌘ + Option + 向左箭头键</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">跳转到特定标签页</td>
+<td align="right">⌘ + 1 到 ⌘ + 8</td>
+<td align="right">⭐️</td>
+</tr>
+<tr>
+<td align="left">跳转到最后一个标签页</td>
+<td align="right">⌘ + 9</td>
+<td align="right">⭐️</td>
+</tr>
+<tr>
+<td align="left">打开当前标签页浏览记录中记录的上一个页面（用手势更方便）</td>
+<td align="right">⌘ + [ 或 ⌘ + 向左箭头键</td>
+<td align="right">⭐️</td>
+</tr>
+<tr>
+<td align="left">打开当前标签页浏览记录中记录的下一个页面（用手势更方便）</td>
+<td align="right">⌘ + ] 或 ⌘ + 向右箭头键</td>
+<td align="right">⭐️</td>
+</tr>
+<tr>
+<td align="left">打开书签管理器</td>
+<td align="right">⌘ + Option + b</td>
+<td align="right">⭐️⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">在新标签页中打开“历史记录”页</td>
+<td align="right">⌘ + y</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">在新标签页中打开“下载内容”页</td>
+<td align="right">⌘ + Shift + j</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">打开查找栏搜索当前网页</td>
+<td align="right">⌘ + f</td>
+<td align="right">⭐️⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">打开“开发者工具”</td>
+<td align="right">⌘ + Option + i</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">为网站名称添加 www. 和 .com，并在当前标签页中打开该网站</td>
+<td align="right">输入网站名称并按 Control + Enter 键</td>
+<td align="right">⭐️</td>
+</tr>
+<tr>
+<td align="left">跳转到地址栏</td>
+<td align="right">⌘ + l</td>
+<td align="right">⭐️⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">重新加载当前网页</td>
+<td align="right">⌘ + r</td>
+<td align="right">⭐️⭐️⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">将当前网页保存为书签</td>
+<td align="right">⌘ + d</td>
+<td align="right">⭐️⭐️⭐️⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">开启或关闭全屏模式</td>
+<td align="right">⌘ + Ctrl + f</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">放大网页上的所有内容</td>
+<td align="right">⌘ 和 +</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">缩小网页上的所有内容</td>
+<td align="right">⌘ 和 -</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">将网页上的所有内容恢复到默认大小</td>
+<td align="right">⌘ + 0</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">向下滚动网页，一次一个屏幕</td>
+<td align="right">空格键</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+<tr>
+<td align="left">向上滚动网页，一次一个屏幕</td>
+<td align="right">Shift + 空格键</td>
+<td align="right">⭐️⭐️</td>
+</tr>
+</tbody></table>
+<hr>
+<p>更多快捷键的使用参考Chrome官方介绍。<br>这里只介绍了Mac上的快捷键，Windows请查看文档。<br>很多系统级类似的快捷键没有介绍。</p>
+<p>参考地址：<br><a href="https://support.google.com/chrome/answer/157179?hl=zh-Hans" target="_blank" rel="noopener">Chrome帮助</a></p>
 
       
     </div>
@@ -1136,7 +1332,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">70</span>
+          <span class="site-state-item-count">62</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1149,7 +1345,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">39</span>
+        <span class="site-state-item-count">37</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
